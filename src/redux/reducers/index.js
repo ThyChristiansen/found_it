@@ -4,7 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import boxes from './boxReducer';
 import detail from './boxDetailReducer';
-
+import qrCode from './qrCodeReducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -19,6 +19,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   boxes,
   detail,
+  qrCode,
 });
 
 export default rootReducer;

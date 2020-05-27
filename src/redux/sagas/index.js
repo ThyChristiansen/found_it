@@ -4,7 +4,8 @@ import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import boxSaga from './boxSaga';
 import detail from './boxDetailSaga';
-
+import addBoxSaga from './addBoxSaga';
+import deleteBoxSaga from './deleteBoxSaga';
 
 
 // rootSaga is the primary saga.
@@ -21,5 +22,7 @@ export default function* rootSaga() {
     userSaga(),
     boxSaga(),
     detail(),
+    addBoxSaga(),
+    deleteBoxSaga(),
   ]);
 }

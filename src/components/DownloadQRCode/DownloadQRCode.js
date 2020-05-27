@@ -24,15 +24,15 @@ class DownloadQRCode extends Component {
             <div>
                 <QRCode
                     id={this.props.reduxState.detail.qr_code}
-                    value="https://letsfindit.herokuapp.com/#/home"
-                    // value={this.props.reduxState.detail.qr_code}
-
-                    value = {`https://letsfindit.herokuapp.com/#/box-detail/${this.props.reduxState.detail.box_name}`}
+                    // value="https://letsfindit.herokuapp.com/#/home"
+                    value = {`https://letsfindit.herokuapp.com/#/box-detail/${this.props.reduxState.qrCode}`}
                     size={290}
                     level={"H"}
                     includeMargin={true}
                 /><br />
                 <a onClick={this.downloadQR}> Download QR </a>
+                {/* <h1>{this.props.reduxState.qrCode}</h1> */}
+                <h2>https://letsfindit.herokuapp.com/#/box-detail/${this.props.reduxState.qrCode}</h2>
             </div>
 
         )
