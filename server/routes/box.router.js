@@ -35,9 +35,10 @@ router.get('/:id', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    let qr_code = req.body.qr_code;
-    const queryText = 'INSERT INTO "boxes" (box_name , qr_code) VALUES ((SELECT MAX(box_name)+1 FROM boxes), $1) RETURNING id';
-    pool.query(queryText, [qr_code])
+    // let qr_code = req.body.qr_code;
+    const queryText = 'INSERT INTO "boxes" (box_name , qr_code) VALUES ((SELECT MAX(box_name)+1 FROM boxes), (SELECT MAX(qr_code)+1 FROM boxes)) RETURNING id';
+    // const queryText = 'INSERT INTO "boxes" (box_name , qr_code) VALUES ((SELECT MAX(box_name)+1 FROM boxes), $1) RETURNING id';
+    pool.query(queryText)
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
   

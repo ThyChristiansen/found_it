@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import QRCode from 'qrcode.react';
 import { connect } from 'react-redux';
 
-
-
-
 class DownloadQRCode extends Component {
 
     downloadQR = () => {
@@ -25,14 +22,13 @@ class DownloadQRCode extends Component {
                 <QRCode
                     id={this.props.reduxState.detail.qr_code}
                     // value="https://letsfindit.herokuapp.com/#/home"
-                    value = {`https://letsfindit.herokuapp.com/#/box-detail/${this.props.reduxState.qrCode}`}
+                    value = {`https://letsfindit.herokuapp.com/#/box-detail/${this.props.box.qr_code}`}
                     size={290}
                     level={"H"}
                     includeMargin={true}
                 /><br />
-                <a onClick={this.downloadQR}> Download QR </a>
-                {/* <h1>{this.props.reduxState.qrCode}</h1> */}
-                <h2>https://letsfindit.herokuapp.com/#/box-detail/${this.props.reduxState.qrCode}</h2>
+                <button onClick={this.downloadQR}> Download QR </button>
+                <h2>https://letsfindit.herokuapp.com/#/box-detail/{this.props.box.qr_code}</h2>
             </div>
 
         )

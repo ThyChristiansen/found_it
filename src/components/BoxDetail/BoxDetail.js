@@ -13,21 +13,24 @@ class BoxDetail extends Component {
             }
         });
     }
+    backClick = ()=>{
+        console.log('back clicked');
+        this.props.history.push('/boxes')
+    }
 
     render() {
         return (
             <div>
-
+                <button onClick = {this.backClick}>Back to list</button>
                 {this.props.reduxState.detail.map((box) => {
                     return (
                         <div key={box.id}>
-                            <p>Box name:{box.box_name}</p>
-                            <DownloadQRCode />
-
+                            <p>Box name: A{box.box_name}</p>
+                            <DownloadQRCode 
+                            box={box}/>
                         </div>
                     )
                 })}
-
             </div>
         )
     }

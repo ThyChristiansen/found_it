@@ -15,9 +15,6 @@ class BoxList extends Component {
         // this.props.history.push('/addbox');
         this.props.dispatch({
             type: "ADD_BOX",
-            payload:{
-                qr_code:'6'
-            }
         })
     }
 

@@ -8,7 +8,6 @@ class Box extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_BOX' })
-
     }
 
     handleDeleteBox = () => {
@@ -27,7 +26,6 @@ class Box extends Component {
                     <img
                         src="images/box_icon.png"
                         alt={this.props.box.box_name}
-                        // onClick={this.sendDetail}
                         className="box_icon"
                         width="60"
                         height="60"
