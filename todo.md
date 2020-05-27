@@ -1,0 +1,25 @@
+
+##Base
+### Set up
+[x] Installing
+[x] Connecting to Heroku database
+
+### QR code
+[x] Reader 
+[x] Download QR code
+
+### Boxes 
+[x] Create table for boxes and items
+[x] Box list component
+    [x] Navigate to add box form link when click on add new box button. 
+    [x] Box Item component
+        [x] Send the GET request to database to get box's id and box's icon from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+    [x] Box's detail component
+        [x] Send the GET request to database to get boxes's data from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+[] Create add new boxes form component
+    [] Dispatching from client-side to send the input data to Saga -> Router -> Database
+### Items inside boxes
+
+
+
+
