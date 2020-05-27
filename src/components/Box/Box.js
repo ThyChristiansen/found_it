@@ -11,6 +11,14 @@ class Box extends Component {
 
     }
 
+    handleDeleteBox = () => {
+        console.log('delete clicked');
+        this.props.dispatch({
+             type: 'DELETE_BOX', 
+             payload: this.props.box.id
+             })
+
+    }
     render() {
         return (
             <div>
@@ -26,7 +34,7 @@ class Box extends Component {
 
                     />
                 </Link>
-
+                <button onClick= {this.handleDeleteBox}>Delete Box</button>
                 <p>A{this.props.box.box_name}</p>
             </div>
         )

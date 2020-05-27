@@ -7,9 +7,8 @@ function* addBoxSaga() {
 
 function* addBox(action) {
   try {
-
     yield axios.post('/api/box', action.payload);
-    console.log('--->qr_code for thid box:', action.payload)
+    console.log('--->qr_code for this box:', action.payload)
     // automatically log a user in after registration
     yield put({ type: 'FETCH_BOX'});
     // yield put({ type: 'FETCH_BOX_NAME'});

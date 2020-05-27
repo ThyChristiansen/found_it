@@ -35,7 +35,28 @@ router.get('/:id', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-
+    let qr_code = req.body.qr_code;
+    const queryText = 'INSERT INTO "boxes" (box_name , qr_code) VALUES ((SELECT MAX(box_name)+1 FROM boxes), $1) RETURNING id';
+    pool.query(queryText, [qr_code])
+      .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
+      .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
+  
+    // res.sendStatus(201);
 });
+
+router.delete('/:id', (req, res) => {
+    let boxId = req.params.id;// We are using a request parameter (req.params) to identify
+    // the specific picture. We expect this will be an id from the database.
+    console.log('Delete request for this id: ', boxId);
+    let sqlText = `DELETE FROM boxes WHERE id = $1`;
+    pool.query(sqlText, [boxId])
+        .then(result => {
+            console.log('in DELETE router')
+            res.sendStatus(200);
+        }).catch(err => {
+            console.log('Error in DELETE route', err);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;
