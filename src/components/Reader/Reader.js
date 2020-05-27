@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import DownloadQRCode from '../DownloadQRCode/DownloadQRCode'
 
 
 import QrReader from 'react-qr-reader'
@@ -31,7 +30,6 @@ class Reader extends Component {
         />
         <Link>{this.state.result}</Link>
 
-        <DownloadQRCode />
       </div>
     )
   }

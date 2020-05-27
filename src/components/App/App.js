@@ -92,7 +92,7 @@ class App extends Component {
               component={BoxList}
             />
              <ProtectedRoute
-              path="/box-detail"
+              exact path={`/box-detail/:id`}
               component={BoxDetail}
             />
             <ProtectedRoute
@@ -113,7 +113,7 @@ class App extends Component {
   }
 }
 
-// const putReduxStateOnState = (reduxState) => ({reduxState});
+const putReduxStateOnState = (reduxState) => ({reduxState});
 
-export default connect()(App);
+export default connect(putReduxStateOnState)(App);
 

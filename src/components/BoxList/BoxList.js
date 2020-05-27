@@ -13,6 +13,9 @@ class BoxList extends Component {
     handleOnClick = () => {
         console.log('Clicked')
         this.props.history.push('/addbox');
+        this.props.dispatch({
+            type: "ADD_BOX"
+        })
     }
 
 
@@ -22,7 +25,7 @@ class BoxList extends Component {
             <div>
                 <h1>BoxList</h1>
                 <button onClick={this.handleOnClick}
-                className = "add_new_box">Add new box</button>
+                className = "add_new_box_btn">Add new box</button>
                 {this.props.reduxState.boxes.map((box) => {
                     return (
                         <div key={box.id} className="box_item">
