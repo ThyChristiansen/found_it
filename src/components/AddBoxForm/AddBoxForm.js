@@ -17,7 +17,6 @@ class AddNewBoxForm extends Component {
         return (
             <div>
                 <div>
-                    
                     <p>Your box's QR code here</p>
                     <DownloadQRCode />
                     <p>Add item to your list:</p>

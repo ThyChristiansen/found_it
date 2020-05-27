@@ -4,6 +4,15 @@ import DownloadQRCode from '../DownloadQRCode/DownloadQRCode';
 
 
 class BoxDetail extends Component {
+    componentDidMount() {
+        const { dispatch, match } = this.props;
+        dispatch({
+            type: 'FETCH_DETAIL',
+            payload: {
+                id: match.params.id
+            }
+        });
+    }
 
     render() {
         return (
