@@ -2,7 +2,6 @@ const pg = require('pg');
 const url = require('url');
 
 let config = {};
-DATABASE_URL='xhaujdladneamu:1dd3798908089b7f6752b55e1b79ed7bdf88d09b62205b77e3de1d3f27fc72d2@ec2-34-195-169-25.compute-1.amazonaws.com:5432/d7hjb1htlmu4um'
 
 if (process.env.DATABASE_URL) {
   // Heroku gives a url, not a connection object
