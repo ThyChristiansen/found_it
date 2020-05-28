@@ -42,6 +42,21 @@ class BoxDetail extends Component {
             item: event.target.value,
         });
     }
+    handleSubmit = ()=>{
+        if(this.state.item === ''){
+            alert('Add items to your list before click button')
+        }else{
+            this.handleAddNewItem();
+            this.handleClearInput();
+
+        }
+    }
+
+    handleClearInput = () =>{
+        this.setState({
+            item: '',
+        });
+    }
     //handle add new item button
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
@@ -54,6 +69,8 @@ class BoxDetail extends Component {
             }
         })
     }
+
+  
 
 
     render() {
@@ -80,7 +97,7 @@ class BoxDetail extends Component {
                     onChange={this.handleInputChangeFor}
                     width="80%"
                 />
-                <button onClick={this.handleAddNewItem}>Add</button>
+                <button onClick={this.handleSubmit}>Add</button>
                                 
                 <div className ="list_item" >
                     {this.props.reduxState.item.map((item) => {

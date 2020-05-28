@@ -13,6 +13,7 @@ function* addItem(action) {
     yield axios.post(`/api/item/${boxId}`, action.payload);
     console.log('send this item to server', action.payload);
     // yield put({ type: 'FETCH_ITEMS'});
+
   } catch (error) {
       console.log('Error with add new item:', error);
   }

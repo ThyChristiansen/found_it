@@ -26,8 +26,7 @@ router.post('/:id', (req, res) => {
     pool.query(queryText,[item,boxId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
-  
-    res.sendStatus(201);
+    // res.sendStatus(201);
 });
 
 
