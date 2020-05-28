@@ -21,6 +21,10 @@
 [x] Create Delete box feature
     [x] Dispatching from client-side to send the box's id to Saga to -> Router send the DELETE request -> Database
 ### Items inside boxes
+[] Create input field to add new items 
+[] Create add new items component
+    [] Dispatching from client-side to send the input data to Saga -> Router send the POST request -> Database
+     [] Send the GET request to database to get items's data from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 
 
 

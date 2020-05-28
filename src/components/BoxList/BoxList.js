@@ -12,7 +12,6 @@ class BoxList extends Component {
 
     handleOnClick = () => {
         console.log('Clicked')
-        // this.props.history.push('/addbox');
         this.props.dispatch({
             type: "ADD_BOX",
         })

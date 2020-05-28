@@ -3,6 +3,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* boxDetailSaga() {
   yield takeLatest('FETCH_DETAIL', fetchDetail);
+
+
 }
 
 // worker Saga: will be fired on "FETCH_BOXES" actions
