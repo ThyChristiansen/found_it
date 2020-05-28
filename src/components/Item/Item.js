@@ -14,7 +14,10 @@ class Item extends Component {
         console.log('delete clicked');
         this.props.dispatch({
             type: 'DELETE_ITEM',
-            payload: this.props.item.id
+            payload: {
+                itemId : this.props.item.id,
+                boxId: this.props.item.box_id
+            }
         })
 
     }
@@ -24,7 +27,8 @@ class Item extends Component {
             <div>
                {this.props.item.item}<button>Edit</button>
                <button onClick={this.handleDeleteItem}>Delete</button>
-               {/* <span><button>Delete</button></span> */}
+               {/* <h1>{JSON.stringify(this.props.item.box_id)}</h1> */}
+
             </div>
         )
     }

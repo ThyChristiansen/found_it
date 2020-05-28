@@ -70,10 +70,9 @@ class BoxDetail extends Component {
         })
     }
 
-  
-
-
     render() {
+
+        
         return (
             <div className= "box_detail">
 
@@ -106,10 +105,14 @@ class BoxDetail extends Component {
                             <div key={item.id}
                             className ="item"
                             >
-                                <Item item={item} />
+
+                                <Item item={item} 
+                                boxId = {item.box_id}
+                                />
                             </div>
                         )
                     })}
+                    {/* <h1>{JSON.stringify(this.props.reduxState.item[0])}</h1> */}
                 </div>
             </div>
         )
