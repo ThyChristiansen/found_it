@@ -19,7 +19,6 @@ class Item extends Component {
                 boxId: this.props.item.box_id
             }
         })
-
     }
 
     render() {
