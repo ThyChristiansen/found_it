@@ -10,7 +10,6 @@ function* deleteBox(action) {
     console.log('--->qr_code for thid box:', action.payload)
     yield axios.delete(`/api/box/${action.payload}`, );
     console.log('--->qr_code for thid box:', action.payload)
-    // automatically log a user in after registration
     yield put({ type: 'FETCH_BOX'});
 
   } catch (error) {

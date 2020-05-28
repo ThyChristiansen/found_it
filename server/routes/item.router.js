@@ -45,4 +45,20 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+router.put('/:id', (req, res) => {
+    let itemId = req.params.id;// We are using a request parameter (req.params) to identify
+    // the specific picture. We expect this will be an id from the database.
+    let item = req.body.item
+    console.log('Update request for this id: ',item);
+    let sqlText = `UPDATE items SET item = $1 WHERE id = $2`;
+    pool.query(sqlText, [item,itemId])
+        .then(result => {
+            console.log('UPDATE this item by id:', itemId)
+            res.sendStatus(200);
+        }).catch(err => {
+            console.log('Error in UPDATE route', err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;
