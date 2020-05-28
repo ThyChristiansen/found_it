@@ -10,7 +10,7 @@ class Item extends Component {
        
     }
 
-    handleDeleteBox = () => {
+    handleDeleteItem = () => {
         console.log('delete clicked');
         this.props.dispatch({
             type: 'DELETE_ITEM',
@@ -23,7 +23,7 @@ class Item extends Component {
         return (
             <div>
                {this.props.item.item}<button>Edit</button>
-               <button onClick={this.handleDeleteBox}>Delete</button>
+               <button onClick={this.handleDeleteItem}>Delete</button>
                {/* <span><button>Delete</button></span> */}
             </div>
         )

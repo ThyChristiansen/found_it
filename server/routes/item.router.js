@@ -8,7 +8,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', (req, res) => {
     let boxId = req.params.id
     // console.log(' boxId:',req.params.id);
-    let queryText = `SELECT * FROM items WHERE box_id = $1`;
+    let queryText = `SELECT * FROM items WHERE box_id = $1 ORDER BY id DESC`;
     pool.query(queryText, [boxId])
         .then((result) => {
             // console.log('get this row from table items:',result.rows )
@@ -33,7 +33,7 @@ router.post('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     let itemId = req.params.id;// We are using a request parameter (req.params) to identify
     // the specific picture. We expect this will be an id from the database.
-    console.log('Delete request for this id: ', itemId);
+    // console.log('Delete request for this id: ', itemId, boxId);
     let sqlText = `DELETE FROM items WHERE id = $1`;
     pool.query(sqlText, [itemId])
         .then(result => {

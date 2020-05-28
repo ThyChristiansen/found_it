@@ -29,7 +29,6 @@ class Box extends Component {
                         className="box_icon"
                         width="60"
                         height="60"
-
                     />
                 </Link>
                 <button onClick={this.handleDeleteBox}>Delete Box</button>
