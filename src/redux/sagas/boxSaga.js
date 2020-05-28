@@ -3,6 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* boxSaga() {
   yield takeLatest('FETCH_BOX', fetchBox);
+
 }
 
 // worker Saga: will be fired on "FETCH_BOXES" actions
@@ -26,6 +27,7 @@ function* fetchBox() {
     console.log('Box get request failed', error);
   }
 }
+
 
 
 

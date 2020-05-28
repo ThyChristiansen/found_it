@@ -10,10 +10,20 @@ class Item extends Component {
        
     }
 
+    handleDeleteBox = () => {
+        console.log('delete clicked');
+        this.props.dispatch({
+            type: 'DELETE_ITEM',
+            payload: this.props.item.id
+        })
+
+    }
+
     render() {
         return (
             <div>
-               {this.props.item.item}<button>Edit</button><button>Delete</button>
+               {this.props.item.item}<button>Edit</button>
+               <button onClick={this.handleDeleteBox}>Delete</button>
                {/* <span><button>Delete</button></span> */}
             </div>
         )

@@ -22,8 +22,9 @@ class BoxDetail extends Component {
                 id: match.params.id
             }
         });
+        //send this dispatch to get items of the box that user choosed
         dispatch({
-            type: 'FETCH_ITEM',
+            type: 'FETCH_ITEMS',
             payload: {
                 id: match.params.id
             }
@@ -36,7 +37,7 @@ class BoxDetail extends Component {
     }
     //handle changing for add new item input field
     handleInputChangeFor = (event) => {
-        console.log('changing', event.target.value)
+        // console.log('changing', event.target.value)
         this.setState({
             item: event.target.value,
         });

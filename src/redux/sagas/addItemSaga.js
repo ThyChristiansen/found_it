@@ -12,7 +12,7 @@ function* addItem(action) {
     console.log('add this item', action.payload);
     yield axios.post(`/api/item/${boxId}`, action.payload);
     console.log('send this item to server', action.payload);
-    // yield put({ type: 'FETCH_BOX'});
+    // yield put({ type: 'FETCH_ITEMS'});
   } catch (error) {
       console.log('Error with add new item:', error);
   }
