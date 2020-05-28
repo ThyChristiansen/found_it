@@ -30,8 +30,8 @@
     [x] Send the GET request to database to get items's data from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 [x] Feature delete items inside the box
     [x] Dispatching from client-side to send the item's id to Saga -> Router (send the DELETE request) -> Database
-[] Feature update item
-    [] Create input field
-    [] Dispatching from client-side to send the item's data after updated to Saga -> Router (send the PUT request) -> Database
+[x] Feature update item
+    [x] Create input field
+    [x] Dispatching from client-side to send the item's data after updated to Saga -> Router (send the PUT request) -> Database
 
 
