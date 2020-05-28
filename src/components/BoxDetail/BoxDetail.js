@@ -94,6 +94,7 @@ class BoxDetail extends Component {
                 <input
                     type="text"
                     placeholder='Add item...'
+                    value = {this.state.item}
                     onChange={this.handleInputChangeFor}
                     width="80%"
                 />
