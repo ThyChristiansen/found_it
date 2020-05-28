@@ -20,11 +20,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //GET details route
 router.get('/:id', (req, res) => {
-    console.log('----> id:',req.params.id);
+    // console.log(' id:',req.params.id);
     let queryText = `SELECT * FROM boxes WHERE id = $1`;
     pool.query(queryText, [req.params.id])
         .then((result) => {
-            console.log('get this row from database:',result.rows )
+            // console.log('get this row from database:',result.rows )
             res.send(result.rows)
         }).catch((error) => {
             console.log(error);
@@ -36,8 +36,7 @@ router.get('/:id', (req, res) => {
  */
 router.post('/', (req, res) => {
     // let qr_code = req.body.qr_code;
-    const queryText = 'INSERT INTO "boxes" (box_name , qr_code) VALUES ((SELECT MAX(box_name)+1 FROM boxes), (SELECT MAX(qr_code)+1 FROM boxes)) RETURNING id';
-    // const queryText = 'INSERT INTO "boxes" (box_name , qr_code) VALUES ((SELECT MAX(box_name)+1 FROM boxes), $1) RETURNING id';
+    const queryText = 'INSERT INTO "boxes" (id,box_name , qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),(SELECT MAX(box_name)+1 FROM boxes), (SELECT MAX(qr_code)+1 FROM boxes)) RETURNING id';
     pool.query(queryText)
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully

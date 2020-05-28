@@ -10,6 +10,7 @@ import UserPage from '../UserPage/UserPage';
 import BoxList from '../BoxList/BoxList';
 import AddBoxForm from '../AddBoxForm/AddBoxForm';
 import BoxDetail from '../BoxDetail/BoxDetail';
+import Item from '../Item/Item';
 
 
 
@@ -92,12 +93,16 @@ class App extends Component {
               component={BoxList}
             />
              <ProtectedRoute
-              exact path={`/box-detail/:id`}
+              exact path="/box-detail/:id"
               component={BoxDetail}
             />
             <ProtectedRoute
               path="/addbox"
               component={AddBoxForm}
+            />
+             <ProtectedRoute
+              path="/item/:id"
+              component={Item}
             />
 
 
