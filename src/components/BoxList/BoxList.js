@@ -25,9 +25,13 @@ class BoxList extends Component {
         })
     }
 
-
     render() {
 
+        //Create the conditional for add new box, if the box list is empty,
+        // sending the ADD_FIRST_BOX action to server to create the box have id = 1 
+        // box_name = 1, qr_code = 1.
+        // if box list had a couple boxes, sending the ADD_BOX action to server to keep on 
+        //increment number of id, box's name, qr_code, from the last row
         let addNewBox;
         if (this.props.reduxState.boxes.length === 0) {
             addNewBox= <button onClick={this.handleOnClickAddFirstNewBox}
