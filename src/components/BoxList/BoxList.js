@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
+import './BoxList.css'
 
 
 class BoxList extends Component {
@@ -16,8 +17,6 @@ class BoxList extends Component {
             type: "ADD_BOX",
         })
     }
-
-
 
     render() {
         return (
