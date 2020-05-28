@@ -44,6 +44,16 @@ router.post('/', (req, res) => {
     // res.sendStatus(201);
 });
 
+router.post('/firstbox', (req, res) => {
+    // let qr_code = req.body.qr_code;
+    const queryText = 'INSERT INTO "boxes" (id,box_name, qr_code) VALUES (1,1,1) RETURNING id';
+    pool.query(queryText)
+      .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
+      .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
+  
+    // res.sendStatus(201);
+});
+
 router.delete('/:id', (req, res) => {
     let boxId = req.params.id;// We are using a request parameter (req.params) to identify
     // the specific picture. We expect this will be an id from the database.
@@ -57,6 +67,7 @@ router.delete('/:id', (req, res) => {
             console.log('Error in DELETE route', err);
             res.sendStatus(500);
         })
+    // res.sendStatus(200);
 })
 
 

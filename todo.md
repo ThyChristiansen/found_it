@@ -24,7 +24,7 @@
 [x] Create input field to add new items 
 [x] Create add new items component
     [x] Dispatching from client-side to send the input data to Saga -> Router send the POST request -> Database
-     [] Send the GET request to database to get items's data from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+    [x] Send the GET request to database to get items's data from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 
 
 
