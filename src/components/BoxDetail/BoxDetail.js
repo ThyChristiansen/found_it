@@ -60,12 +60,13 @@ class BoxDetail extends Component {
         return (
             <div className= "box_detail">
 
-                <button onClick={this.backClick}>Back to list</button>
+                <button onClick={this.backClick}
+                className = "back_btn">Back to list</button>
                 {/* mapping through the box list array that get from database to display in DOM */}
                 {this.props.reduxState.detail.map((box) => {
                     return (
                         <div key={box.id}>
-                            <p>Box name: A{box.box_name}</p>
+                            <p className = "box_name">Box A{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
@@ -77,13 +78,16 @@ class BoxDetail extends Component {
                     type="text"
                     placeholder='Add item...'
                     onChange={this.handleInputChangeFor}
+                    width="80%"
                 />
                 <button onClick={this.handleAddNewItem}>Add</button>
-                <div>
-                    <h4>List item</h4>
+                                
+                <div className ="list_item" >
                     {this.props.reduxState.item.map((item) => {
                         return (
-                            <div key={item.id}>
+                            <div key={item.id}
+                            className ="item"
+                            >
                                 <Item item={item} />
                             </div>
                         )

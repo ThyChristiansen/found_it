@@ -1,7 +1,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
+    background-color:rgb(240, 240, 240);
+
 }
 
 .alert {
@@ -16,6 +18,7 @@ form {
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+    text-align: center;
 }
 
 input {
@@ -23,18 +26,22 @@ input {
     margin-bottom: 10px;
 }
 
-.log-in, .log-out, .register {
-  background-color: #00acb0;
+.log-in, .register {
+  background-color: rgba(90, 54, 38, 0.705);
   border-radius: 4px;
+  
   color: #f8f8f8;
   min-height: 50px;
   min-width: 100px;
   outline:0;
   cursor: pointer;
 }
+.log-out{
+  background-color: rgba(136, 132, 130, 0.664);
+}
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: rgb(138, 72, 44);
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -50,26 +57,33 @@ input {
 }
 
 .nav-bar {
-    background-color: antiquewhite;;
-    overflow: hidden;
+    background-color:rgba(217, 186, 158, 100);
+    /* overflow: hidden; */
     color:rgb(98, 53, 35);
   }
   
-  .nav-title{
-    color:rgba(151, 89, 62, 0.52);
+.nav-title{
     font-size: 24px;
     font-weight: 900;
-    padding-left: 10px;
+    margin-left: 35%;
     display: inline-block;
-    overflow: hidden;
-    color: rgb(179, 131, 110);
+    /* overflow: hidden; */
+    color: rgba(134, 78, 54, 0.664);
   }
 
-  
+.nav-title:active{
+  transition: 0.2s;
+  box-shadow: 0 5px #666;
+  transform: translateY(5px);
+}
+
+.menu{
+  margin-bottom: 10px;
+}
 
 
 
 footer{
   float: right;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }

@@ -12,9 +12,6 @@ import AddBoxForm from '../AddBoxForm/AddBoxForm';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
 
-
-
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import {
@@ -26,6 +23,16 @@ import {
 } from 'react-router-dom';
 
 import Reader from '../Reader/Reader';
+
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import { withStyles } from '@material-ui/core/styles';
+
+
+const styles = {
+  root: {
+    paddingTop: '10px',
+  },
+};
 
 
 class App extends Component {
@@ -44,6 +51,8 @@ class App extends Component {
     })
   }
 
+
+
   render() {
 
     let menu;
@@ -51,15 +60,23 @@ class App extends Component {
       menu = <Nav />
     }
 
-    return (
+    const { classes } = this.props;
+    
 
-      
+    return (
       <HashRouter>
         <div className="nav-bar">
           <Link to="/home">
-            <h1 className="nav-title" >Let's Find It</h1>
-          </Link>
-          <p onClick={this.handleShowNav}>Menu</p>
+            <h1 className="nav-title" >Found it</h1>
+          </Link><br />
+
+          <span onClick={this.handleShowNav}
+          className="menu"
+          >Menu</span>
+          <ArrowDropDownIcon
+          onClick={this.handleShowNav} 
+          className={classes.root}
+          />
           {menu}
         </div>
           
@@ -120,5 +137,5 @@ class App extends Component {
 
 const putReduxStateOnState = (reduxState) => ({reduxState});
 
-export default connect(putReduxStateOnState)(App);
+export default connect(putReduxStateOnState)(withStyles(styles)(App));
 

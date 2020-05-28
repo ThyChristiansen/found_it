@@ -47,10 +47,10 @@ class RegisterPage extends Component {
           <h1>Register User</h1>
           <div>
             <label htmlFor="username">
-              Username:
               <input
                 type="text"
                 name="username"
+                placeholder="username"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
@@ -58,10 +58,10 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="email">
-              Email:
               <input
                 type="text"
                 name="email"
+                placeholder="email"
                 value={this.state.email}
                 onChange={this.handleInputChangeFor('email')}
               />
@@ -69,10 +69,10 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:
               <input
                 type="password"
                 name="password"
+                placeholder="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />

@@ -1,3 +1,7 @@
+.box_list_header{
+    text-align: center;
+}
+
 .add_new_box_btn{
     float: left;
     margin:5px;
@@ -5,12 +9,12 @@
     height: 80px;
     border: 1px solid black;
 
-  }
-  .box_item{
+}
+.box_item{
     display: flex;  
     flex-wrap: wrap;
     float: left;
     width: 80px;
     margin:5px;
-    color: red;
-  }
+}
+

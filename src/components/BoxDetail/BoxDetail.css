@@ -1,3 +1,33 @@
 .box_detail{
-    margin-bottom: 200px;
+    text-align: center;
+    /* margin-bottom: 100px; */
+}
+
+.back_btn{
+    text-align: left;
+
+}
+
+.box_name{
+    text-align: center;
+    background-color: rgb(209, 212, 208);
+    padding:5px 0;
+}
+
+.list_item{
+    background-color: rgb(185, 182, 182);
+    margin: 10px 10px;
+    padding: 2px;
+    border:1px solid gray;
+    border-radius: 5px;
+
+}
+
+.item{
+    background-color: rgb(241, 241, 241);
+    text-align: left;
+    margin: 5px;
+    padding: 2px 10px;
+    border:1px solid black;
+    border-radius: 5px;
 }

@@ -21,7 +21,7 @@ class BoxList extends Component {
     render() {
         return (
             <div>
-                <h1>BoxList</h1>
+                <h1 className="box_list_header">BoxList</h1>
                 <button onClick={this.handleOnClick}
                 className = "add_new_box_btn">Add new box</button>
                 {this.props.reduxState.boxes.map((box) => {
