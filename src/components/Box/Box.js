@@ -36,7 +36,6 @@ class Box extends Component {
                 </Link>
                 <button onClick={this.handleDeleteBox}>Delete Box</button>
                 <p>A{this.props.box.box_name}</p>
-                <p>Room id:{this.props.box.room_id}</p>
 
 
             </div>

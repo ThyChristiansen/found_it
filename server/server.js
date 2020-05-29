@@ -14,6 +14,8 @@ const userRouter = require('./routes/user.router');
 const boxRouter = require('./routes/box.router');
 const itemRouter = require('./routes/item.router');
 const roomRouter = require('./routes/room.router');
+const roomNameRouter = require('./routes/roomName.router');
+
 
 
 // Body parser middleware
@@ -32,6 +34,8 @@ app.use('/api/user', userRouter);
 app.use('/api/room', roomRouter);
 app.use('/api/box', boxRouter);
 app.use('/api/item', itemRouter);
+app.use('/api/roomName', roomNameRouter);
+
 
 
 
