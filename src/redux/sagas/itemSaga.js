@@ -9,6 +9,7 @@ function* itemSaga() {
 // worker Saga: will be fired on "FETCH_ITEMS" actions
 function* fetchItems(action) {
     let id = action.payload.id
+    let roomId = action.payload.roomId
     // console.log('----> boxs id:',id)
     // console.log('----> get this item from server id:', id)
     try {
@@ -16,7 +17,7 @@ function* fetchItems(action) {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
           };
-        const response = yield axios.get(`/api/item/${id}`, config);
+        const response = yield axios.get(`/api/item/${roomId}/${id}`, config);
         // console.log('--------in getItem', response.data);
         yield put({
             type: 'SET_ITEM', // set action type = SET_DETAIL

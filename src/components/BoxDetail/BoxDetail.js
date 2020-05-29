@@ -19,14 +19,18 @@ class BoxDetail extends Component {
         dispatch({
             type: 'FETCH_DETAIL',
             payload: {
-                id: match.params.id
+                id: match.params.id,
+                // roomId: match.params.roomId,
+
             }
         });
         //send this dispatch to get items of the box that user choosed
         dispatch({
             type: 'FETCH_ITEMS',
             payload: {
-                id: match.params.id
+                id: match.params.id,
+                roomId: match.params.roomId,
+
             }
         });
     }
@@ -65,7 +69,8 @@ class BoxDetail extends Component {
             type: 'ADD_ITEM',
             payload: {
                 item: this.state.item,
-                id: match.params.id
+                id: match.params.id,
+                roomId: match.params.roomId,
             }
         })
     }

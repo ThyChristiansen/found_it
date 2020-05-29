@@ -125,7 +125,7 @@ class App extends Component {
             />
 
             <ProtectedRoute
-              exact path="/box-detail/:id"
+              exact path="/box-detail/:roomId/:id"
               component={BoxDetail}
             />
             <ProtectedRoute

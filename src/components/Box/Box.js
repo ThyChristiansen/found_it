@@ -25,7 +25,7 @@ class Box extends Component {
         return (
             <div>
                 {/* <p>{JSON.stringify(this.props.boxdata.box_name)}</p> */}
-                <Link to={`/box-detail/${this.props.box.id}`}>
+                <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
                     <img
                         src="images/box_icon.png"
                         alt={this.props.box.box_name}
@@ -36,6 +36,9 @@ class Box extends Component {
                 </Link>
                 <button onClick={this.handleDeleteBox}>Delete Box</button>
                 <p>A{this.props.box.box_name}</p>
+                <p>Room id:{this.props.box.room_id}</p>
+
+
             </div>
         )
     }
