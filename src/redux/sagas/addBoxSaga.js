@@ -18,8 +18,9 @@ function* addBox() {
   }
 }
 
-function* addFirstBox() {
+function* addFirstBox(action) {
   try {
+    let roomId = action.payload.id
     yield axios.post('/api/box/firstbox');
     // console.log('--->qr_code for this box:')
     // automatically log a user in after registration

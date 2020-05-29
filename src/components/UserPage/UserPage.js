@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import RoomList from '../RoomList/RoomList';
+import Home from '../UserPage/HomePage';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -11,10 +11,13 @@ const UserPage = (props) => (
     <h1 id="welcome">
       {props.user.username}'s house
     </h1>
-    <RoomList />
+    <Home />
+    
     <LogOutButton className="log-in" />
   </div>
 );
+
+
 
 // Instead of taking everything from state, we just want the user info.
 // if you wanted you could write this code like this:
@@ -22,6 +25,5 @@ const UserPage = (props) => (
 const mapStateToProps = state => ({
   user: state.user,
 });
-
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);

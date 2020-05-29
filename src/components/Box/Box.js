@@ -7,7 +7,14 @@ import { connect } from 'react-redux';
 class Box extends Component {
 
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_BOX' })
+        // this.props.dispatch({ type: 'FETCH_BOX' })
+        // const { dispatch, match } = this.props;
+        // dispatch({
+        //     type: 'FETCH_BOX',
+        //     payload: {
+        //         id: match.params.id
+        //     }
+        // });
     }
 
     handleDeleteBox = () => {

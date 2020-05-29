@@ -9,16 +9,18 @@ import AboutPage from '../AboutPage/AboutPage'
 import UserPage from '../UserPage/UserPage';
 import BoxList from '../BoxList/BoxList';
 import AddBoxForm from '../AddBoxForm/AddBoxForm';
+import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
-import RoomList from '../RoomList/RoomList';
+import Room from '../Room/Room';
 
-import Storge from '../RoomList/Storge';
-import Basement from '../RoomList/Basement';
-import Garage from '../RoomList/Garage';
-import Livingroom from '../RoomList/Livingroom';
-import Bedroom from '../RoomList/Bedroom';
-import Kitchen from '../RoomList/Kitchen';
+
+import Storge from '../Room/Storge';
+import Basement from '../Room/Basement';
+import Garage from '../Room/Garage';
+import Livingroom from '../Room/Livingroom';
+import Bedroom from '../Room/Bedroom';
+import Kitchen from '../Room/Kitchen';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -114,9 +116,14 @@ class App extends Component {
               component={Reader}
             />
             <ProtectedRoute
-              path="/boxes"
+              path="/boxes/:id"
               component={BoxList}
             />
+             <ProtectedRoute
+              path="/box"
+              component={Box}
+            />
+
             <ProtectedRoute
               exact path="/box-detail/:id"
               component={BoxDetail}
@@ -129,11 +136,7 @@ class App extends Component {
               path="/item/:id"
               component={Item}
             />
-            <ProtectedRoute
-              path="/room"
-              component={RoomList}
-            />
-            <ProtectedRoute
+            {/* <ProtectedRoute
               path="/storge"
               component={Storge}
             />
@@ -142,22 +145,21 @@ class App extends Component {
               component={Basement}
             />
             <ProtectedRoute
-              path="/Garage"
+              path="/garage"
               component={Garage}
             />
             <ProtectedRoute
-              path="/Livingroom"
+              path="/livingroom"
               component={Livingroom}
             />
             <ProtectedRoute
-              path="/Kitchen"
+              path="/kitchen"
               component={Kitchen}
             />
             <ProtectedRoute
-              path="/Bedroom"
+              path="/bedroom"
               component={Bedroom}
-            />
-
+            /> */}
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

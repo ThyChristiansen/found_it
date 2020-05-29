@@ -36,6 +36,12 @@
 
 ### Rooms
 [x] Create table rooms in database
-[] Create room list component 
-    [] Send the GET request to database to get list of rooms from Postico database -> Saga -> Reducer -> mapping through and append to DOM
-    [] Create room component 
+[x] Create room list component 
+    [x] Send the GET request to database to get list of rooms from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+    [x] Create RoomList component 
+        [x] Create RoomList component 
+    [x] Create RoomList component 
+    [x] Create RoomList component 
+    [x] Create RoomList component 
+    [x] Create RoomList component 
+

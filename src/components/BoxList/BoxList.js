@@ -7,21 +7,34 @@ import './BoxList.css'
 class BoxList extends Component {
 
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_BOX' })
+        // this.props.dispatch({ type: 'FETCH_BOX' })
+        const { dispatch, match } = this.props;
+        dispatch({
+            type: 'FETCH_BOX',
+            payload: {
+                id: match.params.id
+            }
+        });
 
     }
 
     handleOnClickAddNewBox = () => {
+        const { dispatch, match } = this.props;
         console.log('Clicked')
-        this.props.dispatch({
+        dispatch({
             type: "ADD_BOX",
+            id: match.params.id
         })
     }
 
     handleOnClickAddFirstNewBox = () => {
+        const { dispatch, match } = this.props;
+
         console.log('Clicked')
-        this.props.dispatch({
+        dispatch({
             type: "ADD_FIRST_BOX",
+            id: match.params.id
+
         })
     }
 
