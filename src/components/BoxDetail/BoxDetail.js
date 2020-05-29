@@ -20,7 +20,7 @@ class BoxDetail extends Component {
             type: 'FETCH_DETAIL',
             payload: {
                 id: match.params.id,
-                // roomId: match.params.roomId,
+                roomId: match.params.roomId,
 
             }
         });
@@ -88,8 +88,8 @@ class BoxDetail extends Component {
                     return (
                         <div key={box.id}>
                             <p className = "box_name">Box A{box.box_name}</p>
-                            {/* <DownloadQRCode
-                                box={box} /> */}
+                            <DownloadQRCode
+                                box={box} />
                         </div>
                     )
                 })}

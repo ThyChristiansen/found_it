@@ -21,10 +21,13 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 //GET details route
-router.get('/:id', (req, res) => {
-    // console.log(' id:',req.params.id);
-    let queryText = `SELECT * FROM boxes WHERE id = $1`;
-    pool.query(queryText, [req.params.id])
+router.get('/:roomId/:id', (req, res) => {
+    let boxId = req.params.id;
+    let roomId = req.params.roomId;
+    console.log(' room id:',roomId);
+
+    let queryText = `SELECT * FROM boxes WHERE id = $1 AND room_id= $2`;
+    pool.query(queryText, [boxId, roomId])
         .then((result) => {
             // console.log('get this row from database:',result.rows )
             res.send(result.rows)
