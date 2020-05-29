@@ -1,0 +1,12 @@
+.room{
+    display: flex;  
+    flex-wrap: wrap;
+    float: left;
+    width: 80px;
+    margin:19px;
+}
+
+.room_name{
+   margin-left: 15px;
+   text-align: center;
+}

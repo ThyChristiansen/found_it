@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-const getCookie = (cookieName) => {
-    // Get name followed by anything except a semicolon
-    const cookieString = RegExp('' + cookieName + '[^;]+').exec(document.cookie);
-    // Return everything after the equal sign, or an empty string if the cookie name not found
-    return decodeURIComponent(!!cookieString ? cookieString.toString().replace(/^[^=]+./, '') : '');
-  }
-
+import './Item.css'
 
 class Item extends Component {
 
@@ -54,17 +47,19 @@ class Item extends Component {
 
     render() {
         return (
-            <div>
+            <div className = "item_detail">
                 {this.state.itemIsEditable ?
                     <>
                         <p><input 
                         value = {this.state.item}
-                        onChange={this.handleChangeFor} /></p>
+                        onChange={this.handleChangeFor} 
+                        className = "input_item"
+                        /></p>
                         <button onClick={this.saveItem}>Save Item</button>
                     </>
                     :
                     <>
-                        <p>{this.state.item}</p>
+                        <p className = "input_item">{this.state.item}</p>
                         <button onClick={this.editItem}>Edit Username</button>
                     </>
                 }

@@ -45,16 +45,12 @@ class BoxList extends Component {
             <div>
                 <h1 className="box_list_header">BoxList</h1>
                 {addNewBox}
-               
                 {this.props.reduxState.boxes.map((box) => {
-
                     return (
                         <div key={box.id} className="box_item">
-
                             <button> <Box
                                 box={box}
                             /></button>
-
                         </div>
                     )
                 })}

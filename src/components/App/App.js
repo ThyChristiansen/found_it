@@ -11,6 +11,8 @@ import BoxList from '../BoxList/BoxList';
 import AddBoxForm from '../AddBoxForm/AddBoxForm';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
+import RoomList from '../RoomList/RoomList';
+
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -61,7 +63,7 @@ class App extends Component {
     }
 
     const { classes } = this.props;
-    
+
 
     return (
       <HashRouter>
@@ -71,17 +73,17 @@ class App extends Component {
           </Link><br />
 
           <span onClick={this.handleShowNav}
-          className="menu"
+            className="menu"
           >Menu</span>
           <ArrowDropDownIcon
-          onClick={this.handleShowNav} 
-          className={classes.root}
+            onClick={this.handleShowNav}
+            className={classes.root}
           />
           {menu}
         </div>
-          
+
         <div>
-        <Switch>
+          <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
@@ -100,8 +102,8 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
-          
-           <ProtectedRoute
+
+            <ProtectedRoute
               path="/scanner"
               component={Reader}
             />
@@ -109,7 +111,7 @@ class App extends Component {
               path="/boxes"
               component={BoxList}
             />
-             <ProtectedRoute
+            <ProtectedRoute
               exact path="/box-detail/:id"
               component={BoxDetail}
             />
@@ -117,25 +119,28 @@ class App extends Component {
               path="/addbox"
               component={AddBoxForm}
             />
-             <ProtectedRoute
+            <ProtectedRoute
               path="/item/:id"
               component={Item}
             />
-
+            <ProtectedRoute
+              path="/room"
+              component={RoomList}
+            />
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-         
+
           <Footer />
         </div>
       </HashRouter>
-     
+
     )
   }
 }
 
-const putReduxStateOnState = (reduxState) => ({reduxState});
+const putReduxStateOnState = (reduxState) => ({ reduxState });
 
 export default connect(putReduxStateOnState)(withStyles(styles)(App));
 

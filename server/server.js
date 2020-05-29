@@ -13,6 +13,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const boxRouter = require('./routes/box.router');
 const itemRouter = require('./routes/item.router');
+const roomRouter = require('./routes/room.router');
 
 
 // Body parser middleware
@@ -28,6 +29,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/room', roomRouter);
 app.use('/api/box', boxRouter);
 app.use('/api/item', itemRouter);
 

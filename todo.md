@@ -34,4 +34,8 @@
     [x] Create input field
     [x] Dispatching from client-side to send the item's data after updated to Saga -> Router (send the PUT request) -> Database
 
-
+### Rooms
+[x] Create table rooms in database
+[] Create room list component 
+    [] Send the GET request to database to get list of rooms from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+    [] Create room component 

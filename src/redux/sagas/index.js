@@ -10,6 +10,7 @@ import addItemSaga from './addItemSaga';
 import itemSaga from './itemSaga';
 import deleteItemSaga from './deleteItemSaga';
 import updateItemSaga from './updateItemSaga';
+import roomSaga from './roomSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -31,5 +32,6 @@ export default function* rootSaga() {
     itemSaga(),
     deleteItemSaga(),
     updateItemSaga(),
+    roomSaga()
   ]);
 }

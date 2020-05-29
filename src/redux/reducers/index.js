@@ -6,7 +6,7 @@ import boxes from './boxReducer';
 import detail from './boxDetailReducer';
 import qrCode from './qrCodeReducer';
 import item from './itemReducer';
-
+import rooms from './roomReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -22,6 +22,7 @@ const rootReducer = combineReducers({
   detail,
   qrCode,
   item,
+  rooms,
 });
 
 export default rootReducer;
