@@ -36,12 +36,20 @@
 
 ### Rooms
 [x] Create table rooms in database
-[x] Create room list component 
-    [x] Send the GET request to database to get list of rooms from Postico database -> Saga -> Reducer -> mapping through and append to DOM
-    [x] Create RoomList component 
-        [x] Create RoomList component 
-    [x] Create RoomList component 
-    [x] Create RoomList component 
-    [x] Create RoomList component 
-    [x] Create RoomList component 
+[x] Create HomePage component 
+    [x] Send the GET request to database to get list of rooms from Postico database -> Saga -> Reducer -> mapping through the array which get from database
+    [x] Create a Room component 
+        [x] Display list of rooms to the DOM
+
+### Update Boxes
+[x] Update the GET, POST request to get box's list and add boxes into box list inside the specific room by room id
+[x] Updata the DELETE request to delete boxes inside the specific room by room id
+[x] Room's name in box list
+    [x] Send the GET request to database to get room's name from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+
+### Update Items
+[x] Update the GET, POST request to get item's list and add items into list item inside the specific room by room id and box id
+[x] Updata the DELETE request to delete item inside the specific box and room by room id and box id
+[x] Updata the PUT request to update item inside the specific box and room by room id and box id
+
 

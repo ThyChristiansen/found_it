@@ -62,12 +62,13 @@ router.post('/firstbox/:id', (req, res) => {
     // res.sendStatus(201);
 });
 
-router.delete('/:id', (req, res) => {
-    let boxId = req.params.id;// We are using a request parameter (req.params) to identify
+router.delete('/:roomName/:id', (req, res) => {
+    let boxId = req.params.boxId;// We are using a request parameter (req.params) to identify
     // the specific picture. We expect this will be an id from the database.
+    let roomId = req.params.roomId
     console.log('Delete request for this id: ', boxId);
-    let sqlText = `DELETE FROM boxes WHERE id = $1`;
-    pool.query(sqlText, [boxId])
+    let sqlText = `DELETE FROM boxes WHERE id = $1 AND room_id = $2`;
+    pool.query(sqlText, [boxId,roomId])
         .then(result => {
             console.log('in DELETE router')
             res.sendStatus(200);

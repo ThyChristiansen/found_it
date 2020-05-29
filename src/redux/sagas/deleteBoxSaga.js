@@ -8,8 +8,8 @@ function* deleteBoxSaga() {
 function* deleteBox(action) {
   try {
     let roomId = action.payload.roomId
-    console.log('--->qr_code for thid box:', action.payload.boxId)
-    yield axios.delete(`/api/box/${action.payload.boxId}`);
+    // console.log('--->qr_code for thid box:', action.payload.boxId)
+    yield axios.delete(`/api/box/${roomId}/${action.payload.boxId}`);
     console.log('--->qr_code for thid box:', action.payload)
     yield put({
       type: 'FETCH_BOX',
