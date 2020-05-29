@@ -15,12 +15,12 @@ import Item from '../Item/Item';
 import Room from '../Room/Room';
 
 
-import Storge from '../Room/Storge';
-import Basement from '../Room/Basement';
-import Garage from '../Room/Garage';
-import Livingroom from '../Room/Livingroom';
-import Bedroom from '../Room/Bedroom';
-import Kitchen from '../Room/Kitchen';
+// import Storge from '../Room/Storge';
+// import Basement from '../Room/Basement';
+// import Garage from '../Room/Garage';
+// import Livingroom from '../Room/Livingroom';
+// import Bedroom from '../Room/Bedroom';
+// import Kitchen from '../Room/Kitchen';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 

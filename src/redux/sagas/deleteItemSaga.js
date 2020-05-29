@@ -10,7 +10,7 @@ function* deleteItem(action) {
     // console.log('---> id for this item:', action.payload.itemId)
     let boxId = action.payload.boxId
     // console.log('---> id for this box:',boxId)
-    yield axios.delete(`/api/item/${action.payload.itemId}`, );
+    yield axios.delete(`/api/item/${action.payload.itemId}`);
     // console.log('---> id for this item:', action.payload.itemId)
     // automatically log a user in after registration
     yield put({

@@ -21,7 +21,10 @@ class Box extends Component {
         console.log('delete clicked');
         this.props.dispatch({
             type: 'DELETE_BOX',
-            payload: this.props.box.id
+            payload: {
+                boxId: this.props.box.id,
+                roomId: this.props.box.room_id
+            }
         })
 
     }
