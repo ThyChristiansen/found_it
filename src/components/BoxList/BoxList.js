@@ -64,6 +64,7 @@ class BoxList extends Component {
 
         return (
             <div>
+                {/* Display box's name */}
                 {this.props.reduxState.roomName.map((room, index) => {
                     if (index === 0) {
                         return (
@@ -71,7 +72,9 @@ class BoxList extends Component {
                         )
                     }
                 })}
-                <h4 className="box_list_header">Box number: {this.props.reduxState.boxes.length}</h4>
+                {/* Display box number */}
+                <p className="box_list_header">Box number: {this.props.reduxState.boxes.length}</p>
+                
                 {addNewBox}
                 {this.props.reduxState.boxes.map((box) => {
                     return (
