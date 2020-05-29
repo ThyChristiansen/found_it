@@ -8,6 +8,7 @@ import Livingroom from './Livingroom';
 import Bedroom from './Bedroom';
 import Kitchen from './Kitchen';
 
+import { Link } from 'react-router-dom';
 
 
 class RoomList extends Component {
@@ -18,7 +19,7 @@ class RoomList extends Component {
         })
     }
 
-    handleOnClick =() =>{
+    handleOnClick = () => {
         console.log('room clicked!')
     }
 
@@ -37,14 +38,105 @@ class RoomList extends Component {
                         </div>
                     )
                 })} */}
-                <Storge />
-                <Basement />
-                <Garage />
-                <Livingroom />
-                <Bedroom />
-                <Kitchen />
+                <Link to='/storge'>
+                    {this.props.reduxState.rooms.map((room) => {
+                        return (
+                            <div key={room.id} className="room">
+                                <img src="images/room_icon.png"
+                                    width="100px"
+                                    height="100px"
+                                    onClick={this.handleOnClick}
+                                ></img>
+                                <p className="room_name">{room.room_name}</p>
+                            </div>
+                        )
+                    }).shift()}
+                </Link><br />
+                <Link to='/basement'>
+                    {(this.props.reduxState.rooms.filter((room) => {
+                        return room.room_name === "Basement"
+                    })).map(room => {
+                        return (
+                            <div key={room.id} className="room">
+                                <img src="images/room_icon.png"
+                                    width="100px"
+                                    height="100px"
+                                    onClick={this.handleOnClick}
+                                ></img>
+                                <p className="room_name">{room.room_name}</p>
+                            </div>
+                        )
+                    })}
+                    {/* <p>{JSON.stringify(this.props.reduxState.rooms[0])}</p> */}
+                </Link><br />
+                <Link to='/garage'>
+                    {(this.props.reduxState.rooms.filter((room) => {
+                        return room.room_name === "Garage"
+                    })).map(room => {
+                        return (
+                            <div key={room.id} className="room">
+                                <img src="images/room_icon.png"
+                                    width="100px"
+                                    height="100px"
+                                    onClick={this.handleOnClick}
+                                ></img>
+                                <p className="room_name">{room.room_name}</p>
+                            </div>
+                        )
+                    })}
+                </Link><br />
+                <Link to='/livingroom'>
+                    {(this.props.reduxState.rooms.filter((room) => {
+                        return room.room_name === "Livingroom"
+                    })).map(room => {
+                        return (
+                            <div key={room.id} className="room">
+                                <img src="images/room_icon.png"
+                                    width="100px"
+                                    height="100px"
+                                    onClick={this.handleOnClick}
+                                ></img>
+                                <p className="room_name">{room.room_name}</p>
+                            </div>
+                        )
+                    })}
+                </Link><br />
+                <Link to='/bedroom'>
+                    {(this.props.reduxState.rooms.filter((room) => {
+                        return room.room_name === "Bedroom"
+                    })).map(room => {
+                        return (
+                            <div key={room.id} className="room">
+                                <img src="images/room_icon.png"
+                                    alt={room.room_name}
+                                    width="100px"
+                                    height="100px"
+                                    onClick={this.handleOnClick}
+                                ></img>
+                                <p className="room_name">{room.room_name}</p>
+                            </div>
+                        )
+                    })}               
+                     </Link><br />
+                <Link to='/kitchen'>
+                    {(this.props.reduxState.rooms.filter((room) => {
+                        return room.room_name === "Kitchen"
+                    })).map(room => {
+                        return (
+                            <div key={room.id} className="room">
+                                <img src="images/room_icon.png"
+                                    alt={room.room_name}
+                                    width="100px"
+                                    height="100px"
+                                    onClick={this.handleOnClick}
+                                ></img>
+                                <p className="room_name">{room.room_name}</p>
+                            </div>
+                        )
+                    })}
+                </Link><br />
                 {/* <p>{JSON.stringify(this.props.reduxState.boxes.id)}</p> */}
-            </div>
+            </div >
         )
     }
 }

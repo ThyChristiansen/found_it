@@ -13,6 +13,12 @@ import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
 import RoomList from '../RoomList/RoomList';
 
+import Storge from '../RoomList/Storge';
+import Basement from '../RoomList/Basement';
+import Garage from '../RoomList/Garage';
+import Livingroom from '../RoomList/Livingroom';
+import Bedroom from '../RoomList/Bedroom';
+import Kitchen from '../RoomList/Kitchen';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -127,6 +133,31 @@ class App extends Component {
               path="/room"
               component={RoomList}
             />
+            <ProtectedRoute
+              path="/storge"
+              component={Storge}
+            />
+            <ProtectedRoute
+              path="/basement"
+              component={Basement}
+            />
+            <ProtectedRoute
+              path="/Garage"
+              component={Garage}
+            />
+            <ProtectedRoute
+              path="/Livingroom"
+              component={Livingroom}
+            />
+            <ProtectedRoute
+              path="/Kitchen"
+              component={Kitchen}
+            />
+            <ProtectedRoute
+              path="/Bedroom"
+              component={Bedroom}
+            />
+
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
