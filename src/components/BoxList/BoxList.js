@@ -55,16 +55,22 @@ class BoxList extends Component {
         //increment number of id, box's name, qr_code, from the last row
         let addNewBox;
         if (this.props.reduxState.boxes.length === 0) {
-            addNewBox= <button onClick={this.handleOnClickAddFirstNewBox}
+            addNewBox = <button onClick={this.handleOnClickAddFirstNewBox}
                 className="add_new_box_btn">Add new box</button>
-        }else {
-            addNewBox =  <button onClick={this.handleOnClickAddNewBox}
-            className="add_new_box_btn">Add new box</button>
+        } else {
+            addNewBox = <button onClick={this.handleOnClickAddNewBox}
+                className="add_new_box_btn">Add new box</button>
         }
 
         return (
             <div>
-                <h1 className="box_list_header">{this.props.reduxState.roomName.room_name}</h1>
+                {this.props.reduxState.roomName.map((room, index) => {
+                    if (index === 0) {
+                        return (
+                        <h1 className="box_list_header">{room.room_name}</h1>
+                        )
+                    }
+                })}
                 <h4 className="box_list_header">Box number: {this.props.reduxState.boxes.length}</h4>
                 {addNewBox}
                 {this.props.reduxState.boxes.map((box) => {
@@ -76,7 +82,7 @@ class BoxList extends Component {
                         </div>
                     )
                 })}
-                <h1>{JSON.stringify(this.props.reduxState.roomName.room_name)}</h1>
+                {/* <h1>{JSON.stringify(this.props.reduxState.roomName[0])}</h1> */}
             </div>
         )
     }
