@@ -8,9 +8,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //GET boxes route
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     let roomId = req.params.id
-    console.log('----------> use this room id:',roomId)
+    // console.log('----------> use this room id to get data:',roomId)
     queryString = `SELECT * FROM boxes WHERE room_id = $1;`;
-    pool.query(queryString,[roomId])
+    pool.query(queryString, [roomId])
         .then(result => {
             console.log('Get this info from database', result.rows);
             res.send(result.rows);
@@ -36,23 +36,25 @@ router.get('/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
-    const queryText = 'INSERT INTO "boxes" (id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),(SELECT MAX(box_name)+1 FROM boxes), (SELECT MAX(qr_code)+1 FROM boxes)) RETURNING id';
-    pool.query(queryText)
+    let roomId = req.params.id;
+    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),$1,(SELECT MAX(box_name)+1 FROM boxes), (SELECT MAX(qr_code)+1 FROM boxes)) RETURNING id';
+    pool.query(queryText,[roomId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
-  
-    // res.sendStatus(201);
+
+    res.sendStatus(201);
 });
 
-router.post('/firstbox', (req, res) => {
+router.post('/firstbox/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
-    const queryText = 'INSERT INTO "boxes" (id,box_name, qr_code) VALUES (1,1,1) RETURNING id';
-    pool.query(queryText)
-      .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
-      .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
-  
+    let roomId = req.params.id;
+    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES (1,$1,1,1) RETURNING id';
+    pool.query(queryText, [roomId])
+        .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
+        .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
+
     // res.sendStatus(201);
 });
 

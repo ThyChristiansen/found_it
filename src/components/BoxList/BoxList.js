@@ -20,21 +20,23 @@ class BoxList extends Component {
 
     handleOnClickAddNewBox = () => {
         const { dispatch, match } = this.props;
-        console.log('Clicked')
+        console.log('add new item clicked!');
         dispatch({
-            type: "ADD_BOX",
-            id: match.params.id
+            type: 'ADD_BOX',
+            payload: {
+                id: match.params.id
+            }
         })
     }
 
     handleOnClickAddFirstNewBox = () => {
         const { dispatch, match } = this.props;
-
-        console.log('Clicked')
+        console.log('add new item clicked!');
         dispatch({
-            type: "ADD_FIRST_BOX",
-            id: match.params.id
-
+            type: 'ADD_FIRST_BOX',
+            payload: {
+                id: match.params.id
+            }
         })
     }
 
