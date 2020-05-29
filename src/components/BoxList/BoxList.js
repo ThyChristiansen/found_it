@@ -12,7 +12,7 @@ class BoxList extends Component {
         dispatch({
             type: 'FETCH_BOX',
             payload: {
-                id: match.params.id,
+                roomId: match.params.id,
             }
         });
 
@@ -24,7 +24,7 @@ class BoxList extends Component {
         dispatch({
             type: 'ADD_BOX',
             payload: {
-                id: match.params.id
+                roomId: match.params.id
             }
         })
     }
@@ -35,7 +35,7 @@ class BoxList extends Component {
         dispatch({
             type: 'ADD_FIRST_BOX',
             payload: {
-                id: match.params.id
+                roomId: match.params.id
             }
         })
     }

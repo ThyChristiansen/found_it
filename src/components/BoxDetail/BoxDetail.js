@@ -83,8 +83,8 @@ class BoxDetail extends Component {
                     return (
                         <div key={box.id}>
                             <p className = "box_name">Box A{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
+                            {/* <DownloadQRCode
+                                box={box} /> */}
                         </div>
                     )
                 })}
