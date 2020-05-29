@@ -12,7 +12,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     queryString = `SELECT * FROM boxes WHERE room_id = $1;`;
     pool.query(queryString, [roomId])
         .then(result => {
-            console.log('Get this info from database', result.rows);
+            // console.log('Get this info from database', result.rows);
             res.send(result.rows);
         }).catch(error => {
             console.log('ERROR in GET BOX', error)
@@ -36,9 +36,8 @@ router.get('/:roomId/:id', (req, res) => {
         })
 })
 
-/**
- * POST route template
- */
+
+ //POST route to add boxes
 router.post('/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
@@ -51,6 +50,7 @@ router.post('/:id', (req, res) => {
     // res.sendStatus(201);
 });
 
+ //POST route to add first box
 router.post('/firstbox/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
@@ -78,6 +78,20 @@ router.delete('/:id', (req, res) => {
     // res.sendStatus(200);
 })
 
+router.get('/:roomId', (req, res) => {
+    let roomId = req.params.roomId;
+    console.log(' room id:',roomId);
 
+    let queryText = `SELECT room_name FROM rooms 
+    JOIN boxes ON rooms.id = boxes.room_id
+    WHERE room_id = $1;`;
+    pool.query(queryText, [roomId])
+        .then((result) => {
+            console.log('----> get this name from database:',result.rows )
+            res.send(result.rows)
+        }).catch((error) => {
+            console.log('ERROR in get detail:',error);
+        })
+})
 
 module.exports = router;

@@ -15,6 +15,12 @@ class BoxList extends Component {
                 roomId: match.params.id,
             }
         });
+        dispatch({
+            type: 'FETCH_ROOM_NAME',
+            payload: {
+                roomId: match.params.id,
+            }
+        })
 
     }
 
@@ -58,7 +64,7 @@ class BoxList extends Component {
 
         return (
             <div>
-                <h1 className="box_list_header">BoxList</h1>
+                <h1 className="box_list_header">{this.props.reduxState.roomName.room_name}</h1>
                 <h4 className="box_list_header">Box number: {this.props.reduxState.boxes.length}</h4>
                 {addNewBox}
                 {this.props.reduxState.boxes.map((box) => {
@@ -70,7 +76,7 @@ class BoxList extends Component {
                         </div>
                     )
                 })}
-                {/* <h1>{JSON.stringify(this.props.reduxState.boxes.length)}</h1> */}
+                <h1>{JSON.stringify(this.props.reduxState.roomName.room_name)}</h1>
             </div>
         )
     }
