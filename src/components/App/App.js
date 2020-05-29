@@ -116,7 +116,7 @@ class App extends Component {
               component={Reader}
             />
             <ProtectedRoute
-              path="/boxes/:id"
+              path="/boxes/:room/:id"
               component={BoxList}
             />
              <ProtectedRoute

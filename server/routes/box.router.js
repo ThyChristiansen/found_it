@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
             // console.log('get this row from database:',result.rows )
             res.send(result.rows)
         }).catch((error) => {
-            console.log(error);
+            console.log('ERROR in get detail:',error);
         })
 })
 
@@ -44,7 +44,7 @@ router.post('/:id', (req, res) => {
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
 
-    res.sendStatus(201);
+    // res.sendStatus(201);
 });
 
 router.post('/firstbox/:id', (req, res) => {

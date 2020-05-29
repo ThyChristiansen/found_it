@@ -12,7 +12,7 @@ class BoxList extends Component {
         dispatch({
             type: 'FETCH_BOX',
             payload: {
-                id: match.params.id
+                id: match.params.id,
             }
         });
 
@@ -59,6 +59,7 @@ class BoxList extends Component {
         return (
             <div>
                 <h1 className="box_list_header">BoxList</h1>
+                <h4 className="box_list_header">Box number: {this.props.reduxState.boxes.length}</h4>
                 {addNewBox}
                 {this.props.reduxState.boxes.map((box) => {
                     return (
@@ -69,7 +70,7 @@ class BoxList extends Component {
                         </div>
                     )
                 })}
-                {/* <p>{JSON.stringify(this.props.reduxState.boxes.id)}</p> */}
+                {/* <h1>{JSON.stringify(this.props.reduxState.boxes.length)}</h1> */}
             </div>
         )
     }
