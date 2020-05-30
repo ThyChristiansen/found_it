@@ -12,15 +12,8 @@ import AddBoxForm from '../AddBoxForm/AddBoxForm';
 import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
-import Room from '../Room/Room';
+import SearchingBar from '../SearchBar/SearchBar';
 
-
-// import Storge from '../Room/Storge';
-// import Basement from '../Room/Basement';
-// import Garage from '../Room/Garage';
-// import Livingroom from '../Room/Livingroom';
-// import Bedroom from '../Room/Bedroom';
-// import Kitchen from '../Room/Kitchen';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -79,7 +72,7 @@ class App extends Component {
           <Link to="/home">
             <h1 className="nav-title" >Found it</h1>
           </Link><br />
-
+          <SearchingBar />
           <span onClick={this.handleShowNav}
             className="menu"
           >Menu</span>

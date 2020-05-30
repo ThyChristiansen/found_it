@@ -8,7 +8,7 @@ import qrCode from './qrCodeReducer';
 import item from './itemReducer';
 import rooms from './roomReducer';
 import roomName from './roomNameReducer';
-
+import searchItem from './searchItemReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -26,6 +26,7 @@ const rootReducer = combineReducers({
   item,
   rooms,
   roomName,
+  searchItem,
 
 });
 

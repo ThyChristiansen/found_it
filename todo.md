@@ -52,4 +52,9 @@
 [x] Updata the DELETE request to delete item inside the specific box and room by room id and box id
 [x] Updata the PUT request to update item inside the specific box and room by room id and box id
 
-
+### Search item
+[x] Create SearchBar component
+    [x] Set up input field, handle change for input field, etc...
+[x] Create Search Router
+[x] Create searchSaga and searchItemReducer
+[] Send the GET request to database to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM

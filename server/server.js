@@ -15,6 +15,7 @@ const boxRouter = require('./routes/box.router');
 const itemRouter = require('./routes/item.router');
 const roomRouter = require('./routes/room.router');
 const roomNameRouter = require('./routes/roomName.router');
+const searchRouter = require('./routes/search.router');
 
 
 
@@ -35,6 +36,7 @@ app.use('/api/room', roomRouter);
 app.use('/api/box', boxRouter);
 app.use('/api/item', itemRouter);
 app.use('/api/roomName', roomNameRouter);
+app.use('/api/search', searchRouter);
 
 
 

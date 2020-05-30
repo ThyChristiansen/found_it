@@ -1,12 +1,12 @@
-const roomReducer = (state = [], action) => {
+const searchItemReducer = (state = [], action) => {
     switch (action.type) {
-      case 'SET_ROOM':
+      case 'SET_ITEM_SORT':
           console.log('----->set this rooms', action.payload)
         return action.payload;
       default:
         return state;
     }
   };
-
-  export default roomReducer;
+  
+  export default searchItemReducer;
   
