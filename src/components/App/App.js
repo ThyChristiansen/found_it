@@ -13,6 +13,7 @@ import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
 import SearchingBar from '../SearchBar/SearchBar';
+import HomePage from '../UserPage/HomePage';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -69,7 +70,7 @@ class App extends Component {
     return (
       <HashRouter>
         <div className="nav-bar">
-          <Link to="/home">
+          <Link to="/homepage">
             <h1 className="nav-title" >Found it</h1>
           </Link><br />
           <SearchingBar />
@@ -102,6 +103,11 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+             <ProtectedRoute
+              exact
+              path="/homepage"
+              component={HomePage}
             />
 
             <ProtectedRoute
