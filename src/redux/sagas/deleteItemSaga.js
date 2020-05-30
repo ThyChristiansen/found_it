@@ -8,7 +8,7 @@ function* deleteItemSaga() {
 function* deleteItem(action) {
   try {
     // console.log('---> id for this item:', action.payload.itemId)
-    let boxId = action.payload.id
+    let boxId = action.payload.boxId
     let roomId = action.payload.roomId
 
     console.log('-----------> id for this room:',roomId)

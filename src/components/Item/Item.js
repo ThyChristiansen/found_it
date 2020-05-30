@@ -10,16 +10,6 @@ class Item extends Component {
     }
 
     componentDidMount() {
-        //     const { dispatch, match } = this.props;
-        //     dispatch({
-        //         type: 'FETCH_ITEMS',
-        //         payload: {
-        //             id: match.params.id,
-        //             roomId: match.params.roomId,
-
-        //         }
-        //     });
-        // this.props.handleDeleteItem();
     }
 
     handleDelete = () => {
@@ -32,7 +22,7 @@ class Item extends Component {
             type: 'DELETE_ITEM',
             payload: {
                 itemId: this.props.item.id,
-                id: this.props.item.box_id,
+                boxId: this.props.item.box_id,
                 roomId: this.props.roomId(this.props.item.id),
             }
         })
