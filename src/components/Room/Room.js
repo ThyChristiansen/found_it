@@ -22,7 +22,7 @@ class RoomList extends Component {
         return (
             <div>
                 {/* <h1>{JSON.stringify(this.props.reduxState.rooms)}</h1> */}
-                <Link to={`boxes/${this.props.roomData.room_name}/${this.props.roomData.id}`}>
+                <Link to={`/boxes/${this.props.roomData.room_name}/${this.props.roomData.id}`}>
                     <img src="images/room_icon.png"
                         width="100px"
                         height="100px"
