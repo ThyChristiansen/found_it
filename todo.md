@@ -6,8 +6,9 @@
 
 ### QR code
 [x] Reader 
-[x] Download QR code
-
+[x] Feature download QR code
+    [] Create Download QR code component
+    
 
 ### Boxes 
 [x] Create table for boxes and items
