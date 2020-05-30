@@ -14,7 +14,6 @@ function* deleteItem(action) {
     console.log('-----------> id for this room:',roomId)
     yield axios.delete(`/api/item/${action.payload.itemId}`);
     // console.log('---> id for this item:', action.payload.itemId)
-    // automatically log a user in after registration
     yield put({
       type: 'FETCH_ITEMS',
       payload: {

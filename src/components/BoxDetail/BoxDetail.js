@@ -12,7 +12,6 @@ class BoxDetail extends Component {
         item: ''
     }
 
-
     componentDidMount() {
         //save data after refresh page by id
         const { dispatch, match } = this.props;
@@ -33,7 +32,6 @@ class BoxDetail extends Component {
 
             }
         });
-        // console.log
     }
     //handle come back list box page
     backClick = () => {
@@ -53,7 +51,6 @@ class BoxDetail extends Component {
         }else{
             this.handleAddNewItem();
             this.handleClearInput();
-
         }
     }
 
@@ -77,7 +74,7 @@ class BoxDetail extends Component {
     }
     //handle delete item
     sendRoomIdToItem = (roomId) => {
-        const { dispatch, match } = this.props;
+        const { match } = this.props;
             return match.params.roomId
     }
     render() {

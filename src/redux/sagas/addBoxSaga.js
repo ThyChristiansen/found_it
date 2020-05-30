@@ -28,7 +28,6 @@ function* addFirstBox(action) {
     console.log('--------> in add first box',roomId)
     yield axios.post(`/api/box/firstbox/${roomId}`);
     console.log('---> send room id of this box to server:',roomId)
-    // automatically log a user in after registration
     yield put({
       type: 'FETCH_BOX',
       payload: {roomId : roomId}

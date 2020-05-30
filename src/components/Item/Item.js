@@ -14,10 +14,7 @@ class Item extends Component {
 
     handleDelete = () => {
         console.log('delete clicked');
-        console.log('delelete this item bt this this id:', this.props.item.id)
-        // this.props.handleDeleteItem(this.props.item.id);
-
-        //     const { dispatch, match } = this.props;
+        console.log('delelete this item by this id:', this.props.item.id)
         this.props.dispatch({
             type: 'DELETE_ITEM',
             payload: {
@@ -71,7 +68,6 @@ class Item extends Component {
                         <button onClick={this.editItem}>Edit Username</button>
                     </>
                 }
-                {/* <p>{this.props.item.item}</p><button>Edit</button> */}
                 <button onClick={this.handleDelete}>Delete</button>
                 {/* <h1>{JSON.stringify(this.props.item.box_id)}</h1> */}
             </div>

@@ -8,6 +8,7 @@
 [x] Reader 
 [x] Download QR code
 
+
 ### Boxes 
 [x] Create table for boxes and items
 [x] Box list component
@@ -58,3 +59,4 @@
 [x] Create Search Router
 [x] Create searchSaga and searchItemReducer
 [] Send the GET request to database to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+
