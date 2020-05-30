@@ -131,11 +131,11 @@ class BoxDetail extends Component {
                             box={box} />
                     </div>
                     }
-
                     return (
                         boxName
                     )
                 })}
+
                 {/* add new item field */}
                 <p>Add item to your list:</p>
                 <input
