@@ -6,9 +6,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 //GET boxes route
-router.get('/:id', rejectUnauthenticated, (req, res) => {
-    let roomId = req.params.id
-    // console.log('----------> use this room id to get data:',roomId)
+router.get('/:roomId', rejectUnauthenticated, (req, res) => {
+    let roomId = req.params.roomId
+    console.log('----------> use this room id to get data:',roomId)
     queryString = `SELECT * FROM boxes WHERE room_id = $1;`;
     pool.query(queryString, [roomId])
         .then(result => {
@@ -62,13 +62,16 @@ router.post('/firstbox/:id', (req, res) => {
     // res.sendStatus(201);
 });
 
-router.delete('/:roomName/:id', (req, res) => {
-    let boxId = req.params.boxId;// We are using a request parameter (req.params) to identify
+router.delete('/:id', (req, res) => {
+    // let boxId = req.params.boxId;
+    let boxId = req.params.id;
+
+    // We are using a request parameter (req.params) to identify
     // the specific picture. We expect this will be an id from the database.
-    let roomId = req.params.roomId
+    // let roomId = req.params.roomId
     console.log('Delete request for this id: ', boxId);
-    let sqlText = `DELETE FROM boxes WHERE id = $1 AND room_id = $2`;
-    pool.query(sqlText, [boxId,roomId])
+    let sqlText = `DELETE FROM boxes WHERE id = $1`;
+    pool.query(sqlText, [boxId])
         .then(result => {
             console.log('in DELETE router')
             res.sendStatus(200);
@@ -76,7 +79,7 @@ router.delete('/:roomName/:id', (req, res) => {
             console.log('Error in DELETE route', err);
             res.sendStatus(500);
         })
-    // res.sendStatus(200);
+    res.sendStatus(200);
 })
 
 

@@ -5,26 +5,41 @@ import './Item.css'
 class Item extends Component {
 
     state = {
-        item:this.props.item.item,
+        item: this.props.item.item,
         itemIsEditable: false
     }
 
+    // componentDidMount(){
+    //     const { dispatch, match } = this.props;
+    //     dispatch({
+    //         type: 'FETCH_ITEMS',
+    //         payload: {
+    //             id: match.params.id,
+    //             roomId: match.params.roomId,
+
+    //         }
+    //     });
+    // }
+
     handleDeleteItem = () => {
         console.log('delete clicked');
-        this.props.dispatch({
+        const { dispatch, match } = this.props;
+        dispatch({
             type: 'DELETE_ITEM',
             payload: {
                 itemId: this.props.item.id,
-                boxId: this.props.item.box_id
+                boxId: this.props.item.box_id,
+                // roomId: match.params.roomId,
+
             }
         })
     }
 
     handleChangeFor = (event) => {
         this.setState({
-          item: event.target.value,
+            item: event.target.value,
         })
-      }
+    }
 
     editItem = () => {
         this.setState({
@@ -33,33 +48,33 @@ class Item extends Component {
     }
     saveItem = () => {
         this.setState({
-          itemIsEditable: false,
+            itemIsEditable: false,
         });
         this.props.dispatch({
             type: 'UPDATE_ITEM',
             payload: {
                 itemId: this.props.item.id,
                 item: this.state.item,
-                boxId: this.props.item.box_id
+                boxId: this.props.item.box_id,
             }
         })
-      }
+    }
 
     render() {
         return (
-            <div className = "item_detail">
+            <div className="item_detail">
                 {this.state.itemIsEditable ?
                     <>
-                        <p><input 
-                        value = {this.state.item}
-                        onChange={this.handleChangeFor} 
-                        className = "input_item"
+                        <p><input
+                            value={this.state.item}
+                            onChange={this.handleChangeFor}
+                            className="input_item"
                         /></p>
                         <button onClick={this.saveItem}>Save Item</button>
                     </>
                     :
                     <>
-                        <p className = "input_item">{this.state.item}</p>
+                        <p className="input_item">{this.state.item}</p>
                         <button onClick={this.editItem}>Edit Username</button>
                     </>
                 }

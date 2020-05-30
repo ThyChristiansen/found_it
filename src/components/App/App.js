@@ -133,7 +133,7 @@ class App extends Component {
               component={AddBoxForm}
             />
             <ProtectedRoute
-              path="/item/:id"
+              path="/item/:roomId"
               component={Item}
             />
             {/* <ProtectedRoute

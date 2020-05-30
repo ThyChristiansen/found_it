@@ -9,14 +9,14 @@ router.get('/:roomId/:id', (req, res) => {
     let boxId = req.params.id
     let roomId = req.params.roomId;
 
-    // console.log(' boxId:',req.params.id);
+    console.log('-------------->from get item, boxId:',boxId, roomId);
     let queryText = `SELECT * FROM items WHERE box_id = $1 AND room_id = $2 ORDER BY id DESC`;
     pool.query(queryText, [boxId,roomId])
         .then((result) => {
             // console.log('get this row from table items:',result.rows )
             res.send(result.rows)
         }).catch((error) => {
-            console.log(error);
+            console.log('Error in GET items:',error);
         })
 })
 

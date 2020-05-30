@@ -28,7 +28,4 @@ function* fetchBox(action) {
   }
 }
 
-
-
-
 export default boxSaga;

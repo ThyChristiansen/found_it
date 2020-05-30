@@ -7,13 +7,15 @@ function* deleteBoxSaga() {
 
 function* deleteBox(action) {
   try {
+    let boxId = action.payload.boxId
     let roomId = action.payload.roomId
+
     // console.log('--->qr_code for thid box:', action.payload.boxId)
-    yield axios.delete(`/api/box/${roomId}/${action.payload.boxId}`);
-    console.log('--->qr_code for thid box:', action.payload)
+    yield axios.delete(`/api/box/${boxId}`);
+    console.log('--->qr_code for this box:', action.payload.boxId)
     yield put({
       type: 'FETCH_BOX',
-      payload: {id : roomId}
+      payload: {roomId : roomId}
     });
 
   } catch (error) {

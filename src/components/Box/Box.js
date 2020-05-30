@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 class Box extends Component {
 
     componentDidMount() {
-  
     }
 
     handleDeleteBox = () => {
@@ -19,6 +18,7 @@ class Box extends Component {
                 roomId: this.props.box.room_id
             }
         })
+        console.log('------>from delete box client, room id:',this.props.box.room_id )
 
     }
     render() {
