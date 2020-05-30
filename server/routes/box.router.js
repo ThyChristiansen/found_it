@@ -8,7 +8,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //GET boxes route
 router.get('/:roomId', rejectUnauthenticated, (req, res) => {
     let roomId = req.params.roomId
-    console.log('----------> use this room id to get data:',roomId)
+    // console.log('----------> use this room id to get data:',roomId)
     queryString = `SELECT * FROM boxes WHERE room_id = $1;`;
     pool.query(queryString, [roomId])
         .then(result => {
@@ -24,7 +24,7 @@ router.get('/:roomId', rejectUnauthenticated, (req, res) => {
 router.get('/:roomId/:id', (req, res) => {
     let boxId = req.params.id;
     let roomId = req.params.roomId;
-    console.log(' room id:',roomId);
+    // console.log(' room id:',roomId);
 
     let queryText = `SELECT * FROM boxes WHERE id = $1 AND room_id= $2`;
     pool.query(queryText, [boxId, roomId])
@@ -69,7 +69,7 @@ router.delete('/:id', (req, res) => {
     // We are using a request parameter (req.params) to identify
     // the specific picture. We expect this will be an id from the database.
     // let roomId = req.params.roomId
-    console.log('Delete request for this id: ', boxId);
+    // console.log('Delete request for this id: ', boxId);
     let sqlText = `DELETE FROM boxes WHERE id = $1`;
     pool.query(sqlText, [boxId])
         .then(result => {

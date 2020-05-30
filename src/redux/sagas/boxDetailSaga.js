@@ -10,15 +10,15 @@ function* fetchDetail(action) {
     let id = action.payload.id
     let roomId = action.payload.roomId
 
-    console.log('-----------> room id:', roomId)
+    // console.log('-----------> room id:', roomId)
     try {
         const config = {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
           };
         const response = yield axios.get(`/api/box/${roomId}/${id}`, config);
-        console.log('--------in getDetail', response.data);
-        console.log('-----------> room id:', roomId)
+        // console.log('--------in getDetail', response.data);
+        // console.log('-----------> room id:', roomId)
 
         yield put({
             type: 'SET_DETAIL', // set action type = SET_DETAIL

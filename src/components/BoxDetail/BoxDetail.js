@@ -45,16 +45,16 @@ class BoxDetail extends Component {
             item: event.target.value,
         });
     }
-    handleSubmit = ()=>{
-        if(this.state.item === ''){
+    handleSubmit = () => {
+        if (this.state.item === '') {
             alert('Add items to your list before click button')
-        }else{
+        } else {
             this.handleAddNewItem();
             this.handleClearInput();
         }
     }
 
-    handleClearInput = () =>{
+    handleClearInput = () => {
         this.setState({
             item: '',
         });
@@ -75,24 +75,65 @@ class BoxDetail extends Component {
     //handle delete item
     sendRoomIdToItem = (roomId) => {
         const { match } = this.props;
-            return match.params.roomId
+        return match.params.roomId
     }
     render() {
 
-        
+
         return (
-            <div className= "box_detail">
+            <div className="box_detail">
 
                 <button onClick={this.backClick}
-                className = "back_btn">Back to list</button>
-                {/* mapping through the box list array that get from database to display in DOM */}
+                    className="back_btn">Back to list</button>
+                {/* mapping through the box list array to get room_id from database to display in DOM */}
+                {/* box's name condition for each room */}
                 {this.props.reduxState.detail.map((box) => {
-                    return (
-                        <div key={box.id}>
-                            <p className = "box_name">Box A{box.box_name}</p>
+                    let boxName;
+                    if (box.room_id === 1) {
+                        boxName = <div key={box.id}>
+                            <p className="box_name">Box A{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
+
+                    } else if (box.room_id === 2) {
+                        boxName = <div key={box.id}>
+                        <p className="box_name">Box B{box.box_name}</p>
+                        <DownloadQRCode
+                            box={box} />
+                    </div>
+                    }
+                    else if (box.room_id === 3) {
+                        boxName = <div key={box.id}>
+                        <p className="box_name">Box C{box.box_name}</p>
+                        <DownloadQRCode
+                            box={box} />
+                    </div>
+                    }
+                    else if (box.room_id === 4) {
+                        boxName = <div key={box.id}>
+                        <p className="box_name">Box D{box.box_name}</p>
+                        <DownloadQRCode
+                            box={box} />
+                    </div>
+                    }
+                    else if (box.room_id === 5) {
+                        boxName = <div key={box.id}>
+                        <p className="box_name">Box E{box.box_name}</p>
+                        <DownloadQRCode
+                            box={box} />
+                    </div>
+                    }
+                    else if (box.room_id === 6) {
+                        boxName = <div key={box.id}>
+                        <p className="box_name">Box F{box.box_name}</p>
+                        <DownloadQRCode
+                            box={box} />
+                    </div>
+                    }
+
+                    return (
+                        boxName
                     )
                 })}
                 {/* add new item field */}
@@ -100,21 +141,21 @@ class BoxDetail extends Component {
                 <input
                     type="text"
                     placeholder='Add item...'
-                    value = {this.state.item}
+                    value={this.state.item}
                     onChange={this.handleInputChangeFor}
                     width="80%"
                 />
                 <button onClick={this.handleSubmit}>Add</button>
-                                
-                <div className ="list_item" >
+
+                <div className="list_item" >
                     {this.props.reduxState.item.map((item) => {
                         return (
                             <div key={item.id}
-                            className ="item"
+                                className="item"
                             >
-                                <Item item={item} 
-                                boxId = {item.box_id}
-                                roomId = {this.sendRoomIdToItem}
+                                <Item item={item}
+                                    boxId={item.box_id}
+                                    roomId={this.sendRoomIdToItem}
                                 />
                             </div>
                         )
