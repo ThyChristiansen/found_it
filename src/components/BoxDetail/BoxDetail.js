@@ -35,8 +35,9 @@ class BoxDetail extends Component {
     }
     //handle come back list box page
     backClick = () => {
+        const { match } = this.props;
         console.log('back clicked');
-        // this.props.history.push('/boxes/:id')
+        this.props.history.push(`/boxes/${match.params.roomId}`)
     }
     //handle changing for add new item input field
     handleInputChangeFor = (event) => {
