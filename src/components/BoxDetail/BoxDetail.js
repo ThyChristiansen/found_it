@@ -33,6 +33,7 @@ class BoxDetail extends Component {
 
             }
         });
+        // console.log
     }
     //handle come back list box page
     backClick = () => {
@@ -74,7 +75,11 @@ class BoxDetail extends Component {
             }
         })
     }
-
+    //handle delete item
+    sendRoomIdToItem = (roomId) => {
+        const { dispatch, match } = this.props;
+            return match.params.roomId
+    }
     render() {
 
         
@@ -110,9 +115,9 @@ class BoxDetail extends Component {
                             <div key={item.id}
                             className ="item"
                             >
-
                                 <Item item={item} 
                                 boxId = {item.box_id}
+                                roomId = {this.sendRoomIdToItem}
                                 />
                             </div>
                         )

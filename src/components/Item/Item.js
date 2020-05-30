@@ -9,28 +9,31 @@ class Item extends Component {
         itemIsEditable: false
     }
 
-    // componentDidMount(){
-    //     const { dispatch, match } = this.props;
-    //     dispatch({
-    //         type: 'FETCH_ITEMS',
-    //         payload: {
-    //             id: match.params.id,
-    //             roomId: match.params.roomId,
+    componentDidMount() {
+        //     const { dispatch, match } = this.props;
+        //     dispatch({
+        //         type: 'FETCH_ITEMS',
+        //         payload: {
+        //             id: match.params.id,
+        //             roomId: match.params.roomId,
 
-    //         }
-    //     });
-    // }
+        //         }
+        //     });
+        // this.props.handleDeleteItem();
+    }
 
-    handleDeleteItem = () => {
+    handleDelete = () => {
         console.log('delete clicked');
-        const { dispatch, match } = this.props;
-        dispatch({
+        console.log('delelete this item bt this this id:', this.props.item.id)
+        // this.props.handleDeleteItem(this.props.item.id);
+
+        //     const { dispatch, match } = this.props;
+        this.props.dispatch({
             type: 'DELETE_ITEM',
             payload: {
                 itemId: this.props.item.id,
-                boxId: this.props.item.box_id,
-                // roomId: match.params.roomId,
-
+                id: this.props.item.box_id,
+                roomId: this.props.roomId(this.props.item.id),
             }
         })
     }
@@ -79,7 +82,7 @@ class Item extends Component {
                     </>
                 }
                 {/* <p>{this.props.item.item}</p><button>Edit</button> */}
-                <button onClick={this.handleDeleteItem}>Delete</button>
+                <button onClick={this.handleDelete}>Delete</button>
                 {/* <h1>{JSON.stringify(this.props.item.box_id)}</h1> */}
             </div>
         )

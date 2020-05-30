@@ -12,6 +12,18 @@ class SearchingBar extends Component {
         this.setState({
             searchItem: event.target.value
         });// end setState   
+        this.props.dispatch({
+            type: 'SEARCH_ITEM',
+            payload: {
+                searchItem: this.state.searchItem,
+            }
+        })
+        // this.props.dispatch({
+        //     type: 'SEARCH_EMPTY',
+        //     payload: {
+        //         searchItem: this.state.searchItem,
+        //     }
+        // })
     }
 
     handleSearching = () => {
@@ -19,12 +31,18 @@ class SearchingBar extends Component {
         console.log('add new item clicked!');
         console.log('send this value to Saga',this.state.searchItem );
 
-        this.props.dispatch({
-            type: 'SEARCH_ITEM',
-            payload: {
-                searchItem: this.state.searchItem,
-            }
-        })
+        // this.props.dispatch({
+        //     type: 'SEARCH_ITEM',
+        //     payload: {
+        //         searchItem: this.state.searchItem,
+        //     }
+        // })
+        // this.props.dispatch({
+        //     type: 'SEARCH_EMPTY',
+        //     payload: {
+        //         searchItem: '',
+        //     }
+        // })
     }
 
     render() {
@@ -33,6 +51,7 @@ class SearchingBar extends Component {
              <input 
              type= "text"
              placeholder="Find item..."
+             value = {this.state.searchItem}
              onChange={this.handleChangeFor}
              />
              <button onClick = {this.handleSearching}>search</button>

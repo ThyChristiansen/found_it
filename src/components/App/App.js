@@ -126,8 +126,9 @@ class App extends Component {
               component={AddBoxForm}
             />
             <ProtectedRoute
-              path="/item/:roomId"
-              component={Item}
+              path="/item/:id"
+              render={(props) => <Item {...props} />}
+              // component={Item}
             />
           
 
