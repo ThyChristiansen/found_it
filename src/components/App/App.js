@@ -136,30 +136,7 @@ class App extends Component {
               path="/item/:roomId"
               component={Item}
             />
-            {/* <ProtectedRoute
-              path="/storge"
-              component={Storge}
-            />
-            <ProtectedRoute
-              path="/basement"
-              component={Basement}
-            />
-            <ProtectedRoute
-              path="/garage"
-              component={Garage}
-            />
-            <ProtectedRoute
-              path="/livingroom"
-              component={Livingroom}
-            />
-            <ProtectedRoute
-              path="/kitchen"
-              component={Kitchen}
-            />
-            <ProtectedRoute
-              path="/bedroom"
-              component={Bedroom}
-            /> */}
+          
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
