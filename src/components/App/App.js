@@ -109,7 +109,7 @@ class App extends Component {
               component={Reader}
             />
             <ProtectedRoute
-              path="/boxes/:room/:id"
+              path="/boxes/:id"
               component={BoxList}
             />
              <ProtectedRoute

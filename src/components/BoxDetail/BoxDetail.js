@@ -77,6 +77,21 @@ class BoxDetail extends Component {
         const { match } = this.props;
         return match.params.roomId
     }
+
+    handleDeleteBox = () => {
+        console.log('delete clicked');
+        const { dispatch, match } = this.props;
+        this.props.dispatch({
+            type: 'DELETE_BOX',
+            payload: {
+                boxId: match.params.id,
+                roomId: match.params.roomId,
+            }
+        })
+        this.props.history.push(`/boxes/${match.params.roomId}`)
+    }
+
+
     render() {
 
 
@@ -98,38 +113,38 @@ class BoxDetail extends Component {
 
                     } else if (box.room_id === 2) {
                         boxName = <div key={box.id}>
-                        <p className="box_name">Box B{box.box_name}</p>
-                        <DownloadQRCode
-                            box={box} />
-                    </div>
+                            <p className="box_name">Box B{box.box_name}</p>
+                            <DownloadQRCode
+                                box={box} />
+                        </div>
                     }
                     else if (box.room_id === 3) {
                         boxName = <div key={box.id}>
-                        <p className="box_name">Box C{box.box_name}</p>
-                        <DownloadQRCode
-                            box={box} />
-                    </div>
+                            <p className="box_name">Box C{box.box_name}</p>
+                            <DownloadQRCode
+                                box={box} />
+                        </div>
                     }
                     else if (box.room_id === 4) {
                         boxName = <div key={box.id}>
-                        <p className="box_name">Box D{box.box_name}</p>
-                        <DownloadQRCode
-                            box={box} />
-                    </div>
+                            <p className="box_name">Box D{box.box_name}</p>
+                            <DownloadQRCode
+                                box={box} />
+                        </div>
                     }
                     else if (box.room_id === 5) {
                         boxName = <div key={box.id}>
-                        <p className="box_name">Box E{box.box_name}</p>
-                        <DownloadQRCode
-                            box={box} />
-                    </div>
+                            <p className="box_name">Box E{box.box_name}</p>
+                            <DownloadQRCode
+                                box={box} />
+                        </div>
                     }
                     else if (box.room_id === 6) {
                         boxName = <div key={box.id}>
-                        <p className="box_name">Box F{box.box_name}</p>
-                        <DownloadQRCode
-                            box={box} />
-                    </div>
+                            <p className="box_name">Box F{box.box_name}</p>
+                            <DownloadQRCode
+                                box={box} />
+                        </div>
                     }
                     return (
                         boxName
@@ -162,6 +177,8 @@ class BoxDetail extends Component {
                     })}
                     {/* <h1>{JSON.stringify(this.props.reduxState.item[0])}</h1> */}
                 </div>
+                <button onClick={this.handleDeleteBox}>Delete</button>
+
             </div>
         )
     }

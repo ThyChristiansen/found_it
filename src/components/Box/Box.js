@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { HashRouter,Route, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
+import BoxDetail from '../BoxDetail/BoxDetail';
 
 
 
@@ -9,18 +10,6 @@ class Box extends Component {
     componentDidMount() {
     }
 
-    handleDeleteBox = () => {
-        console.log('delete clicked');
-        this.props.dispatch({
-            type: 'DELETE_BOX',
-            payload: {
-                boxId: this.props.box.id,
-                roomId: this.props.box.room_id
-            }
-        })
-        console.log('------>from delete box client, room id:', this.props.box.room_id)
-
-    }
     render() {
         // box's name condition for each room 
         let boxName;
@@ -57,7 +46,6 @@ class Box extends Component {
                         height="60"
                     />
                 </Link>
-                <button onClick={this.handleDeleteBox}>Delete Box</button>
                 <p>{boxName}</p>
             </div>
         )
