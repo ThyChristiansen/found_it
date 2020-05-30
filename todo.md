@@ -7,7 +7,7 @@
 ### QR code
 [x] Reader 
 [x] Feature download QR code
-    [] Create Download QR code component
+    [x] Create Download QR code component
     
 
 ### Boxes 
@@ -59,5 +59,5 @@
     [x] Set up input field, handle change for input field, etc...
 [x] Create Search Router
 [x] Create searchSaga and searchItemReducer
-[] Send the GET request to database to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+[x] Send the GET request to database to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 

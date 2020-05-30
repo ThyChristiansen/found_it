@@ -82,7 +82,7 @@ class BoxDetail extends Component {
     handleDeleteBox = () => {
         console.log('delete clicked');
         const { dispatch, match } = this.props;
-        this.props.dispatch({
+        dispatch({
             type: 'DELETE_BOX',
             payload: {
                 boxId: match.params.id,
@@ -94,13 +94,11 @@ class BoxDetail extends Component {
 
 
     render() {
-
-
         return (
             <div className="box_detail">
 
                 <button onClick={this.backClick}
-                    className="back_btn">Back to list</button>
+                    className="back_btn">Back to box list</button>
                 {/* mapping through the box list array to get room_id from database to display in DOM */}
                 {/* box's name condition for each room */}
                 {this.props.reduxState.detail.map((box) => {
