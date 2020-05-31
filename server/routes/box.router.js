@@ -9,7 +9,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:roomId', rejectUnauthenticated, (req, res) => {
     let roomId = req.params.roomId
     // console.log('----------> use this room id to get data:',roomId)
-    queryString = `SELECT * FROM boxes WHERE room_id = $1;`;
+    queryString = `SELECT room_name,room_id, box_name, qr_code FROM boxes 
+    JOIN rooms ON rooms.id = boxes.room_id WHERE room_id = $1;`;
     pool.query(queryString, [roomId])
         .then(result => {
             // console.log('Get this info from database', result.rows);
