@@ -1,19 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import Home from '../UserPage/HomePage';
-
+import HomePage from '../UserPage/HomePage';
+import CreateRoomList from '../UserPage/CreateRoomList';
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
     <h1 id="welcome">
-      {props.user.username}'s house
+      Welcome {props.user.username}!!!
     </h1>
-    <Home />
-    
-    <LogOutButton className="log-in" />
+    <CreateRoomList userId={props.user.id} />
+
+    {/* <Route path='/homepage'
+      render={(props) => <HomePage {...props}
+        userId={props.user.id}
+      />}
+    /> */}
+    <HomePage userId={props.user.id} />
+    {/* <LogOutButton className="log-in" /> */}
   </div>
 );
 
@@ -24,6 +30,7 @@ const UserPage = (props) => (
 // const mapStateToProps = ({user}) => ({ user });
 const mapStateToProps = state => ({
   user: state.user,
+  id: state.id
 });
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);

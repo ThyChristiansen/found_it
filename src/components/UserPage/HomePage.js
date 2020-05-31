@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RoomList from '../Room/Room';
+import Room from '../Room/Room';
 
 
-class Home extends Component {
-    componentDidMount() {
-        this.props.dispatch({
-            type: "FETCH_ROOM"
-        })
-    }
+class HomePage extends Component {
+    // componentDidMount() {
+    //     this.props.dispatch({
+    //         type: "FETCH_ROOM",
+    //         payload: {
+    //             userId: this.props.userId
+    //         }
+    //     })
+    // }
     render() {
         return (
             <div>
@@ -16,16 +19,18 @@ class Home extends Component {
                 {this.props.reduxState.rooms.map((room) => {
                     return (
                         <div key={room.id} className="room">
-                            <RoomList
+                            <Room
                             roomData={room}
                             />
                         </div>
                     )
                 })}
+
+               {/* <h3>user id: {JSON.stringify(this.props)}</h3>  */}
             </div>
         )
     }
 }
 
 const putReduxStateToProps = (reduxState) => ({ reduxState });
-export default connect(putReduxStateToProps)(Home);
+export default connect(putReduxStateToProps)(HomePage);
