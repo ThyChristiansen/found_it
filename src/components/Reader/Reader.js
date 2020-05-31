@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
 
 
 import QrReader from 'react-qr-reader'
@@ -28,7 +27,7 @@ class Reader extends Component {
           onScan={this.handleScan}
           style={{ width: '100%' }}
         />
-        <a href = {this.state.result}>{this.state.result}</a>
+        <a href = {this.state.result} target="_blank">{this.state.result}</a>
 
       </div>
     )
