@@ -28,12 +28,10 @@ class BoxDetail extends Component {
             payload: {
                 id: match.params.id,
                 roomId: match.params.roomId,
-
             }
         });
         console.log('--------->this is box id:', match.params.id)
         console.log('--------->this is room id:', match.params.roomId)
-
     }
 
     //handle come back list box page
@@ -99,7 +97,6 @@ class BoxDetail extends Component {
     render() {
         return (
             <div className="box_detail">
-
                 <button onClick={this.backClick}
                     className="back_btn">Back to box list</button>
                 {/* mapping through the box list array to get room_id from database to display in DOM */}

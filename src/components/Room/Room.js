@@ -30,8 +30,6 @@ class RoomList extends Component {
                     ></img>
                 </Link>
                 <p className="room_name">{this.props.roomData.room_name}</p>
-
-                {/* <p>{JSON.stringify(this.props.reduxState.boxes.id)}</p> */}
             </div >
         )
     }

@@ -9,9 +9,6 @@ class Item extends Component {
         itemIsEditable: false
     }
 
-    componentDidMount() {
-    }
-
     handleDelete = () => {
         console.log('delete clicked');
         console.log('delelete this item by this id:', this.props.item.id)
@@ -69,7 +66,6 @@ class Item extends Component {
                     </>
                 }
                 <button onClick={this.handleDelete}>Delete</button>
-                {/* <h1>{JSON.stringify(this.props.item.box_id)}</h1> */}
             </div>
         )
     }

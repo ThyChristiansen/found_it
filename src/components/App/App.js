@@ -124,11 +124,8 @@ class App extends Component {
             />
             <ProtectedRoute
               path="/item/:id"
-              // render={(props) => <Item {...props} />}
               component={Item}
             />
-          
-
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
