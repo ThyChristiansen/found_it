@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
+import { Link} from 'react-router-dom';
 
 
 class BoxList extends Component {
@@ -87,9 +88,9 @@ class BoxList extends Component {
                 {this.props.reduxState.boxes.map((box) => {
                     return (
                         <div key={box.id} className="box_item">
-                            <button> <Box
+                           <Box
                                 box={box}
-                            /></button>
+                            />
                         </div>
                     )
                 })}

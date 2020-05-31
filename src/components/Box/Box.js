@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { HashRouter,Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import BoxDetail from '../BoxDetail/BoxDetail';
 
 
 
