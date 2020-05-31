@@ -14,6 +14,7 @@ import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
 import SearchingBar from '../SearchBar/SearchBar';
 import HomePage from '../UserPage/HomePage';
+import CreateRoomList from '../UserPage/CreateRoomList';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -66,11 +67,10 @@ class App extends Component {
 
     const { classes } = this.props;
 
-
     return (
       <HashRouter>
         <div className="nav-bar">
-          <Link to="/homepage">
+          <Link to="/home">
             <h1 className="nav-title" >Found it</h1>
           </Link><br />
           <SearchingBar />
@@ -104,11 +104,10 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
-             <ProtectedRoute
-              exact
+             {/* <ProtectedRoute
               path="/homepage"
               component={HomePage}
-            />
+            /> */}
 
             <ProtectedRoute
               path="/scanner"

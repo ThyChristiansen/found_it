@@ -5,17 +5,20 @@ import Room from '../Room/Room';
 
 class HomePage extends Component {
     // componentDidMount() {
-    //     this.props.dispatch({
+    //     // const { dispatch, match } = this.props;
+    //     dispatch({
     //         type: "FETCH_ROOM",
     //         payload: {
-    //             userId: this.props.userId
+    //             userId: match.params.id,
     //         }
     //     })
+    //     console.log('user id:',match.params.id)
     // }
+
     render() {
         return (
             <div>
-                {/* <h1>{JSON.stringify(this.props.reduxState.rooms)}</h1> */}
+                {/* <h1>nv {JSON.stringify(this.props)}</h1> */}
                 {this.props.reduxState.rooms.map((room) => {
                     return (
                         <div key={room.id} className="room">

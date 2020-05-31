@@ -46,6 +46,11 @@ class BoxList extends Component {
         })
     }
 
+    handleBackToRoomList = ()=>{
+        console.log('BacktoRoomList clicked');
+        this.props.history.push('/home');
+    }
+
     render() {
 
         //Create the conditional for add new box, if the box list is empty,
@@ -64,6 +69,7 @@ class BoxList extends Component {
 
         return (
             <div>
+                <button onClick= {this.handleBackToRoomList}>Back to room list</button>
                 {/* Display room's name */}
                 {this.props.reduxState.roomName.map((room, index) => {
                     if (index === 0) {

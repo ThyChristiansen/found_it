@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import HomePage from '../UserPage/HomePage';
+// import LogOutButton from '../LogOutButton/LogOutButton';
 import CreateRoomList from '../UserPage/CreateRoomList';
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
-    <h1 id="welcome">
-      Welcome {props.user.username}!!!
-    </h1>
-    <CreateRoomList userId={props.user.id} />
-
-    {/* <Route path='/homepage'
-      render={(props) => <HomePage {...props}
-        userId={props.user.id}
-      />}
-    /> */}
-    <HomePage userId={props.user.id} />
-    {/* <LogOutButton className="log-in" /> */}
+    <CreateRoomList
+    username =  {props.user.username}
+    userId={props.user.id} />
   </div>
 );
 
