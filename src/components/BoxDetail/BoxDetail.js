@@ -174,7 +174,7 @@ class BoxDetail extends Component {
                             </div>
                         )
                     })}
-                    {/* <h1>{JSON.stringify(this.props.reduxState.item[0])}</h1> */}
+                    {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
                 </div>
                 <button onClick={this.handleDeleteBox}>Delete</button>
 

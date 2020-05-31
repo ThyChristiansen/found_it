@@ -64,7 +64,7 @@ class BoxList extends Component {
 
         return (
             <div>
-                {/* Display box's name */}
+                {/* Display room's name */}
                 {this.props.reduxState.roomName.map((room, index) => {
                     if (index === 0) {
                         return (
