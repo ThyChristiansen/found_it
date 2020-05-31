@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 class RoomList extends Component {
 
-  
+
     handleOnClick = () => {
         console.log('room clicked!')
     }
