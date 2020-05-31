@@ -36,7 +36,7 @@ class Box extends Component {
 
         return (
             <div>
-                {/* <p>{JSON.stringify(this.props.boxdata.box_name)}</p> */}
+                {/* <p>{JSON.stringify(this.props.box.id)}</p> */}
                 <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
                     <img
                         src="images/box_icon.png"

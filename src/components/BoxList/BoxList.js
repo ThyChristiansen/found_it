@@ -85,7 +85,7 @@ class BoxList extends Component {
                         </div>
                     )
                 })}
-                {/* <h1>{JSON.stringify(this.props.reduxState.roomName[0])}</h1> */}
+                {/* <h1>{JSON.stringify(this.props.reduxState.boxes)}</h1> */}
             </div>
         )
     }

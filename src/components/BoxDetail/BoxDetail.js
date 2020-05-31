@@ -20,7 +20,6 @@ class BoxDetail extends Component {
             payload: {
                 id: match.params.id,
                 roomId: match.params.roomId,
-
             }
         });
         //send this dispatch to get items of the box that user choosed
@@ -32,7 +31,11 @@ class BoxDetail extends Component {
 
             }
         });
+        console.log('--------->this is box id:', match.params.id)
+        console.log('--------->this is room id:', match.params.roomId)
+
     }
+
     //handle come back list box page
     backClick = () => {
         const { match } = this.props;
@@ -103,42 +106,42 @@ class BoxDetail extends Component {
                 {/* box's name condition for each room */}
                 {this.props.reduxState.detail.map((box) => {
                     let boxName;
-                    if (box.room_id === 1) {
+                    if (box.room_name === 'Storge') {
                         boxName = <div key={box.id}>
                             <p className="box_name">Box A{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
 
-                    } else if (box.room_id === 2) {
+                    } else if (box.room_name === 'Basement') {
                         boxName = <div key={box.id}>
                             <p className="box_name">Box B{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
                     }
-                    else if (box.room_id === 3) {
+                    else if (box.room_name === 'Garage') {
                         boxName = <div key={box.id}>
                             <p className="box_name">Box C{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
                     }
-                    else if (box.room_id === 4) {
+                    else if (box.room_name === 'Livingroom') {
                         boxName = <div key={box.id}>
                             <p className="box_name">Box D{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
                     }
-                    else if (box.room_id === 5) {
+                    else if (box.room_name === 'Bedroom') {
                         boxName = <div key={box.id}>
                             <p className="box_name">Box E{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
                     }
-                    else if (box.room_id === 6) {
+                    else if (box.room_name === 'Kitchen') {
                         boxName = <div key={box.id}>
                             <p className="box_name">Box F{box.box_name}</p>
                             <DownloadQRCode
