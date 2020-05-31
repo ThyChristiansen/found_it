@@ -4,16 +4,6 @@ import Room from '../Room/Room';
 
 
 class HomePage extends Component {
-    // componentDidMount() {
-    //     // const { dispatch, match } = this.props;
-    //     dispatch({
-    //         type: "FETCH_ROOM",
-    //         payload: {
-    //             userId: match.params.id,
-    //         }
-    //     })
-    //     console.log('user id:',match.params.id)
-    // }
 
     render() {
         return (

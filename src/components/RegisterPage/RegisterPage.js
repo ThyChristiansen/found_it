@@ -6,6 +6,7 @@ class RegisterPage extends Component {
     username: '',
     password: '',
     email:'',
+    houseName:''
   };
 
   registerUser = (event) => {
@@ -18,7 +19,7 @@ class RegisterPage extends Component {
           username: this.state.username,
           password: this.state.password,
           email: this.state.email,
-
+          houseName:this.state.houseName
         },
       });
     } else {
@@ -46,6 +47,8 @@ class RegisterPage extends Component {
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
           <div>
+          
+             
             <label htmlFor="username">
               <input
                 type="text"
@@ -75,6 +78,15 @@ class RegisterPage extends Component {
                 placeholder="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
+              />
+            </label>
+            <label htmlFor="housename">
+              <input
+                type="text"
+                name="name for your house"
+                placeholder="Name for your house"
+                value={this.state.houseName}
+                onChange={this.handleInputChangeFor('houseName')}
               />
             </label>
           </div>

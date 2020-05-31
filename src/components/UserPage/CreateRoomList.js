@@ -30,7 +30,7 @@ class CreateRoomList extends Component {
         })
         this.setState({
             button: !this.state.button,
-            welcome: false
+            welcome: !this.state.welcome
         })
     }
 
@@ -38,11 +38,11 @@ class CreateRoomList extends Component {
 
         let button;
         let welcome;
-        if (this.state.button) {
+        if (this.state.button&& this.props.reduxState.rooms.length === 0) {
             button = < button onClick={this.handleClick}> Create room list</button >
             welcome = <h1>Welcome {this.props.username}!!!!</h1>
         } else {
-            welcome = <h1>{this.props.username}'house</h1>
+            welcome = <h1>{this.props.houseName}'house</h1>
         }
 
         return (
