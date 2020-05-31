@@ -28,7 +28,7 @@ class Reader extends Component {
           onScan={this.handleScan}
           style={{ width: '100%' }}
         />
-        <Link>{this.state.result}</Link>
+        <a href = {this.state.result}>{this.state.result}</a>
 
       </div>
     )
