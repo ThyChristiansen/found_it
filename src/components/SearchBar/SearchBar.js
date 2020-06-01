@@ -8,7 +8,6 @@ class SearchingBar extends Component {
     }
 
     handleChangeFor = (event) => {
-        // console.log('in handleChangeFor:', event.target.value);
         this.setState({
             searchItem: event.target.value
         });// end setState   

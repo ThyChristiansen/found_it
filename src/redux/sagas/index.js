@@ -4,9 +4,7 @@ import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import boxSaga from './boxSaga';
 import detail from './boxDetailSaga';
-import addBoxSaga from './addBoxSaga';
 import deleteBoxSaga from './deleteBoxSaga';
-import addItemSaga from './addItemSaga';
 import itemSaga from './itemSaga';
 import deleteItemSaga from './deleteItemSaga';
 import updateItemSaga from './updateItemSaga';
@@ -30,9 +28,7 @@ export default function* rootSaga() {
     userSaga(),
     boxSaga(),
     detail(),
-    addBoxSaga(),
     deleteBoxSaga(),
-    addItemSaga(),
     itemSaga(),
     deleteItemSaga(),
     updateItemSaga(),
