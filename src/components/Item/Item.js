@@ -62,7 +62,7 @@ class Item extends Component {
                     :
                     <>
                         <span className="input_item">{this.state.item}</span>
-                        <button onClick={this.editItem}>Edit Username</button>
+                        <button onClick={this.editItem}>Edit Item</button>
                     </>
                 }
                 <button onClick={this.handleDelete}>Delete</button>
