@@ -13,8 +13,6 @@ import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
 import SearchingBar from '../SearchBar/SearchBar';
-import HomePage from '../UserPage/HomePage';
-import CreateRoomList from '../UserPage/CreateRoomList';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -55,8 +53,6 @@ class App extends Component {
       menu: !this.state.menu
     })
   }
-
-
 
   render() {
 
@@ -104,10 +100,6 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
-             {/* <ProtectedRoute
-              path="/homepage"
-              component={HomePage}
-            /> */}
 
             <ProtectedRoute
               path="/scanner"
@@ -132,8 +124,8 @@ class App extends Component {
             />
             <ProtectedRoute
               path="/item/:id"
-              render={(props) => <Item {...props} />}
-              // component={Item}
+              // render={(props) => <Item {...props} />}
+              component={Item}
             />
           
 

@@ -55,16 +55,16 @@ class Item extends Component {
             <div className="item_detail">
                 {this.state.itemIsEditable ?
                     <>
-                        <p><input
+                        <span><input
                             value={this.state.item}
                             onChange={this.handleChangeFor}
                             className="input_item"
-                        /></p>
+                        /></span>
                         <button onClick={this.saveItem}>Save Item</button>
                     </>
                     :
                     <>
-                        <p className="input_item">{this.state.item}</p>
+                        <span className="input_item">{this.state.item}</span>
                         <button onClick={this.editItem}>Edit Username</button>
                     </>
                 }

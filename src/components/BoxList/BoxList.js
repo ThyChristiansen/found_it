@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
+import { Link} from 'react-router-dom';
 
 
 class BoxList extends Component {
@@ -46,7 +47,7 @@ class BoxList extends Component {
         })
     }
 
-    handleBackToRoomList = ()=>{
+    handleBackToRoomList = () => {
         console.log('BacktoRoomList clicked');
         this.props.history.push('/home');
     }
@@ -69,25 +70,27 @@ class BoxList extends Component {
 
         return (
             <div>
-                <button onClick= {this.handleBackToRoomList}>Back to room list</button>
+                <button onClick={this.handleBackToRoomList}>Back to room list</button>
                 {/* Display room's name */}
                 {this.props.reduxState.roomName.map((room, index) => {
                     if (index === 0) {
                         return (
-                        <h1 className="box_list_header">{room.room_name}</h1>
+                            <h1 className="box_list_header"
+                            onClick = {this.handleBackToRoomList}
+                            >{room.room_name}</h1>
                         )
                     }
                 })}
                 {/* Display box number */}
                 <p className="box_list_header">Box number: {this.props.reduxState.boxes.length}</p>
-                
+
                 {addNewBox}
                 {this.props.reduxState.boxes.map((box) => {
                     return (
                         <div key={box.id} className="box_item">
-                            <button> <Box
+                           <Box
                                 box={box}
-                            /></button>
+                            />
                         </div>
                     )
                 })}
