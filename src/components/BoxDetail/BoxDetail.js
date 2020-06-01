@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import DownloadQRCode from '../DownloadQRCode/DownloadQRCode';
 import Item from '../Item/Item';
 import './BoxDetail.css';
+import SearchingBar from '../SearchBar/SearchBar';
 
 
 class BoxDetail extends Component {
@@ -97,6 +98,8 @@ class BoxDetail extends Component {
     render() {
         return (
             <div className="box_detail">
+                <SearchingBar />
+
                 <button onClick={this.backClick}
                     className="back_btn">Back to box list</button>
                 {/* mapping through the box list array to get room_id from database to display in DOM */}
@@ -157,7 +160,7 @@ class BoxDetail extends Component {
                 })}
 
                 {/* add new item field */}
-                <p>Add item to your list:</p>
+                <p>Add item to your box:</p>
                 <input
                     type="text"
                     placeholder='Add item...'

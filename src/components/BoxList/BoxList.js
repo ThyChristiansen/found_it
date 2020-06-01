@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
 import { Link} from 'react-router-dom';
+import SearchingBar from '../SearchBar/SearchBar';
 
 
 class BoxList extends Component {
@@ -70,6 +71,8 @@ class BoxList extends Component {
 
         return (
             <div>
+                    <SearchingBar />
+
                 <button onClick={this.handleBackToRoomList}>Back to room list</button>
                 {/* Display room's name */}
                 {this.props.reduxState.roomName.map((room, index) => {

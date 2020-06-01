@@ -54,7 +54,7 @@ class SearchingBar extends Component {
              value = {this.state.searchItem}
              onChange={this.handleChangeFor}
              />
-             <button onClick = {this.handleSearching}>search</button>
+             {/* <button onClick = {this.handleSearching}>search</button> */}
              {this.props.reduxState.searchItem.map((item) => {
                     return (
                         <div key={item.id}>
