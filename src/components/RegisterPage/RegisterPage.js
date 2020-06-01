@@ -6,7 +6,7 @@ class RegisterPage extends Component {
     username: '',
     password: '',
     email:'',
-    houseName:''
+    // houseName:''
   };
 
   registerUser = (event) => {
@@ -19,7 +19,7 @@ class RegisterPage extends Component {
           username: this.state.username,
           password: this.state.password,
           email: this.state.email,
-          houseName:this.state.houseName
+          // houseName:this.state.houseName
         },
       });
     } else {
@@ -80,7 +80,7 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
-            <label htmlFor="housename">
+             {/* <label htmlFor="housename">
               <input
                 type="text"
                 name="name for your house"
@@ -88,8 +88,8 @@ class RegisterPage extends Component {
                 value={this.state.houseName}
                 onChange={this.handleInputChangeFor('houseName')}
               />
-            </label>
-          </div>
+            </label> */}
+           </div> 
           <div>
             <input
               className="register"

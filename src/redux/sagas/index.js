@@ -13,6 +13,7 @@ import updateItemSaga from './updateItemSaga';
 import roomSaga from './roomSaga';
 import roomNameSaga from './roomNameSaga';
 import seachSaga from './seachSaga';
+import houseSaga from './houseSaga';
 
 
 // rootSaga is the primary saga.
@@ -37,6 +38,7 @@ export default function* rootSaga() {
     updateItemSaga(),
     roomSaga(),
     roomNameSaga(),
-    seachSaga()
+    seachSaga(),
+    houseSaga(),
   ]);
 }

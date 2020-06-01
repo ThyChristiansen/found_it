@@ -9,6 +9,7 @@ import item from './itemReducer';
 import rooms from './roomReducer';
 import roomName from './roomNameReducer';
 import searchItem from './searchItemReducer';
+import houseName from './houseNameReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   rooms,
   roomName,
   searchItem,
+  houseName,
 
 });
 

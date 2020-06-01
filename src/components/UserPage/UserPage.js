@@ -10,7 +10,6 @@ const UserPage = (props) => (
     <CreateRoomList
     username =  {props.user.username}
     userId={props.user.id}
-    houseName={props.user.house_name}
      />
   </div>
 );
@@ -23,7 +22,6 @@ const UserPage = (props) => (
 const mapStateToProps = state => ({
   user: state.user,
   id: state.id,
-  houseName: state.house_name
 });
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);
