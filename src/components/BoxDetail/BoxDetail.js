@@ -103,9 +103,9 @@ class BoxDetail extends Component {
                 {/* box's name condition for each room */}
                 {this.props.reduxState.detail.map((box) => {
                     let boxName;
-                    if (box.room_name === 'Storge') {
+                    if (box.room_name === 'Storage') {
                         boxName = <div key={box.id}>
-                            <h1>Storge</h1>
+                            <h1>Storage</h1>
                             <p className="box_name">Box A{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
