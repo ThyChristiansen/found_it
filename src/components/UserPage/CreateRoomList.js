@@ -23,11 +23,10 @@ class CreateRoomList extends Component {
         });
     }
     handleHouseNameChangeFor = (event) => {
-        // console.log('changing', event.target.value)
+        console.log('changing', event.target.value)
         this.setState({
             houseName: event.target.value
         })
-
     }
 
 
