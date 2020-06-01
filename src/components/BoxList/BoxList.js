@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SearchingBar from '../SearchBar/SearchBar';
 
 
@@ -10,6 +10,7 @@ class BoxList extends Component {
 
     componentDidMount() {
         // this.props.dispatch({ type: 'FETCH_BOX' })
+        //Send the FETCH_BOX action to Saga via dispatch to get box'list
         const { dispatch, match } = this.props;
         dispatch({
             type: 'FETCH_BOX',
@@ -17,6 +18,7 @@ class BoxList extends Component {
                 roomId: match.params.id,
             }
         });
+        //Send the FETCH_ROOM_NAME action to Saga via dispatch to get room's name
         dispatch({
             type: 'FETCH_ROOM_NAME',
             payload: {
@@ -25,7 +27,10 @@ class BoxList extends Component {
         })
 
     }
-
+    //handle click for add new box button. 
+    //When the user click on this button, this handle function will send the ADD_BOX action
+    // to Saga and performing add new box into the boxes table in database
+    //I also send the roomId in payload so that the user can add boxes to different room.
     handleOnClickAddNewBox = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
@@ -36,7 +41,8 @@ class BoxList extends Component {
             }
         })
     }
-
+    //if that room is have no box, this function will send the ADD_FIRST_BOX to Saga 
+    //to start the first box with its name is 1  
     handleOnClickAddFirstNewBox = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
@@ -47,7 +53,7 @@ class BoxList extends Component {
             }
         })
     }
-
+    //handle back to home button
     handleBackToRoomList = () => {
         console.log('BacktoRoomList clicked');
         this.props.history.push('/home');
@@ -71,27 +77,33 @@ class BoxList extends Component {
 
         return (
             <div>
-                    <SearchingBar />
+                <SearchingBar />
 
                 <button onClick={this.handleBackToRoomList}>Back to room list</button>
-                {/* Display room's name */}
+
+                {/* Display room's name ‰
+                Maping through the roomName array from reducer then return the room's name  */}
                 {this.props.reduxState.roomName.map((room, index) => {
-                    if (index === 0) {
-                        return (
-                            <h1 className="box_list_header"
-                            onClick = {this.handleBackToRoomList}
-                            >{room.room_name}</h1>
-                        )
-                    }
+                    // if (index === 0) {
+                    //     return (
+                    //         <h1 className="box_list_header"
+                    //             onClick={this.handleBackToRoomList}
+                    //         >{room.room_name}</h1>
+                    //     )
+                    // }
+                    return (<h1 className="box_list_header">{room.room_name} </h1>)
                 })}
-                {/* Display box number */}
+
+                {/* Display box quantity in the room */}
                 <p className="box_list_header">Box quantity: {this.props.reduxState.boxes.length}</p>
 
-                {addNewBox}
+                {addNewBox} 
+
+                {/* Mapping through tr boxes array that got from reducer and display boxes */}
                 {this.props.reduxState.boxes.map((box) => {
                     return (
                         <div key={box.id} className="box_item">
-                           <Box
+                            <Box
                                 box={box}
                             />
                         </div>

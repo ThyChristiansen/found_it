@@ -5,7 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 
-//GET rooms route
+//Send GET request to get room list
 router.get('/:userId', rejectUnauthenticated, (req, res) => {
     let userId = req.params.userId
     // console.log('user id', userId)

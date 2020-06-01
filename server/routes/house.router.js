@@ -4,7 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-////Send POST request to get house's name
+//Send POST request to get house's name
 router.get('/:userId', rejectUnauthenticated, (req, res) => {
     let userId = req.params.userId
     // console.log('user id', userId)

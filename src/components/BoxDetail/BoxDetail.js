@@ -14,7 +14,7 @@ class BoxDetail extends Component {
     }
 
     componentDidMount() {
-        //save data after refresh page by id
+        //Get box's data after refresh page by id
         const { dispatch, match } = this.props;
         dispatch({
             type: 'FETCH_DETAIL',
@@ -23,7 +23,7 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         });
-        //send this dispatch to get items of the box that user choosed
+        //send FETCH_ITEMS action to Saga to get items of the box that user choosed
         dispatch({
             type: 'FETCH_ITEMS',
             payload: {
@@ -41,6 +41,7 @@ class BoxDetail extends Component {
         console.log('back clicked');
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
+
     //handle changing for add new item input field
     handleInputChangeFor = (event) => {
         // console.log('changing', event.target.value)
@@ -48,6 +49,7 @@ class BoxDetail extends Component {
             item: event.target.value,
         });
     }
+    //handle add item and clear input field after clicked add button
     handleSubmit = () => {
         if (this.state.item === '') {
             alert('Add items to your list before click button')
@@ -62,6 +64,7 @@ class BoxDetail extends Component {
             item: '',
         });
     }
+
     //handle add new item button
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
@@ -75,12 +78,12 @@ class BoxDetail extends Component {
             }
         })
     }
-    //handle delete item
+    //Create this function to send the roomId to item component to can delete the item inside the chosen box and room
     sendRoomIdToItem = (roomId) => {
         const { match } = this.props;
         return match.params.roomId
     }
-
+    //handle delete box
     handleDeleteBox = () => {
         console.log('delete clicked');
         const { dispatch, match } = this.props;
@@ -91,7 +94,8 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
-        console.log('------->box id',match.params.id )
+        console.log('------->box id',match.params.id );
+        //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
 
@@ -172,6 +176,7 @@ class BoxDetail extends Component {
                 <button onClick={this.handleSubmit}>Add</button>
 
                 <div className="list_item" >
+                    {/* Mapping through the item array to display list item in DOM */}
                     {this.props.reduxState.item.map((item) => {
                         return (
                             <div key={item.id}

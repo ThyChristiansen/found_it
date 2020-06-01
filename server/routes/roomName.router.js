@@ -5,7 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 
-//GET boxes route
+//Send the Get request to server to get room's name
 router.get('/:roomId', (req, res) => {
     let roomId = req.params.roomId;
     console.log(' room id:',roomId);

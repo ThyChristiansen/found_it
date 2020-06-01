@@ -5,7 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 
-//GET boxes route
+//Send GET request to server-side to get box list
 router.get('/:roomId', rejectUnauthenticated, (req, res) => {
     let roomId = req.params.roomId
     // console.log('----------> use this room id to get data:',roomId)
@@ -21,7 +21,7 @@ router.get('/:roomId', rejectUnauthenticated, (req, res) => {
         })
 });
 
-//GET details route
+//Send GET request to server-side to get box's detail
 router.get('/:roomId/:id', (req, res) => {
     let boxId = req.params.id;
     let roomId = req.params.roomId;
@@ -43,7 +43,6 @@ router.get('/:roomId/:id', (req, res) => {
 router.post('/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
-    // const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),$1,(SELECT MAX(box_name)+1 FROM boxes), (SELECT MAX(qr_code)+1 FROM boxes)) RETURNING id';
     const queryText =  'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),$1,(SELECT MAX(box_name)+1 FROM boxes WHERE room_id = $1), (SELECT MAX(qr_code)+1 FROM boxes WHERE room_id = $1));'
     pool.query(queryText,[roomId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
@@ -67,9 +66,8 @@ router.post('/firstbox/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     // let boxId = req.params.boxId;
     let boxId = req.params.id;
-
     // We are using a request parameter (req.params) to identify
-    // the specific picture. We expect this will be an id from the database.
+    // the specific box. We expect this will be an id from the database.
     // let roomId = req.params.roomId
     // console.log('Delete request for this id: ', boxId);
     let sqlText = `DELETE FROM boxes WHERE id = $1`;

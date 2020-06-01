@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
-
 class Box extends Component {
-
-    componentDidMount() {
-    }
 
     render() {
         // box's name condition for each room 
@@ -36,6 +31,7 @@ class Box extends Component {
         return (
             <div>
                 {/* <p>{JSON.stringify(this.props.box.id)}</p> */}
+                {/* Assigning the link to box icon to navigating user to box's detail page  */}
                 <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
                     <img
                         src="images/box_icon.png"
