@@ -8,7 +8,8 @@ class CreateRoomList extends Component {
 
     state = {
         button: true,
-        welcome: true
+        welcome: true,
+        houseName: '',
     }
 
 
@@ -18,10 +19,25 @@ class CreateRoomList extends Component {
             payload: {
                 userId: this.props.userId
             }
+        });
+        this.props.dispatch({
+            type: "FETCH_HOUSE_NAME",
+            payload: {
+                userId: this.props.userId
+            }
+        });
+       
+    }
+    handleHouseNameChangeFor = (event) => {
+        // console.log('changing', event.target.value)
+        this.setState({
+            houseName: event.target.value
         })
+
     }
 
-    handleClick = () => {
+
+    handleClick = (event) => {
         this.props.dispatch({
             type: "CREATE_ROOM_LIST",
             payload: {
@@ -30,26 +46,40 @@ class CreateRoomList extends Component {
         })
         this.setState({
             button: !this.state.button,
-            welcome: !this.state.welcome
+            welcome: !this.state.welcome,
+
         })
+        this.props.dispatch({
+            type: "CREATE_HOUSE_NAME",
+            payload: {
+                houseName: this.state.houseName,
+                userId: this.props.userId
+            }
+        })
+        console.log('---------->send this house name to Saga',this.state.houseName)
     }
 
     render() {
 
         let button;
         let welcome;
-        if (this.state.button&& this.props.reduxState.rooms.length === 0) {
-            button = < button onClick={this.handleClick}> Create room list</button >
+        if (this.state.button) {
+            // && this.props.reduxState.rooms.length === 0
+            button = <>
+                <input type="text" placeholder="House's name..."
+                    onChange={this.handleHouseNameChangeFor}/>
+                < button onClick={this.handleClick}> Create room list</button >
+            </>
             welcome = <h1>Welcome {this.props.username}!!!!</h1>
         } else {
-            welcome = <h1>{this.props.houseName}'house</h1>
+            welcome = <h1>{this.props.reduxState.houseName.map((event)=> event.house_name)}'house</h1>
         }
 
         return (
             <div>
                 {welcome}
                 {button}
-                {/* <h1>user id: {JSON.stringify(this.props.userId)}</h1>  */}
+                {/* <h1>house name: {JSON.stringify(this.props.reduxState.houseName.map((event)=> event.house_name))}</h1>  */}
                 <HomePage />
 
             </div >

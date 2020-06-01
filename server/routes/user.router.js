@@ -24,7 +24,7 @@ router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = encryptLib.encryptPassword(req.body.password);// using encrypt to save user's password
-  const houseName = req.body.houseName;
+  // const houseName = req.body.houseName;
 
   // console.log('---->add this username and password to database',username,password)
   nodemailer.createTestAccount((err, account) => {
@@ -54,8 +54,8 @@ router.post('/register', (req, res, next) => {
       });
   })
   //Go to database, add to username and password columns what user type in input (req.body)
-  const queryText = 'INSERT INTO "user" (username,email,password,house_name) VALUES ($1, $2, $3, $4) RETURNING id';
-  pool.query(queryText, [username, email, password, houseName])
+  const queryText = 'INSERT INTO "user" (username,email,password) VALUES ($1, $2, $3) RETURNING id';
+  pool.query(queryText, [username, email, password])
     .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
     .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
 });
