@@ -10,6 +10,7 @@ import SearchingBar from '../SearchBar/SearchBar';
 const UserPage = (props) => (
   <div>
     <SearchingBar />
+    {/* Send username, userId to createRoomList component */}
     <CreateRoomList
     username =  {props.user.username}
     userId={props.user.id}

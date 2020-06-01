@@ -6,10 +6,11 @@ import HomePage from '../UserPage/HomePage';
 
 class CreateRoomList extends Component {
 
+    //Create state to store button and welcome message
     state = {
-        button: true,
+        button: true, //I want to show it when the user 
         welcome: true,
-        houseName: '',
+        houseName:''
     }
 
 
@@ -20,13 +21,6 @@ class CreateRoomList extends Component {
                 userId: this.props.userId
             }
         });
-        // this.props.dispatch({
-        //     type: "FETCH_HOUSE_NAME",
-        //     payload: {
-        //         userId: this.props.userId
-        //     }
-        // });
-       
     }
     handleHouseNameChangeFor = (event) => {
         // console.log('changing', event.target.value)
@@ -77,10 +71,7 @@ class CreateRoomList extends Component {
             </>
             welcome = <h1>Welcome {this.props.username}!!!!</h1>
         } 
-        // else {
-        //     welcome = <h1>{this.props.reduxState.houseName.map((event)=> event.house_name)}'house</h1>
-        // }
-
+        
         return (
             <div>
                 {welcome}

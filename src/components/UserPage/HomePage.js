@@ -5,16 +5,7 @@ import Room from '../Room/Room';
 
 class HomePage extends Component {
     
-    componentDidMount() {
-
-        // this.props.dispatch({
-        //     type: "FETCH_HOUSE_NAME",
-        //     payload: {
-        //         userId: this.props.userId
-        //     }
-        // });
-
-    }
+ 
     render() {
         return (
             <div>

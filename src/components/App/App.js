@@ -11,8 +11,7 @@ import BoxList from '../BoxList/BoxList';
 import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
-
-
+import Reader from '../Reader/Reader';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import {
@@ -23,10 +22,10 @@ import {
   Link
 } from 'react-router-dom';
 
-import Reader from '../Reader/Reader';
-
+//-----------------------Styling----------------------------------
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { withStyles } from '@material-ui/core/styles';
+//-----------------------Styling----------------------------------
 
 
 const styles = {
@@ -37,6 +36,7 @@ const styles = {
 
 
 class App extends Component {
+
   state = {
     menu: false,
   }
@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   render() {
-
+    //Create if statement to hide and show nav table drop down
     let menu;
     if (this.state.menu) {
       menu = <Nav />
@@ -62,12 +62,14 @@ class App extends Component {
     const { classes } = this.props;
 
     return (
+      //Header
       <HashRouter>
+        {/* Assigning link for header */}
         <div className="nav-bar">
-          <Link to="/home">
+          <Link to="/home"> 
             <h1 className="nav-title" >Found it</h1>
           </Link><br />
-          {/* <SearchingBar /> */}
+          {/* Table menu drop down */}
           <span onClick={this.handleShowNav}
             className="menu"
           >Menu</span>
