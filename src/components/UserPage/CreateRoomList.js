@@ -20,12 +20,12 @@ class CreateRoomList extends Component {
                 userId: this.props.userId
             }
         });
-        this.props.dispatch({
-            type: "FETCH_HOUSE_NAME",
-            payload: {
-                userId: this.props.userId
-            }
-        });
+        // this.props.dispatch({
+        //     type: "FETCH_HOUSE_NAME",
+        //     payload: {
+        //         userId: this.props.userId
+        //     }
+        // });
        
     }
     handleHouseNameChangeFor = (event) => {
@@ -57,6 +57,12 @@ class CreateRoomList extends Component {
             }
         })
         console.log('---------->send this house name to Saga',this.state.houseName)
+        this.props.dispatch({
+            type: "FETCH_HOUSE_NAME",
+            payload: {
+                userId: this.props.userId
+            }
+        });
     }
 
     render() {
@@ -70,16 +76,17 @@ class CreateRoomList extends Component {
                 < button onClick={this.handleClick}> Create room list</button >
             </>
             welcome = <h1>Welcome {this.props.username}!!!!</h1>
-        } else {
-            welcome = <h1>{this.props.reduxState.houseName.map((event)=> event.house_name)}'house</h1>
-        }
+        } 
+        // else {
+        //     welcome = <h1>{this.props.reduxState.houseName.map((event)=> event.house_name)}'house</h1>
+        // }
 
         return (
             <div>
                 {welcome}
                 {button}
                 {/* <h1>house name: {JSON.stringify(this.props.reduxState.houseName.map((event)=> event.house_name))}</h1>  */}
-                <HomePage />
+                <HomePage userId = {this.props.userId}/>
 
             </div >
         )
