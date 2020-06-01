@@ -82,7 +82,7 @@ class BoxList extends Component {
                     }
                 })}
                 {/* Display box number */}
-                <p className="box_list_header">Box number: {this.props.reduxState.boxes.length}</p>
+                <p className="box_list_header">Box quantity: {this.props.reduxState.boxes.length}</p>
 
                 {addNewBox}
                 {this.props.reduxState.boxes.map((box) => {
