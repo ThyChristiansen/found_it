@@ -5,7 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 
-router.get('/:roomId/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     let boxId = req.params.id
     // let roomId = req.params.roomId;
 

@@ -91,13 +91,15 @@ class BoxList extends Component {
                     //         >{room.room_name}</h1>
                     //     )
                     // }
-                    return (<h1 className="box_list_header">{room.room_name} </h1>)
+                    return (<h1 className="box_list_header"
+                        onClick={this.handleBackToRoomList}
+                    >{room.room_name} </h1>)
                 })}
 
                 {/* Display box quantity in the room */}
                 <p className="box_list_header">Box quantity: {this.props.reduxState.boxes.length}</p>
 
-                {addNewBox} 
+                {addNewBox}
 
                 {/* Mapping through tr boxes array that got from reducer and display boxes */}
                 {this.props.reduxState.boxes.map((box) => {

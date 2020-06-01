@@ -19,7 +19,7 @@ function* fetchItems(action) {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
           };
-        const response = yield axios.get(`/api/item/${roomId}/${id}`, config);
+        const response = yield axios.get(`/api/item/${id}`, config);
         // console.log('--------in getItem', response.data);
         yield put({
             type: 'SET_ITEM', // set action type = SET_DETAIL

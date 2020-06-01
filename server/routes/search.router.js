@@ -2,9 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+
+//Send the GET request to get the result after searching
 router.get('/:searchValue', (req, res) => {
     let searchValue = req.params.searchValue;
     console.log('------send this value to server to search', searchValue);
