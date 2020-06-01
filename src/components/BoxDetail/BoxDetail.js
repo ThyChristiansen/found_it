@@ -91,6 +91,7 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
+        console.log('------->box id',match.params.id )
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
 
