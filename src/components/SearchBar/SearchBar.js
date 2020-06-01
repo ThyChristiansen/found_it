@@ -18,31 +18,6 @@ class SearchingBar extends Component {
                 searchItem: this.state.searchItem,
             }
         })
-        // this.props.dispatch({
-        //     type: 'SEARCH_EMPTY',
-        //     payload: {
-        //         searchItem: this.state.searchItem,
-        //     }
-        // })
-    }
-
-    handleSearching = () => {
-       
-        console.log('add new item clicked!');
-        console.log('send this value to Saga',this.state.searchItem );
-
-        // this.props.dispatch({
-        //     type: 'SEARCH_ITEM',
-        //     payload: {
-        //         searchItem: this.state.searchItem,
-        //     }
-        // })
-        // this.props.dispatch({
-        //     type: 'SEARCH_EMPTY',
-        //     payload: {
-        //         searchItem: '',
-        //     }
-        // })
     }
 
     render() {
