@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import DownloadQRCode from '../DownloadQRCode/DownloadQRCode';
 import Item from '../Item/Item';
 import './BoxDetail.css';
+import SearchingBar from '../SearchBar/SearchBar';
 
 
 class BoxDetail extends Component {
@@ -90,6 +91,7 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
+        console.log('------->box id',match.params.id )
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
 
@@ -97,15 +99,17 @@ class BoxDetail extends Component {
     render() {
         return (
             <div className="box_detail">
+                <SearchingBar />
+
                 <button onClick={this.backClick}
                     className="back_btn">Back to box list</button>
                 {/* mapping through the box list array to get room_id from database to display in DOM */}
                 {/* box's name condition for each room */}
                 {this.props.reduxState.detail.map((box) => {
                     let boxName;
-                    if (box.room_name === 'Storge') {
+                    if (box.room_name === 'Storage') {
                         boxName = <div key={box.id}>
-                            <h1>Storge</h1>
+                            <h1>Storage</h1>
                             <p className="box_name">Box A{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
@@ -157,7 +161,7 @@ class BoxDetail extends Component {
                 })}
 
                 {/* add new item field */}
-                <p>Add item to your list:</p>
+                <p>Add item to your box:</p>
                 <input
                     type="text"
                     placeholder='Add item...'

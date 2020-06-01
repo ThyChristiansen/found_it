@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 function* itemSaga() {
   yield takeEvery('FETCH_ITEMS', fetchItems);
+  yield takeLatest('ADD_ITEM', addItem);
+
 
 }
 
@@ -28,5 +30,26 @@ function* fetchItems(action) {
     }
 }
 
+  
+  function* addItem(action) {
+    try {
+      let boxId = action.payload.id
+      let roomId = action.payload.roomId
+      console.log('----------->from addItem get this room id', roomId);
+      console.log('add this item', action.payload);
+      yield axios.post(`/api/item/${roomId}/${boxId}`, action.payload);
+      console.log('send this item to server', action.payload);
+      yield put({
+        type: 'FETCH_ITEMS',
+        payload: {
+          id : boxId,
+          roomId :roomId
+        }
+      });
+  
+    } catch (error) {
+      console.log('Error with add new item:', error);
+    }
+  }
 
 export default itemSaga;

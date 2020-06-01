@@ -26,7 +26,7 @@ router.post('/:roomId/:id', (req, res) => {
     let roomId = req.params.roomId;
 
     console.log('send this item to database',item, boxId);
-    const queryText = 'INSERT INTO "items" (item,box_id,room_id) VALUES ($1,$2, $3) RETURNING id';
+    const queryText = 'INSERT INTO "items" (item,box_id,room_id) VALUES ($1,$2,$3) RETURNING id';
     pool.query(queryText,[item,boxId,roomId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully

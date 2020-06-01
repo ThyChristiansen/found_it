@@ -5,16 +5,17 @@ import CreateRoomList from '../UserPage/CreateRoomList';
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
+import SearchingBar from '../SearchBar/SearchBar';
+
 const UserPage = (props) => (
   <div>
+    <SearchingBar />
     <CreateRoomList
     username =  {props.user.username}
     userId={props.user.id}
      />
   </div>
 );
-
-
 
 // Instead of taking everything from state, we just want the user info.
 // if you wanted you could write this code like this:

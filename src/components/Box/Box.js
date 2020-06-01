@@ -12,7 +12,7 @@ class Box extends Component {
     render() {
         // box's name condition for each room 
         let boxName;
-        if (this.props.box.room_name === 'Storge') {
+        if (this.props.box.room_name === 'Storage') {
             boxName = <p className="box_name">Box A{this.props.box.box_name}</p>
         }  if (this.props.box.room_name === 'Basement') {
             boxName = <p className="box_name">Box B{this.props.box.box_name}</p>

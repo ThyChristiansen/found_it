@@ -11,7 +11,6 @@ import BoxList from '../BoxList/BoxList';
 import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
-import SearchingBar from '../SearchBar/SearchBar';
 
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -68,7 +67,7 @@ class App extends Component {
           <Link to="/home">
             <h1 className="nav-title" >Found it</h1>
           </Link><br />
-          <SearchingBar />
+          {/* <SearchingBar /> */}
           <span onClick={this.handleShowNav}
             className="menu"
           >Menu</span>

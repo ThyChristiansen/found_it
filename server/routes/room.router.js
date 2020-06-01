@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
     let userId = req.body.userId
     // console.log('------>in POST router', userId);
 
-    queryString = `INSERT INTO rooms (user_id, room_name) VALUES ($1,'Storge'),
+    queryString = `INSERT INTO rooms (user_id, room_name) VALUES ($1,'Storage'),
      ($1,'Basement'),
      ($1,'Garage'),
      ($1,'Livingroom'),

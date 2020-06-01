@@ -63,8 +63,7 @@ class CreateRoomList extends Component {
 
         let button;
         let welcome;
-        if (this.state.button) {
-            // && this.props.reduxState.rooms.length === 0
+        if (this.state.button && this.props.reduxState.rooms.length === 0) {
             button = <>
                 <input type="text" placeholder="House's name..."
                     onChange={this.handleHouseNameChangeFor}/>
