@@ -8,7 +8,6 @@ import Footer from '../Footer/Footer'
 import AboutPage from '../AboutPage/AboutPage'
 import UserPage from '../UserPage/UserPage';
 import BoxList from '../BoxList/BoxList';
-import AddBoxForm from '../AddBoxForm/AddBoxForm';
 import Box from '../Box/Box';
 import BoxDetail from '../BoxDetail/BoxDetail';
 import Item from '../Item/Item';
@@ -117,10 +116,6 @@ class App extends Component {
             <ProtectedRoute
               exact path="/box-detail/:roomId/:id"
               component={BoxDetail}
-            />
-            <ProtectedRoute
-              path="/addbox"
-              component={AddBoxForm}
             />
             <ProtectedRoute
               path="/item/:id"
