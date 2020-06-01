@@ -61,3 +61,10 @@
 [x] Create searchSaga and searchItemReducer
 [x] Send the GET request to database to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 
+### House's name
+[x] Create table house in database
+[x] Create HouseName component, houseNameSaga and houseNameReducer
+    [x] From CreateRoomList component dispatching CREATE_HOUSE_NAME to Saga -> from Saga, send the POST request to database to create house's name from Postico database -> Saga 
+    [x] From CreateRoomList component dispatching FETCH_HOUSE_NAME to Saga  From Saga, send the GET request to database to get house's name from Postico database -> Saga -> Reducer -> mapping through the array which get from database
+    
+
