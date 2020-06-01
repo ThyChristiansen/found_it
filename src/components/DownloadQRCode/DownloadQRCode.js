@@ -21,7 +21,7 @@ class DownloadQRCode extends Component {
             <div>
                 <QRCode
                     id={this.props.box.qr_code}
-                    value={`https://f0undit.herokuapp.com/#/box-detail/${this.props.box.room_id}/${this.props.box.qr_code}`}
+                    value={`https://localhost:3000/#/box-detail/${this.props.box.room_id}/${this.props.box.qr_code}`}
                     size={150}
                     level={"H"}
                     includeMargin={true}

@@ -9,9 +9,6 @@ class Item extends Component {
         itemIsEditable: false
     }
 
-    componentDidMount() {
-    }
-
     handleDelete = () => {
         console.log('delete clicked');
         console.log('delelete this item by this id:', this.props.item.id)
@@ -65,11 +62,10 @@ class Item extends Component {
                     :
                     <>
                         <span className="input_item">{this.state.item}</span>
-                        <button onClick={this.editItem}>Edit Username</button>
+                        <button onClick={this.editItem}>Edit Item</button>
                     </>
                 }
                 <button onClick={this.handleDelete}>Delete</button>
-                {/* <h1>{JSON.stringify(this.props.item.box_id)}</h1> */}
             </div>
         )
     }

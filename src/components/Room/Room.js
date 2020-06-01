@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './RoomList.css'
-// import Storge from './Storge';
-// import Basement from './Basement';
-// import Garage from './Garage';
-// import Livingroom from './Livingroom';
-// import Bedroom from './Bedroom';
-// import Kitchen from './Kitchen';
 
 import { Link } from 'react-router-dom';
 
-
 class RoomList extends Component {
-
-
     handleOnClick = () => {
         console.log('room clicked!')
     }
@@ -30,8 +21,6 @@ class RoomList extends Component {
                     ></img>
                 </Link>
                 <p className="room_name">{this.props.roomData.room_name}</p>
-
-                {/* <p>{JSON.stringify(this.props.reduxState.boxes.id)}</p> */}
             </div >
         )
     }
