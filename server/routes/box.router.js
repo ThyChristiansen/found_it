@@ -55,11 +55,10 @@ router.post('/:id', (req, res) => {
 router.post('/firstbox/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
-    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES (1,$1,1,1) RETURNING id';
+    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES (1,$1,1,1)';
     pool.query(queryText, [roomId])
         .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
         .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
-
     // res.sendStatus(201);
 });
 

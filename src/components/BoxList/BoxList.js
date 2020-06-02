@@ -64,7 +64,6 @@ class BoxList extends Component {
     handleOnClickAddFirstBoxInRoom = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
-
         dispatch({
             type: 'ADD_FIRST_BOX_IN_ROOM',
             payload: {
@@ -91,7 +90,7 @@ class BoxList extends Component {
         //increment number of id, box's name, qr_code, from the last row
         let addNewBox;
         if (this.props.reduxState.allBox.length === 0) {
-            addNewBox = <button onClick={this.handleOnClickAddFirstBox}
+            addNewBox = <button onClick={this.handleOnClickAddFirsBox}
                 className="add_new_box_btn">Add new box</button>
         } else if (this.props.reduxState.boxes.length === 0) {
             addNewBox = <button onClick={this.handleOnClickAddFirstBoxInRoom}
@@ -137,7 +136,8 @@ class BoxList extends Component {
                         </div>
                     )
                 })}
-                {/* <h1>{JSON.stringify(this.props.reduxState.boxes)}</h1> */}
+
+                <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1>
             </div>
         )
     }
