@@ -114,7 +114,7 @@ class BoxDetail extends Component {
                     if (box.room_name === 'Storage') {
                         boxName = <div key={box.id}>
                             <h1>Storage</h1>
-                            <p className="box_name">Box A{box.box_name}</p>
+                            <p className="box_name">A{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
@@ -122,7 +122,7 @@ class BoxDetail extends Component {
                     } else if (box.room_name === 'Basement') {
                         boxName = <div key={box.id}>
                             <h1>Basement</h1>
-                            <p className="box_name">Box B{box.box_name}</p>
+                            <p className="box_name">B{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
@@ -130,7 +130,7 @@ class BoxDetail extends Component {
                     else if (box.room_name === 'Garage') {
                         boxName = <div key={box.id}>
                             <h1>Garage</h1>
-                            <p className="box_name">Box C{box.box_name}</p>
+                            <p className="box_name">C{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
@@ -138,7 +138,7 @@ class BoxDetail extends Component {
                     else if (box.room_name === 'Livingroom') {
                         boxName = <div key={box.id}>
                             <h1>Livingroom</h1>
-                            <p className="box_name">Box D{box.box_name}</p>
+                            <p className="box_name">D{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
@@ -146,7 +146,7 @@ class BoxDetail extends Component {
                     else if (box.room_name === 'Bedroom') {
                         boxName = <div key={box.id}>
                             <h1>Bedroom</h1>
-                            <p className="box_name">Box E{box.box_name}</p>
+                            <p className="box_name">E{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>
@@ -154,7 +154,7 @@ class BoxDetail extends Component {
                     else if (box.room_name === 'Kitchen') {
                         boxName = <div key={box.id}>
                             <h1>Kitchen</h1>
-                            <p className="box_name">Box F{box.box_name}</p>
+                            <p className="box_name">F{box.box_name}</p>
                             <DownloadQRCode
                                 box={box} />
                         </div>

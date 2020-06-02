@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/:searchValue', (req, res) => {
     let searchValue = req.params.searchValue;
     console.log('------send this value to server to search', searchValue);
-    let queryText = `SELECT room_name, box_name FROM rooms 
+    let queryText = `SELECT boxes.id, room_name, box_name, boxes.room_id FROM rooms 
     JOIN boxes ON rooms.id = boxes.room_id
     JOIN items ON boxes.id = items.box_id
     WHERE item ILIKE '%${searchValue}%';`;

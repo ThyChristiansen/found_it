@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
-import { Link } from 'react-router-dom';
 import SearchingBar from '../SearchBar/SearchBar';
 
 
