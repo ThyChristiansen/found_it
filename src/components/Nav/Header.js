@@ -19,7 +19,6 @@ const useStyles = (theme) => ({
     root: {
         paddingBottom: '10px',
         // display: 'flex',
-
     },
     paper: {
         marginRight: theme.spacing(10),

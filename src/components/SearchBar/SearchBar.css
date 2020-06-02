@@ -1,0 +1,19 @@
+.result_search{
+    margin-right: 0;
+    position: fixed;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 7px 7px 20px rgba(138, 135, 135, 0.466);
+}
+.search_item{
+    padding:5px 20px;
+}
+
+.search-text{
+    padding:0px;
+    margin:5px;
+    color: black;
+    display: inline-block;
+
+}

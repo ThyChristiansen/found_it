@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DownloadQRCode from '../DownloadQRCode/DownloadQRCode';
 import Item from '../Item/Item';
 import './BoxDetail.css';
-import SearchingBar from '../SearchBar/SearchBar';
+import Header from '../Nav/Header';
 
 
 class BoxDetail extends Component {
@@ -94,7 +94,7 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
-        console.log('------->box id',match.params.id );
+        console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
@@ -109,106 +109,107 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
-        console.log('------->box id',match.params.id );
+        console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
 
-
     render() {
         return (
-            <div className="box_detail">
-                <SearchingBar />
+            <div>                <Header />
 
-                <button onClick={this.backClick}
-                    className="back_btn">Back to box list</button>
-                {/* mapping through the box list array to get room_id from database to display in DOM */}
-                {/* box's name condition for each room */}
-                {this.props.reduxState.detail.map((box) => {
-                    let boxName;
-                    if (box.room_name === 'Storage') {
-                        boxName = <div key={box.id}>
-                            <h1>Storage</h1>
-                            <p className="box_name">A{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
-                        </div>
+                <div className="box_detail">
 
-                    } else if (box.room_name === 'Basement') {
-                        boxName = <div key={box.id}>
-                            <h1>Basement</h1>
-                            <p className="box_name">B{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
-                        </div>
-                    }
-                    else if (box.room_name === 'Garage') {
-                        boxName = <div key={box.id}>
-                            <h1>Garage</h1>
-                            <p className="box_name">C{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
-                        </div>
-                    }
-                    else if (box.room_name === 'Livingroom') {
-                        boxName = <div key={box.id}>
-                            <h1>Livingroom</h1>
-                            <p className="box_name">D{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
-                        </div>
-                    }
-                    else if (box.room_name === 'Bedroom') {
-                        boxName = <div key={box.id}>
-                            <h1>Bedroom</h1>
-                            <p className="box_name">E{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
-                        </div>
-                    }
-                    else if (box.room_name === 'Kitchen') {
-                        boxName = <div key={box.id}>
-                            <h1>Kitchen</h1>
-                            <p className="box_name">F{box.box_name}</p>
-                            <DownloadQRCode
-                                box={box} />
-                        </div>
-                    }
-                    return (
-                        boxName
-                    )
-                })}
-
-                {/* add new item field */}
-                <p>Add item to your box:</p>
-                <input
-                    type="text"
-                    placeholder='Add item...'
-                    value={this.state.item}
-                    onChange={this.handleInputChangeFor}
-                    width="80%"
-                />
-                <button onClick={this.handleSubmit}>Add</button>
-
-                <div className="list_item" >
-                    {/* Mapping through the item array to display list item in DOM */}
-                    {this.props.reduxState.item.map((item) => {
-                        return (
-                            <div key={item.id}
-                                className="item"
-                            >
-                                <Item item={item}
-                                    boxId={item.box_id}
-                                    roomId={this.sendRoomIdToItem}
-                                />
+                    <button onClick={this.backClick}
+                        className="back_btn">Back to box list</button>
+                    {/* mapping through the box list array to get room_id from database to display in DOM */}
+                    {/* box's name condition for each room */}
+                    {this.props.reduxState.detail.map((box) => {
+                        let boxName;
+                        if (box.room_name === 'Storage') {
+                            boxName = <div key={box.id}>
+                                <h1>Storage</h1>
+                                <p className="box_name">A{box.box_name}</p>
+                                <DownloadQRCode
+                                    box={box} />
                             </div>
+
+                        } else if (box.room_name === 'Basement') {
+                            boxName = <div key={box.id}>
+                                <h1>Basement</h1>
+                                <p className="box_name">B{box.box_name}</p>
+                                <DownloadQRCode
+                                    box={box} />
+                            </div>
+                        }
+                        else if (box.room_name === 'Garage') {
+                            boxName = <div key={box.id}>
+                                <h1>Garage</h1>
+                                <p className="box_name">C{box.box_name}</p>
+                                <DownloadQRCode
+                                    box={box} />
+                            </div>
+                        }
+                        else if (box.room_name === 'Livingroom') {
+                            boxName = <div key={box.id}>
+                                <h1>Livingroom</h1>
+                                <p className="box_name">D{box.box_name}</p>
+                                <DownloadQRCode
+                                    box={box} />
+                            </div>
+                        }
+                        else if (box.room_name === 'Bedroom') {
+                            boxName = <div key={box.id}>
+                                <h1>Bedroom</h1>
+                                <p className="box_name">E{box.box_name}</p>
+                                <DownloadQRCode
+                                    box={box} />
+                            </div>
+                        }
+                        else if (box.room_name === 'Kitchen') {
+                            boxName = <div key={box.id}>
+                                <h1>Kitchen</h1>
+                                <p className="box_name">F{box.box_name}</p>
+                                <DownloadQRCode
+                                    box={box} />
+                            </div>
+                        }
+                        return (
+                            boxName
                         )
                     })}
-                    {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
-                </div>
-                <button onClick={this.handleUnBox}>Unbox</button>
-                <button onClick={this.handleDeleteBox}>Delete</button>
 
+                    {/* add new item field */}
+                    <p>Add item to your box:</p>
+                    <input
+                        type="text"
+                        placeholder='Add item...'
+                        value={this.state.item}
+                        onChange={this.handleInputChangeFor}
+                        width="80%"
+                    />
+                    <button onClick={this.handleSubmit}>Add</button>
+
+                    <div className="list_item" >
+                        {/* Mapping through the item array to display list item in DOM */}
+                        {this.props.reduxState.item.map((item) => {
+                            return (
+                                <div key={item.id}
+                                    className="item"
+                                >
+                                    <Item item={item}
+                                        boxId={item.box_id}
+                                        roomId={this.sendRoomIdToItem}
+                                    />
+                                </div>
+                            )
+                        })}
+                        {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
+                    </div>
+                    <button onClick={this.handleUnBox}>Unbox</button>
+                    <button onClick={this.handleDeleteBox}>Delete</button>
+
+                </div>
             </div>
         )
     }

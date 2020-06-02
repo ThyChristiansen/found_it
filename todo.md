@@ -84,8 +84,8 @@
 ## Styling
 [x] Login/ Register page
 [x] Header
-[] Drop down nav table
-[] Search bar
+[x] Drop down nav table
+[x] Search bar
 [] House's name
 [] Back to room list button
 [] Room's name in box list

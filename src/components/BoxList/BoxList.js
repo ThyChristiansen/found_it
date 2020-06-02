@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
-import SearchingBar from '../SearchBar/SearchBar';
+import Header from '../Nav/Header';
+
 
 
 class BoxList extends Component {
@@ -94,15 +95,14 @@ class BoxList extends Component {
         } else if (this.props.reduxState.boxes.length === 0) {
             addNewBox = <button onClick={this.handleOnClickAddFirstBoxInRoom}
                 className="add_new_box_btn">Add new box</button>
-        }else {
+        } else {
             addNewBox = <button onClick={this.handleOnClickAddNewBox}
                 className="add_new_box_btn">Add new box</button>
         }
 
         return (
             <div>
-                <SearchingBar />
-
+                <Header />
                 <button onClick={this.handleBackToRoomList}>Back to room list</button>
 
                 {/* Display room's name ‰
@@ -131,7 +131,7 @@ class BoxList extends Component {
                         <div key={box.id} className="box_item">
                             <Box
                                 box={box}
-                                
+
                             />
                         </div>
                     )

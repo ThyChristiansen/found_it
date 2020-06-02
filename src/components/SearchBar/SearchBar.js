@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './SearchBar.css'
 
 import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
@@ -54,7 +55,7 @@ const useStyles = (theme) => ({
 
 });
 
-class SearchingBar extends Component {
+class SearchBar extends Component {
     //Create state to storing value of in input field
     state = {
         searchItem: ''
@@ -79,58 +80,70 @@ class SearchingBar extends Component {
         //if the result of the searching is match with items that inside the boxes, return room name, box name.
         let resultSearching;
         if (this.state.searchItem.length === 0) {
-            resultSearching = <p></p>
+            resultSearching = ''
         } else if (this.props.reduxState.searchItem.length === 0) {
-            resultSearching = <p>Result searching is empty</p>
+            resultSearching = <p className="search_item">Result is empty</p>
         }
         else if (this.props.reduxState.searchItem.length !== 0) {
             resultSearching = this.props.reduxState.searchItem.map((item) => {
                 //Condition for box's name base on each room's name
                 if (item.room_name === 'Storage') {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className="search_item">
                             <Link to={`/box-detail/${item.room_id}/${item.id}`}>
-                                <span>{item.room_name}</span> <span> A{item.box_name}</span>
+                                <p className="search-text">
+                                    <span>{item.room_name}</span> <span> A{item.box_name}</span>
+                                </p>
                             </Link>
                         </div>
                     )
                 } else if (item.room_name === 'Basement') {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className="search_item">
                             <Link to={`/box-detail/${item.room_id}/${item.id}`}>
-                                <span>{item.room_name}</span> <span> B{item.box_name}</span>
+                                <p className="search-text">
+                                    <span>{item.room_name}</span> <span> B{item.box_name}</span>
+                                </p>
                             </Link>
                         </div>
                     )
                 } else if (item.room_name === 'Garage') {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className="search_item">
                             <Link to={`/box-detail/${item.room_id}/${item.id}`}>
-                                <span>{item.room_name}</span> <span> C{item.box_name}</span>
+                                <p className="search-text">
+                                    <span>{item.room_name}</span> <span> C{item.box_name}</span>
+                                </p>
                             </Link>
                         </div>
                     )
                 } else if (item.room_name === 'Livingroom') {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className="search_item">
                             <Link to={`/box-detail/${item.room_id}/${item.id}`}>
-                                <span>{item.room_name}</span> <span> D{item.box_name}</span>
+                                <p className="search-text">
+                                    <span>{item.room_name}</span> <span> D{item.box_name}</span>
+                                </p>
                             </Link>
                         </div>
                     )
                 } else if (item.room_name === 'Bedroom') {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className="search_item">
                             <Link to={`/box-detail/${item.room_id}/${item.id}`}>
-                                <span>{item.room_name}</span> <span> E{item.box_name}</span>
+                                <p className="search-text">
+                                    <span>{item.room_name}</span> <span> E{item.box_name}</span>
+                                </p>
                             </Link>
                         </div>
                     )
                 } else if (item.room_name === 'Kitchen') {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className="search_item">
                             <Link to={`/box-detail/${item.room_id}/${item.id}`}>
-                                <span>{item.room_name}</span> <span> F{item.box_name}</span>
+                                <p className="search-text">
+                                    <span>{item.room_name}</span> <span> F{item.box_name}</span>
+                                </p>
                             </Link>
                         </div>
                     )
@@ -162,7 +175,8 @@ class SearchingBar extends Component {
                         />
                     </div>
                 </div>
-                <p>{resultSearching}</p>
+                
+                <p className="result_search">{resultSearching}</p>
 
                 {/* <h1>{JSON.stringify(this.props.reduxState.searchItem.length)}</h1> */}
 
@@ -172,4 +186,4 @@ class SearchingBar extends Component {
 }
 
 const putReduxStateToProps = (reduxState) => ({ reduxState });
-export default connect(putReduxStateToProps)(withStyles(useStyles)(SearchingBar));
+export default connect(putReduxStateToProps)(withStyles(useStyles)(SearchBar));
