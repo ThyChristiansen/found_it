@@ -120,15 +120,15 @@ class BoxDetail extends Component {
 
                 <div className="box_detail">
 
-                    <button onClick={this.backClick}
-                        className="back_btn">Back to box list</button>
+                    {/* <button onClick={this.backClick}
+                        className="back_btn">Back to box list</button> */}
                     {/* mapping through the box list array to get room_id from database to display in DOM */}
                     {/* box's name condition for each room */}
                     {this.props.reduxState.detail.map((box) => {
                         let boxName;
                         if (box.room_name === 'Storage') {
                             boxName = <div key={box.id}>
-                                <h1>Storage</h1>
+                                <h1 onClick={this.backClick}>Storage</h1>
                                 <p className="box_name">A{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -136,7 +136,7 @@ class BoxDetail extends Component {
 
                         } else if (box.room_name === 'Basement') {
                             boxName = <div key={box.id}>
-                                <h1>Basement</h1>
+                                <h1 onClick={this.backClick}>Basement</h1>
                                 <p className="box_name">B{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -144,7 +144,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Garage') {
                             boxName = <div key={box.id}>
-                                <h1>Garage</h1>
+                                <h1 onClick={this.backClick}>Garage</h1>
                                 <p className="box_name">C{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -152,7 +152,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Livingroom') {
                             boxName = <div key={box.id}>
-                                <h1>Livingroom</h1>
+                                <h1 onClick={this.backClick}>Livingroom</h1>
                                 <p className="box_name">D{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -160,7 +160,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Bedroom') {
                             boxName = <div key={box.id}>
-                                <h1>Bedroom</h1>
+                                <h1 onClick={this.backClick}>Bedroom</h1>
                                 <p className="box_name">E{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -168,7 +168,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Kitchen') {
                             boxName = <div key={box.id}>
-                                <h1>Kitchen</h1>
+                                <h1 onClick={this.backClick}>Kitchen</h1>
                                 <p className="box_name">F{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />

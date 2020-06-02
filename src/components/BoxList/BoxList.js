@@ -103,8 +103,6 @@ class BoxList extends Component {
         return (
             <div>
                 <Header />
-                <button onClick={this.handleBackToRoomList}>Back to room list</button>
-
                 {/* Display room's name ‰
                 Maping through the roomName array from reducer then return the room's name  */}
                 {this.props.reduxState.roomName.map((room, index) => {
