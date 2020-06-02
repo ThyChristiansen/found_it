@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../LoginPage/LoginPage.css';
 
+//-----------------------Styling----------------------------------
+
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import LockIcon from '@material-ui/icons/Lock';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+import { Box } from '@material-ui/core'
+
+
+//-----------------------Styling----------------------------------
+
+const useStyles = (theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+  alignItemsAndJustifyContent: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+});
+
 class RegisterPage extends Component {
   state = {
     username: '',
@@ -35,6 +60,9 @@ class RegisterPage extends Component {
   }
 
   render() {
+
+    const { classes } = this.props;
+
     return (
       <div>
         {/* Header for register page */}
@@ -49,78 +77,119 @@ class RegisterPage extends Component {
             height="50"
           />
         </div>
-        {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.registrationMessage}
-          </h2>
-        )}
-        <form onSubmit={this.registerUser}>
-          <p>Create Account</p>
-          <div>
+
+        <div className={classes.alignItemsAndJustifyContent}>
+          <Box m="auto">
 
 
-            <label htmlFor="username">
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="email">
-              <input
-                type="text"
-                name="email"
-                placeholder="email"
-                value={this.state.email}
-                onChange={this.handleInputChangeFor('email')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-            {/* <label htmlFor="housename">
-              <input
-                type="text"
-                name="name for your house"
-                placeholder="Name for your house"
-                value={this.state.houseName}
-                onChange={this.handleInputChangeFor('houseName')}
-              />
-            </label> */}
-          </div>
-          <div>
-            <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Sign Up"
-            />
-          </div>
-        </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
-          >
-            Sign In
+            {this.props.errors.registrationMessage && (
+              <h2
+                className="alert"
+                role="alert"
+              >
+                {this.props.errors.registrationMessage}
+              </h2>
+            )}
+            <form onSubmit={this.registerUser}>
+              <p>Create Account</p>
+              <div>
+                <label htmlFor="username">
+                  <div className={classes.margin}>
+                    <Grid container spacing={1} alignItems="flex-end">
+                      <Grid item >
+                        <AccountCircle />
+                      </Grid>
+                      <Grid item>
+                        <TextField id="input-with-icon-grid"
+                          label="Username"
+                          value={this.state.username}
+                          onChange={this.handleInputChangeFor('username')}
+                        />
+                      </Grid>
+                    </Grid>
+
+                  </div>
+
+                </label>
+              </div>
+              <div>
+                <label htmlFor="email">
+                  <div className={classes.margin}>
+                    <Grid container spacing={1} alignItems="flex-end">
+                      <Grid item  >
+                        <AlternateEmailIcon />
+                      </Grid>
+                      <Grid item>
+                        <TextField id="input-with-icon-grid"
+                          label="Email"
+                          type="text"
+                          value={this.state.email}
+                          onChange={this.handleInputChangeFor('email')}
+                        />
+                      </Grid>
+                    </Grid>
+                    {/* <input
+                      type="text"
+                      name="email"
+                      placeholder="email"
+                      value={this.state.email}
+                      onChange={this.handleInputChangeFor('email')}
+                    /> */}
+                  </div>
+                </label>
+
+              </div>
+              <div>
+                <label htmlFor="password">
+                  <div className={classes.margin}>
+                    <Grid container spacing={1} alignItems="flex-end">
+                      <Grid item  >
+                        <LockIcon />
+                      </Grid>
+                      <Grid item>
+                        <TextField id="input-with-icon-grid"
+                          label="Password"
+                          type="password"
+                          value={this.state.password}
+                          onChange={this.handleInputChangeFor('password')}
+                        />
+                      </Grid>
+                    </Grid>
+                    {/* <input
+                      type="password"
+                      name="password"
+                      placeholder="password"
+                      value={this.state.password}
+                      onChange={this.handleInputChangeFor('password')}
+                    /> */}
+                  </div>
+                </label>
+              </div>
+              <div>
+                <div className={classes.alignItemsAndJustifyContent}>
+                  <Grid item>
+                    <input
+                      className="register"
+                      type="submit"
+                      name="submit"
+                      value="Sign Up"
+                    />
+                  </Grid>
+                </div>
+              </div>
+            </form>
+            <center>
+              <button
+                type="button"
+                className="link-button"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+              >
+                Sign In
           </button>
-        </center>
+            </center>
+          </Box>
+
+        </div>
       </div>
     );
   }
@@ -132,6 +201,6 @@ class RegisterPage extends Component {
 const mapStateToProps = state => ({
   errors: state.errors,
 });
+export default connect(mapStateToProps)(withStyles(useStyles)(RegisterPage));
 
-export default connect(mapStateToProps)(RegisterPage);
 

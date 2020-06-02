@@ -2,7 +2,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
     margin-bottom: 10px;
-    background-color: #dbd5d5;
+    /* background-color: #dbd5d5; */
+    /* background-color: #ece8e8; */
 
 }
 
@@ -28,7 +29,6 @@ input {
 .log-in, .register {
   background-color: rgba(90, 54, 38, 0.705);
   border-radius: 4px;
-  
   color: #f8f8f8;
   min-height: 50px;
   min-width: 100px;

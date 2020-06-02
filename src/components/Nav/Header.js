@@ -34,6 +34,7 @@ class Header extends Component {
         if (this.state.menu) {
             menu = <Nav />
         }
+        
         const { classes } = this.props;
 
 

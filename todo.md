@@ -83,7 +83,7 @@
 
 ## Styling
 [] Login/ Register page
-[] Header
+[x] Header
 [] Drop down nav table
 [] Search bar
 [] House's name

@@ -2,6 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './LoginPage.css';
 
+
+//-----------------------Styling----------------------------------
+
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import LockIcon from '@material-ui/icons/Lock';
+import { Box } from '@material-ui/core'
+
+//-----------------------Styling----------------------------------
+
+const useStyles = (theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+  alignItemsAndJustifyContent: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+});
+
 class LoginPage extends Component {
   state = {
     username: '',
@@ -31,6 +55,9 @@ class LoginPage extends Component {
   }
 
   render() {
+
+    const { classes } = this.props;
+
     return (
       <div>
 
@@ -46,56 +73,84 @@ class LoginPage extends Component {
           />
         </div>
 
-        {this.props.errors.loginMessage && (
-          <h4
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.loginMessage}
-          </h4>
-        )}
-        <form onSubmit={this.login}>
-          <div>
-            <label htmlFor="username">
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Sign In"
-            />
-          </div>
-        </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
-          >
-            Sign Up
+        <div className={classes.alignItemsAndJustifyContent}>
+          <Box m="auto">
+
+            {this.props.errors.loginMessage && (
+              <h4
+                className="alert"
+                role="alert"
+              >
+                {this.props.errors.loginMessage}
+              </h4>
+            )}
+
+            <form onSubmit={this.login}>
+              <div>
+                <label htmlFor="username">
+                  <div className={classes.margin}>
+                    <Grid container spacing={1} alignItems="flex-end">
+                      <Grid item >
+                        <AccountCircle />
+                      </Grid>
+                      <Grid item>
+                        <TextField id="input-with-icon-grid"
+                          label="Username"
+                          value={this.state.username}
+                          onChange={this.handleInputChangeFor('username')}
+                        />
+                      </Grid>
+                    </Grid>
+
+                  </div>
+                </label>
+              </div>
+              <div>
+                <label htmlFor="password">
+                  <div className={classes.margin}>
+                    <Grid container spacing={1} alignItems="flex-end">
+                      <Grid item  >
+                        <LockIcon />
+                      </Grid>
+                      <Grid item>
+                        <TextField id="input-with-icon-grid"
+                          label="Password"
+                          type="password"
+                          value={this.state.password}
+                          onChange={this.handleInputChangeFor('password')}
+                        />
+                      </Grid>
+                    </Grid>
+                  </div>
+                </label>
+              </div>
+              <div>
+                <div className={classes.alignItemsAndJustifyContent}>
+                  <Grid item>
+                    <input
+                      className="log-in"
+                      type="submit"
+                      name="submit"
+                      value="Sign In"
+                    />
+                  </Grid>
+                </div>
+              </div>
+            </form>
+
+            <center>
+              <button
+                type="button"
+                className="link-button"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+              >
+                Sign Up
           </button>
-        </center>
+            </center>
+          </Box >
+        </div>
       </div>
+
     );
   }
 }
@@ -107,4 +162,4 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps)(LoginPage);
+export default connect(mapStateToProps)(withStyles(useStyles)(LoginPage));
