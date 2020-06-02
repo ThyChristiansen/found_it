@@ -98,6 +98,21 @@ class BoxDetail extends Component {
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
+    //handle delete box
+    handleUnBox = () => {
+        console.log('unbox clicked');
+        const { dispatch, match } = this.props;
+        dispatch({
+            type: 'UNBOX',
+            payload: {
+                boxId: match.params.id,
+                roomId: match.params.roomId,
+            }
+        })
+        console.log('------->box id',match.params.id );
+        //Bringing the user back to the box list after click on delete button
+        this.props.history.push(`/boxes/${match.params.roomId}`)
+    }
 
 
     render() {
@@ -191,6 +206,7 @@ class BoxDetail extends Component {
                     })}
                     {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
                 </div>
+                <button onClick={this.handleUnBox}>Unbox</button>
                 <button onClick={this.handleDeleteBox}>Delete</button>
 
             </div>

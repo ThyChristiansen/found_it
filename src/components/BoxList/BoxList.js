@@ -131,6 +131,7 @@ class BoxList extends Component {
                         <div key={box.id} className="box_item">
                             <Box
                                 box={box}
+                                
                             />
                         </div>
                     )
