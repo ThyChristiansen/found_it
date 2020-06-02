@@ -5,14 +5,14 @@ import CreateRoomList from '../UserPage/CreateRoomList';
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
-import SearchingBar from '../SearchBar/SearchBar';
+
+
 import Header from '../Nav/Header';
 
 
 const UserPage = (props) => (
   <div>
     <Header />
-    <SearchingBar />
     {/* Send username, userId to createRoomList component */}
     <CreateRoomList
     username =  {props.user.username}

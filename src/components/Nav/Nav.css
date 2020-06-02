@@ -6,6 +6,32 @@
 
 }
 
+.nav-title{
+  background-color:rgba(217, 186, 158, 100);
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+  text-decoration: burlywood;
+  text-align: center;
+  display: inline-block;
+  /* overflow: hidden; */
+  color: rgba(134, 78, 54, 0.664);
+}
+
+.nav-title:active{
+  transition: 0.2s;
+  box-shadow: 0 5px #666;
+  transform: translateY(5px);
+}
+
+.menu{
+  margin-bottom: 20px;
+  /* display: inline-block; */
+  overflow: hidden;
+
+
+}
+
 
 .nav-link {
 background-color: antiquewhite;
@@ -34,5 +60,9 @@ font-size: 15px;
   outline:0;
 }
 
+
+.search_bar{
+  float: right;
+}
 
 

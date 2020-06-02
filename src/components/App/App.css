@@ -56,33 +56,6 @@ input {
     cursor: pointer;
 }
 
-.nav-bar {
-    background-color:rgba(217, 186, 158, 100);
-    /* overflow: hidden; */
-    color:rgb(98, 53, 35);
-  }
-  
-.nav-title{
-    width: 100%;
-    font-size: 24px;
-    font-weight: 900;
-    /* margin-left: 35%; */
-    text-align: center;
-    display: inline-block;
-    /* overflow: hidden; */
-    color: rgba(134, 78, 54, 0.664);
-  }
-
-.nav-title:active{
-  transition: 0.2s;
-  box-shadow: 0 5px #666;
-  transform: translateY(5px);
-}
-
-.menu{
-  margin-bottom: 10px;
-}
-
 
 
 footer{

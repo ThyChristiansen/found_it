@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import './Nav.css';
 import Nav from '../Nav/Nav'
+import SearchingBar from '../SearchBar/SearchBar';
 //-----------------------Styling----------------------------------
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { withStyles } from '@material-ui/core/styles';
@@ -11,7 +12,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
     root: {
-        paddingTop: '10px',
+        paddingBottom: '10px',
     },
 };
 
@@ -43,17 +44,18 @@ class Header extends Component {
                         <>
                             {/* Assigning link for header */}
                             <Link className="nav-title" to="/home">
-                                <h1>FOUND IT</h1>
+                                <h3>FOUND IT</h3>
                             </Link><br />
                             {/* Table menu drop down */}
                             <span onClick={this.handleShowNav}
                                 className="menu"
-                            >Menu</span>
-                            <ArrowDropDownIcon
-                                onClick={this.handleShowNav}
-                                className={classes.root}
-                            />
+                            > <ArrowDropDownIcon
+                                    onClick={this.handleShowNav}
+                                    className={classes.root}
+                                /></span>
+
                             {menu}
+                            <div className='search_bar'><SearchingBar /></div>
 
                         </>
                     )}
