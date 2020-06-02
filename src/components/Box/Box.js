@@ -28,18 +28,19 @@ class Box extends Component {
                 <p className="box_name">F{this.props.box.box_name}</p>
         }
 
+        //Use if condition to change the box visual if they was opened or not yet
         let boxStatus;
-        if (this.props.box.status === "FALSE") {
-            boxStatus= <img
-                src="images/box_icon.png"
+        if (this.props.box.status) {
+            boxStatus = <img
+                src="images/box_opening2.png"
                 alt={this.props.box.box_name}
                 className="box_icon"
                 width="60"
                 height="60"
             />
         } else {
-            boxStatus= <img
-                src="images/box_opening.png"
+            boxStatus = <img
+                src="images/box_icon.png"
                 alt={this.props.box.box_name}
                 className="box_icon"
                 width="60"
@@ -49,16 +50,9 @@ class Box extends Component {
 
         return (
             <div>
-                <p>{JSON.stringify(this.props.box.status)}</p>
+                {/* <p>{JSON.stringify(this.props.box.status)}</p> */}
                 {/* Assigning the link to box icon to navigating user to box's detail page  */}
                 <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
-                    {/* <img
-                        src="images/box_icon.png"
-                        alt={this.props.box.box_name}
-                        className="box_icon"
-                        width="60"
-                        height="60"
-                    /> */}
                     {boxStatus}
                 </Link>
                 <p>{boxName}</p>
