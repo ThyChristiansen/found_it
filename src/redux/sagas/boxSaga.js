@@ -7,6 +7,8 @@ function* boxSaga() {
   yield takeLatest('ADD_FIRST_BOX', addFirstBox);
   yield takeLatest('FETCH_ALL_BOX', fetchAllBox);
   yield takeLatest('ADD_FIRST_BOX_IN_ROOM', addFirstBoxInRoom);
+  yield takeLatest('UNBOX', updateBoxStatus);
+
 }
 
 // worker Saga: will be fired on "FETCH_BOXES" actions
@@ -98,5 +100,22 @@ function* addFirstBoxInRoom(action) {
   }
 }
 
+// worker Saga: will be fired on "UPDATE_BOX_STATUS" actions
+function* updateBoxStatus(action) {
+  try {
+    let boxId = action.payload.boxId
+    let roomId = action.payload.roomId
+
+    console.log('---> from update box status,send this box id:', boxId)
+    yield axios.put(`/api/box/${boxId}`);
+    console.log('---> send this item to server:', boxId)
+    yield put({
+      type: 'FETCH_BOX',
+      payload: { roomId: roomId }
+    });
+  } catch (error) {
+      console.log('Error with update box:', error);
+  }
+}
 
 export default boxSaga;

@@ -50,8 +50,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    let itemId = req.params.id;// We are using a request parameter (req.params) to identify
-    // the specific picture. We expect this will be an id from the database.
+    let itemId = req.params.id;
     let item = req.body.item
     console.log('Update request for this id: ',item);
     let sqlText = `UPDATE items SET item = $1 WHERE id = $2`;

@@ -12,12 +12,12 @@ function* updateItem(action) {
 
     let boxId = action.payload.boxId
     // console.log('---> id for this box:',boxId)
-    yield axios.put(`/api/item/${action.payload.itemId}`,action.payload );
+    yield axios.put(`/api/box/${action.payload.boxId}`,action.payload );
     console.log('---> send this item to server:', action.payload.item)
 
     // console.log('---> id for this item:', action.payload.itemId)
     yield put({
-      type: 'FETCH_ITEMS',
+      type: 'FETCH_BOX',
       payload: {id : boxId}
     });
   } catch (error) {

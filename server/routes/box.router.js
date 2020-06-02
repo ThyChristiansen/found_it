@@ -9,7 +9,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:roomId', rejectUnauthenticated, (req, res) => {
     let roomId = req.params.roomId
     // console.log('----------> use this room id to get data:',roomId)
-    queryString = `SELECT boxes.id, room_name,room_id, box_name, qr_code FROM boxes 
+    queryString = `SELECT boxes.id, room_name,room_id, box_name, qr_code,status FROM boxes 
     JOIN rooms ON rooms.id = boxes.room_id WHERE room_id = $1;`;
     pool.query(queryString, [roomId])
         .then(result => {
@@ -27,7 +27,7 @@ router.get('/:roomId/:id', (req, res) => {
     let roomId = req.params.roomId;
     // console.log(' room id:',roomId);
 
-    let queryText = `SELECT boxes.id, room_name,room_id, box_name, qr_code FROM boxes 
+    let queryText = `SELECT boxes.id, room_name,room_id, box_name, qr_code, status FROM boxes 
     JOIN rooms ON rooms.id = boxes.room_id WHERE boxes.id = $1 AND room_id= $2`;
     pool.query(queryText, [boxId, roomId])
         .then((result) => {
@@ -108,5 +108,20 @@ router.get('/', (req, res) => {
 
     // res.sendStatus(201);
 });
+
+ //PUT route to update box status
+router.put('/:id', (req, res) => {
+    let boxId = req.params.id;
+    console.log('Update request for this id: ',boxId);
+    let sqlText = `UPDATE boxes SET status = TRUE WHERE id = $1`;
+    pool.query(sqlText, [boxId])
+        .then(result => {
+            console.log('UPDATE this box by id:', boxId)
+            res.sendStatus(200);
+        }).catch(err => {
+            console.log('Error in UPDATE route', err);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;
