@@ -9,8 +9,6 @@ import LogOut from '../LogOutButton/LogOutButton';
 //-----------------------Styling----------------------------------
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -110,6 +108,8 @@ class Header extends Component {
                             <Link className="nav-title" to="/home">
                                 <h3>FOUND IT</h3>
                             </Link><br />
+                            <div className = "search_bar"><SearchingBar /></div>
+
                             {/* Table menu drop down */}
                             <span
                                 onClick={this.handleCloseNav}
@@ -119,7 +119,6 @@ class Header extends Component {
                                 /></span>
 
                             {menu}
-                            <div className='search_bar'><SearchingBar /></div>
 
                         </>
                     )}
