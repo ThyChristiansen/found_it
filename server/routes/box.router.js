@@ -79,9 +79,35 @@ router.delete('/:id', (req, res) => {
             console.log('Error in DELETE route', err);
             res.sendStatus(500);
         })
-    res.sendStatus(200);
+    // res.sendStatus(200);
 })
 
+//GET first box route
+router.get('/', (req, res) => {
+    let boxId = req.params.id;
+    let roomId = req.params.roomId;
+    // console.log(' room id:',roomId);
 
+    let queryText = 'SELECT * FROM boxes';
+    pool.query(queryText)
+        .then((result) => {
+            console.log('get this row from database:',result.rows )
+            res.send(result.rows)
+        }).catch((error) => {
+            console.log('ERROR in get detail:',error);
+        })
+})
+
+ //POST route to add first box in the room
+ router.post('/firstboxInRoom/:id', (req, res) => {
+    // let qr_code = req.body.qr_code;
+    let roomId = req.params.id;
+    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),$1,1,1) RETURNING id';
+    pool.query(queryText, [roomId])
+        .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
+        .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
+
+    // res.sendStatus(201);
+});
 
 module.exports = router;

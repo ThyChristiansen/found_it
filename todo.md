@@ -15,31 +15,31 @@
 [x] Box list component
     [x] Navigate to add box form link when click on add new box button. 
     [x] Box Item component
-        [x] Send the GET request to database to get box's id, box's name and box's qr_code from Postico database -> Saga (send GET request to server to get data from server) -> Reducer -> mapping through and append to DOM
+        [x] Send the action FETCH_BOX to get box's id, box's name and box's qr_code from Postico database -> Saga (send GET request to server to get data from server) -> Reducer -> mapping through and append to DOM
     [x] Box's detail component
-        [x] Send the GET request to database to get boxes's data from Postico database -> Saga (send GET request to server to get data from server) -> Reducer -> mapping through and append to DOM
+        [x] Send the action FETCH_DETAIL to get boxes's data from Postico database -> Saga (send GET request to server to get data from server) -> Reducer -> mapping through and append to DOM
 [x] Create add new boxes form component
-    [x] Dispatching from client-side to send the input data to Saga(send POST request to server) -> Router (send POST request to database) -> Database
+    [x] Send action ADD_BOX from client-side to send the input data to Saga(send POST request to server) -> Router (send POST request to database) -> Database
 [x] Create Delete box feature
-    [x] Dispatching from client-side to send the box's id to Saga -> Router (send the DELETE request) -> Database
+    [x] Send action DELETE_BOX from client-side to send the box's id to Saga -> Router (send the DELETE request) -> Database
 [x] Create another POST route to add first box
-    [x]  Dispatching from client-side to send the action -> Saga (send POST request to server) -> Router (send POST request to database) -> Database
+    [x]  Send action ADD_FIRST_BOX from client-side to send the action -> Saga (send POST request to server) -> Router (send POST request to database) -> Database
 
 ### Items inside boxes
 [x] Create input field to add new items 
 [x] Create add new items component
-    [x] Dispatching from client-side to send the input data to Saga -> Router send the POST request -> Database
+    [x] Send action ADD_ITEM from client-side to send the input data to Saga -> Router send the POST request -> Database
     [x] Send the GET request to database to get items's data from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 [x] Feature delete items inside the box
-    [x] Dispatching from client-side to send the item's id to Saga -> Router (send the DELETE request) -> Database
+    [x] Send action DELETE_ITEM from client-side to send the item's id to Saga -> Router (send the DELETE request) -> Database
 [x] Feature update item
     [x] Create input field
-    [x] Dispatching from client-side to send the item's data after updated to Saga -> Router (send the PUT request) -> Database
+    [x] Send action UPDATE_ITEM from client-side to send the item's data after updated to Saga -> Router (send the PUT request) -> Database
 
 ### Rooms
 [x] Create table rooms in database
 [x] Create HomePage component 
-    [x] Send the GET request to database to get list of rooms from Postico database -> Saga -> Reducer -> mapping through the array which get from database
+    [x] Send action FETCH_ROOM to get list of rooms from Postico database -> Saga -> Reducer -> mapping through the array which get from database
     [x] Create a Room component 
         [x] Display list of rooms to the DOM
 
@@ -59,12 +59,18 @@
     [x] Set up input field, handle change for input field, etc...
 [x] Create Search Router
 [x] Create searchSaga and searchItemReducer
-[x] Send the GET request to database to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+[x] Send action SEARCH_ITEM to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
 
 ### House's name
 [x] Create table house in database
 [x] Create HouseName component, houseNameSaga and houseNameReducer
-    [x] From CreateRoomList component dispatching CREATE_HOUSE_NAME to Saga -> from Saga, send the POST request to database to create house's name from Postico database -> Saga 
-    [x] From CreateRoomList component dispatching FETCH_HOUSE_NAME to Saga  From Saga, send the GET request to database to get house's name from Postico database -> Saga -> Reducer -> mapping through the array which get from database
+    [x] From CreateRoomList component, send action CREATE_HOUSE_NAME to Saga -> from Saga, send the POST request to database to create house's name from Postico database -> Saga 
+    [x] From CreateRoomList component, send action  FETCH_HOUSE_NAME to Saga ->  From Saga, send the GET request to database to get house's name from Postico database -> Saga -> Reducer -> mapping through the array which get from database
     
-
+### Boxes
+[x] Create the feature add very first box
+    [x] From BoxList component send action ADD_FIRST_BOX to Saga -> from Saga, send the POST request to database to add first box to boxes table in Postico database
+    [x] From BoxList component send action FETCH_ALL_BOX to Saga -> from Saga, send the GET request to database to get all boxes from Postico database -> Saga -> Reducer -> mapping through the array which get from database.
+[x] Fixing feature add first box in the room
+    [x] From BoxList component send action ADD_FIRST_BOX_IN_ROOM to Saga -> from Saga, send the POST request to database to to add first box in a specific room to boxes table Postico database.
+   
