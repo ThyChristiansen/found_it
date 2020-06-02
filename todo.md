@@ -82,7 +82,7 @@
 
 
 ## Styling
-[] Login/ Register page
+[x] Login/ Register page
 [x] Header
 [] Drop down nav table
 [] Search bar

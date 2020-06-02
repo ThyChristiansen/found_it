@@ -3,7 +3,6 @@ import './App.css';
 import { connect } from 'react-redux';
 
 
-import Nav from '../Nav/Nav'
 import Footer from '../Footer/Footer'
 import AboutPage from '../AboutPage/AboutPage'
 import UserPage from '../UserPage/UserPage';
@@ -19,7 +18,6 @@ import {
   Route,
   Redirect,
   Switch,
-  Link
 } from 'react-router-dom';
 
 

@@ -36,7 +36,7 @@ input {
   cursor: pointer;
 }
 .log-out{
-  background-color: rgba(136, 132, 130, 0.664);
+  background-color:#efede7;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
