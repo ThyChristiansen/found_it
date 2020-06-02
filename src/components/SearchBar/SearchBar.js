@@ -25,7 +25,6 @@ class SearchingBar extends Component {
         //If the value inside the search bar is empty, return result of searching will empty.
         //if the result of the searching is not match with any item inside the boxes, return Result searching is empty.
         //if the result of the searching is match with items that inside the boxes, return room name, box name.
-
         let resultSearching;
         if (this.state.searchItem.length === 0) {
             resultSearching = <p></p>
@@ -34,6 +33,7 @@ class SearchingBar extends Component {
         }
         else if (this.props.reduxState.searchItem.length !== 0) {
             resultSearching = this.props.reduxState.searchItem.map((item) => {
+                //Condition for box's name base on each room's name
                 if (item.room_name === 'Storage') {
                     return (
                         <div key={item.id}>
@@ -83,10 +83,8 @@ class SearchingBar extends Component {
                         </div>
                     )
                 }
-
             })
         }
-
 
         return (
             <div>

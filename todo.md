@@ -1,5 +1,7 @@
 
-##Base
+## Base
+---------
+
 ### Set up
 [x] Installing
 [x] Connecting to Heroku database
@@ -54,13 +56,6 @@
 [x] Updata the DELETE request to delete item inside the specific box and room by room id and box id
 [x] Updata the PUT request to update item inside the specific box and room by room id and box id
 
-### Search item
-[x] Create SearchBar component
-    [x] Set up input field, handle change for input field, etc...
-[x] Create Search Router
-[x] Create searchSaga and searchItemReducer
-[x] Send action SEARCH_ITEM to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
-
 ### House's name
 [x] Create table house in database
 [x] Create HouseName component, houseNameSaga and houseNameReducer
@@ -74,3 +69,24 @@
 [x] Fixing feature add first box in the room
     [x] From BoxList component send action ADD_FIRST_BOX_IN_ROOM to Saga -> from Saga, send the POST request to database to to add first box in a specific room to boxes table Postico database.
    
+
+## Stretch
+----------
+
+### Search item
+[x] Create SearchBar component
+    [x] Set up input field, handle change for input field, etc...
+[x] Create Search Router
+[x] Create searchSaga and searchItemReducer
+[x] Send action SEARCH_ITEM to get box's name, room's name of the matching item that user searching from Postico database -> Saga -> Reducer -> mapping through and append to DOM
+
+
+## Styling
+[] Header
+[] Drop down nav table
+[] Search bar
+[] House's name
+[] Back to room list button
+[] Room's name in box list
+[] Box quanity
+[] Add new box button
