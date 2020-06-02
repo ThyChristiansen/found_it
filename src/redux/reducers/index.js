@@ -10,7 +10,7 @@ import rooms from './roomReducer';
 import roomName from './roomNameReducer';
 import searchItem from './searchItemReducer';
 import houseName from './houseNameReducer';
-
+import allBox from './allBoxReducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -29,7 +29,7 @@ const rootReducer = combineReducers({
   roomName,
   searchItem,
   houseName,
-
+  allBox,
 });
 
 export default rootReducer;

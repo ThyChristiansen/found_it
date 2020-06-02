@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SearchingBar from '../SearchBar/SearchBar';
 
 
@@ -23,7 +23,12 @@ class BoxList extends Component {
                 roomId: match.params.id,
             }
         })
-
+        dispatch({
+            type: 'FETCH_ALL_BOX',
+            payload: {
+                roomId: match.params.id,
+            }
+        })
     }
 
     handleOnClickAddNewBox = () => {
@@ -35,17 +40,32 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
+
     }
 
-    handleOnClickAddFirstNewBox = () => {
+    handleOnClickAddFirstBox = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
+
         dispatch({
             type: 'ADD_FIRST_BOX',
             payload: {
                 roomId: match.params.id
             }
         })
+
+    }
+    handleOnClickAddFirstBoxInRoom = () => {
+        const { dispatch, match } = this.props;
+        console.log('add new item clicked!');
+
+        dispatch({
+            type: 'ADD_FIRST_BOX_IN_ROOM',
+            payload: {
+                roomId: match.params.id
+            }
+        })
+
     }
 
     handleBackToRoomList = () => {
@@ -55,23 +75,29 @@ class BoxList extends Component {
 
     render() {
 
-        //Create the conditional for add new box, if the box list is empty,
-        // sending the ADD_FIRST_BOX action to server to create the box have id = 1 
+        // Create the conditional for add new box, if the all of the room list is empty,
+        // sending the ADD_FIRST_BOX action to server to create the first box have id = 1 
+        // box_name = 1, qr_code = 1.
+        // If inside a specific room is empty, 
+        // sending the ADD_FIRST_BOX_IN_ROOM action to server to create the first box have id = increment number from the previous id,
         // box_name = 1, qr_code = 1.
         // if box list had a couple boxes, sending the ADD_BOX action to server to keep on 
         //increment number of id, box's name, qr_code, from the last row
         let addNewBox;
-        if (this.props.reduxState.boxes.length === 0) {
-            addNewBox = <button onClick={this.handleOnClickAddFirstNewBox}
+        if (this.props.reduxState.allBox.length === 0) {
+            addNewBox = <button onClick={this.handleOnClickAddFirstBox}
                 className="add_new_box_btn">Add new box</button>
-        } else {
+        } else if (this.props.reduxState.boxes.length === 0) {
+            addNewBox = <button onClick={this.handleOnClickAddFirstBoxInRoom}
+                className="add_new_box_btn">Add new box</button>
+        }else {
             addNewBox = <button onClick={this.handleOnClickAddNewBox}
                 className="add_new_box_btn">Add new box</button>
         }
 
         return (
             <div>
-                    <SearchingBar />
+                <SearchingBar />
 
                 <button onClick={this.handleBackToRoomList}>Back to room list</button>
                 {/* Display room's name */}
@@ -79,7 +105,7 @@ class BoxList extends Component {
                     if (index === 0) {
                         return (
                             <h1 className="box_list_header"
-                            onClick = {this.handleBackToRoomList}
+                                onClick={this.handleBackToRoomList}
                             >{room.room_name}</h1>
                         )
                     }
@@ -91,7 +117,7 @@ class BoxList extends Component {
                 {this.props.reduxState.boxes.map((box) => {
                     return (
                         <div key={box.id} className="box_item">
-                           <Box
+                            <Box
                                 box={box}
                             />
                         </div>
