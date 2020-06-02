@@ -137,7 +137,7 @@ class BoxList extends Component {
                     )
                 })}
 
-                <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1>
+                {/* <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1> */}
             </div>
         )
     }
