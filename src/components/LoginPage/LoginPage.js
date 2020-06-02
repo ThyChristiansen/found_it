@@ -34,13 +34,17 @@ class LoginPage extends Component {
     return (
       <div>
 
-        <div className = "login_header_bar"><img
-                src="images/app.png"
-                alt='scanner_icon'
-                className="icon_scanner"
-                width="50"
-                height="50"
-            /></div>
+        <div className="login_header_bar">
+          <h5 className="login_header">Found it</h5>
+
+          <img
+            src="images/app.png"
+            alt='scanner_icon'
+            className="icon_scanner"
+            width="50"
+            height="50"
+          />
+        </div>
 
         {this.props.errors.loginMessage && (
           <h4
@@ -51,7 +55,6 @@ class LoginPage extends Component {
           </h4>
         )}
         <form onSubmit={this.login}>
-          <h1>Login</h1>
           <div>
             <label htmlFor="username">
               <input
@@ -79,7 +82,7 @@ class LoginPage extends Component {
               className="log-in"
               type="submit"
               name="submit"
-              value="Log In"
+              value="Sign In"
             />
           </div>
         </form>
@@ -89,7 +92,7 @@ class LoginPage extends Component {
             className="link-button"
             onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
           >
-            Register
+            Sign Up
           </button>
         </center>
       </div>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import '../LoginPage/LoginPage.css';
 
 class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
-    email:'',
+    email: '',
     // houseName:''
   };
 
@@ -23,7 +24,7 @@ class RegisterPage extends Component {
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -36,6 +37,18 @@ class RegisterPage extends Component {
   render() {
     return (
       <div>
+        {/* Header for register page */}
+        <div className="login_header_bar">
+          <h5 className="login_header">Welcome to Found it</h5>
+
+          <img
+            src="images/app.png"
+            alt='scanner_icon'
+            className="icon_scanner"
+            width="50"
+            height="50"
+          />
+        </div>
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -45,10 +58,10 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <p>Create Account</p>
           <div>
-          
-             
+
+
             <label htmlFor="username">
               <input
                 type="text"
@@ -80,7 +93,7 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
-             {/* <label htmlFor="housename">
+            {/* <label htmlFor="housename">
               <input
                 type="text"
                 name="name for your house"
@@ -89,13 +102,13 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('houseName')}
               />
             </label> */}
-           </div> 
+          </div>
           <div>
             <input
               className="register"
               type="submit"
               name="submit"
-              value="Register"
+              value="Sign Up"
             />
           </div>
         </form>
@@ -103,9 +116,9 @@ class RegisterPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
           >
-            Login
+            Sign In
           </button>
         </center>
       </div>
