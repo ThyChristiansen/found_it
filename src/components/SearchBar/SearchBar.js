@@ -20,6 +20,23 @@ class SearchingBar extends Component {
     }
 
     render() {
+        let resultSearching;
+        if (this.state.searchItem.length === 0) {
+            resultSearching = <p></p>
+        } else if (this.props.reduxState.searchItem.length === 0) {
+            resultSearching = <p>Result searching is empty</p>
+        }
+        else if(this.props.reduxState.searchItem.length !== 0) {
+            resultSearching=  this.props.reduxState.searchItem.map((item) => {
+                return (
+                    <div key={item.id}>
+                        <span>{item.room_name}</span><span>Box {item.box_name}</span>
+                    </div>
+                )
+            })
+        }
+
+
         return (
             <div>
                 <input
@@ -28,19 +45,10 @@ class SearchingBar extends Component {
                     value={this.state.searchItem}
                     onChange={this.handleChangeFor}
                 />
-                {/* <button onClick = {this.handleSearching}>search</button> */}
-                {this.props.reduxState.searchItem.map((item) => {
-                    if (this.state.searchItem.length === 0) {
-                        return <p></p>
-                    } else {
-                        return (
-                            <div key={item.id}>
-                                <span>{item.room_name}</span><span>Box {item.box_name}</span>
-                            </div>
-                        )
-                    }
+                <p>{resultSearching}</p>
+               
+                {/* <h1>{JSON.stringify(this.props.reduxState.searchItem.length)}</h1> */}
 
-                })}
             </div>
         )
     }
