@@ -6,9 +6,12 @@ import CreateRoomList from '../UserPage/CreateRoomList';
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 import SearchingBar from '../SearchBar/SearchBar';
+import Header from '../Nav/Header';
+
 
 const UserPage = (props) => (
   <div>
+    <Header />
     <SearchingBar />
     {/* Send username, userId to createRoomList component */}
     <CreateRoomList

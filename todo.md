@@ -82,6 +82,7 @@
 
 
 ## Styling
+[] Login/ Register page
 [] Header
 [] Drop down nav table
 [] Search bar
@@ -90,3 +91,4 @@
 [] Room's name in box list
 [] Box quanity
 [] Add new box button
+[] Detail inside the box

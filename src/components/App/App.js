@@ -22,63 +22,20 @@ import {
   Link
 } from 'react-router-dom';
 
-//-----------------------Styling----------------------------------
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { withStyles } from '@material-ui/core/styles';
-//-----------------------Styling----------------------------------
-
-
-const styles = {
-  root: {
-    paddingTop: '10px',
-  },
-};
 
 
 class App extends Component {
 
-  state = {
-    menu: false,
-  }
 
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' })
   }
 
-  handleShowNav = () => {
-    console.log('click!')
-    this.setState({
-      menu: !this.state.menu
-    })
-  }
 
   render() {
-    //Create if statement to hide and show nav table drop down
-    let menu;
-    if (this.state.menu) {
-      menu = <Nav />
-    }
-
-    const { classes } = this.props;
-
+ 
     return (
-      //Header
       <HashRouter>
-        {/* Assigning link for header */}
-        <div className="nav-bar">
-          <Link to="/home"> 
-            <h1 className="nav-title" >Found it</h1>
-          </Link><br />
-          {/* Table menu drop down */}
-          <span onClick={this.handleShowNav}
-            className="menu"
-          >Menu</span>
-          <ArrowDropDownIcon
-            onClick={this.handleShowNav}
-            className={classes.root}
-          />
-          {menu}
-        </div>
 
         <div>
           <Switch>
@@ -136,5 +93,5 @@ class App extends Component {
 
 const putReduxStateOnState = (reduxState) => ({ reduxState });
 
-export default connect(putReduxStateOnState)(withStyles(styles)(App));
+export default connect(putReduxStateOnState)(App);
 
