@@ -156,11 +156,7 @@ class SearchBar extends Component {
                 }
             })
         }
-
-
         const { classes } = this.props;
-
-
         return (
             <div>
 
@@ -183,9 +179,7 @@ class SearchBar extends Component {
                 </div>
                 
                 <p className="result_search">{resultSearching}</p>
-
                 {/* <h1>{JSON.stringify(this.props.reduxState.searchItem.length)}</h1> */}
-
             </div>
         )
     }

@@ -250,8 +250,6 @@ class BoxDetail extends Component {
 
                 <div className="box_detail">
                     {/* <h1>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h1> */}
-
-
                     {/* <button onClick={this.backClick}
                         className="back_btn">Back to box list</button> */}
                     {/* mapping through the box list array to get room_id from database to display in DOM */}
@@ -355,7 +353,6 @@ class BoxDetail extends Component {
                     <ColorButton onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin}>
                         Delete
                     </ColorButton>
-
                 </div>
             </div>
         )

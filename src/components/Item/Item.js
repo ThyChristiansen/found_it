@@ -118,10 +118,6 @@ class Item extends Component {
                 {this.state.itemIsEditable ?
                     <>
                         <span>
-                            {/* <input
-                            value={this.state.item}
-                            onChange={this.handleChangeFor}
-                        /> */}
                             <FormControl className={classes.margin}>
                                 <BootstrapInput
                                     id="bootstrap-input"
@@ -139,7 +135,6 @@ class Item extends Component {
                         <div className="input_item" onClick={this.editItem}>{this.state.item}</div>
                     </>
                 }
-                {/* <HighlightOffIcon onClick={this.handleDelete} className={classes.root} /> */}
                 <img src="images/cancel.png"
                     alt="room_icon"
                     width="20px"

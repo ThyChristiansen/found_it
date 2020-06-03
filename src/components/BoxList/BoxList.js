@@ -46,15 +46,24 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Added!',
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
             showConfirmButton: false,
-            timer: 1000
+            timer: 2000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Added'
           })
     }
-   
+
     //if that room is have no box, this function will send the ADD_FIRST_BOX to Saga 
     //to start the first box with its name is 1  
     handleOnClickAddFirsBox = () => {
@@ -73,7 +82,7 @@ class BoxList extends Component {
             title: 'Added!',
             showConfirmButton: false,
             timer: 1000
-          })
+        })
 
     }
     handleOnClickAddFirstBoxInRoom = () => {
@@ -91,7 +100,7 @@ class BoxList extends Component {
             title: 'Added!',
             showConfirmButton: false,
             timer: 1000
-          })
+        })
 
     }
     //handle back to home button
@@ -128,13 +137,6 @@ class BoxList extends Component {
                 {/* Display room's name ‰
                 Maping through the roomName array from reducer then return the room's name  */}
                 {this.props.reduxState.roomName.map((room, index) => {
-                    // if (index === 0) {
-                    //     return (
-                    //         <h1 className="box_list_header"
-                    //             onClick={this.handleBackToRoomList}
-                    //         >{room.room_name}</h1>
-                    //     )
-                    // }
                     return (<h1 className="box_list_header"
                         onClick={this.handleBackToRoomList}
                     >{room.room_name} </h1>)

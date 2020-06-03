@@ -79,9 +79,6 @@ class LoginPage extends Component {
             height="50"
           />
         </div>
-
-        
-
             {this.props.errors.loginMessage && (
               <h4
                 className="alert"
@@ -146,7 +143,6 @@ class LoginPage extends Component {
                 </div>
               </div>
             </form>
-
             <center>
               <button
                 type="button"
