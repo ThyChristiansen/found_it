@@ -11,7 +11,6 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 import { Box } from '@material-ui/core'
-
 //-----------------------Styling----------------------------------
 
 const useStyles = (theme) => ({
@@ -81,8 +80,7 @@ class LoginPage extends Component {
           />
         </div>
 
-        <div className={classes.alignItemsAndJustifyContent}>
-          <Box m="auto">
+        
 
             {this.props.errors.loginMessage && (
               <h4
@@ -92,6 +90,8 @@ class LoginPage extends Component {
                 {this.props.errors.loginMessage}
               </h4>
             )}
+            <div className={classes.alignItemsAndJustifyContent}>
+            <Box m="auto">
 
             <form onSubmit={this.login}>
               <div>
@@ -110,7 +110,6 @@ class LoginPage extends Component {
                         />
                       </Grid>
                     </Grid>
-
                   </div>
                 </label>
               </div>
@@ -128,7 +127,6 @@ class LoginPage extends Component {
                           value={this.state.password}
                           onChange={this.handleInputChangeFor('password')}
                           className={classes.width}
-
                         />
                       </Grid>
                     </Grid>

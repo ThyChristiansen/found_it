@@ -14,8 +14,6 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 
 
-
-
 const BootstrapInput = withStyles((theme) => ({
     root: {
         'label + &': {
@@ -54,10 +52,21 @@ const BootstrapInput = withStyles((theme) => ({
 
 const ColorButton = withStyles((theme) => ({
     root: {
-        color: theme.palette.getContrastText( '#c62828'),
+        color: theme.palette.getContrastText('#c62828'),
         backgroundColor: '#c62828',
         '&:hover': {
-            backgroundColor:  '#c62828',
+            backgroundColor: '#c62828',
+        },
+    },
+   
+}))(Button);
+
+const ColorButton1 = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText( '#FFB92C'),
+        backgroundColor: '#FFB92C',
+        '&:hover': {
+            backgroundColor:  '#FFB92C',
         },
     },
 }))(Button);
@@ -290,9 +299,9 @@ class BoxDetail extends Component {
                         })}
                         {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
                     </div>
-                   
 
-                    <Button onClick={this.handleUnBox} size="small" variant="contained">Unbox</Button>
+
+                    <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
                     <ColorButton onClick={this.handleDeleteBox} size="small" variant="contained" color="primary" className={classes.margin}>
                         Delete
                     </ColorButton>

@@ -2,6 +2,76 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomePage from '../UserPage/HomePage';
 
+//-----------------------Styling----------------------------------
+
+import { fade, withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import InputBase from '@material-ui/core/InputBase';
+import FormControl from '@material-ui/core/FormControl';
+import { Grid } from '@material-ui/core';
+import { Box } from '@material-ui/core'
+import TextField from '@material-ui/core/TextField';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import LockIcon from '@material-ui/icons/Lock';
+
+
+//-----------------------Styling----------------------------------
+
+
+const useStyles = (theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    },
+    alignItemsAndJustifyContent: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+
+const BootstrapInput = withStyles((theme) => ({
+    input: {
+        borderRadius: 4,
+        position: 'relative',
+        backgroundColor: theme.palette.common.white,
+        border: '1px solid #ced4da',
+        fontSize: 16,
+        width: '200px',
+        padding: '10px 10px',
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        '&:focus': {
+            boxShadow: `${fade('#8f8681', 0.25)} 0 0 0 0.3rem`,
+            borderColor: '#8f8681',
+        },
+    },
+}))(InputBase);
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText('#FFB92C'),
+        backgroundColor: '#FFB92C',
+        '&:hover': {
+            backgroundColor: '#FFB92C',
+        },
+    },
+}))(Button);
+
+
 
 class CreateRoomList extends Component {
 
@@ -68,15 +138,29 @@ class CreateRoomList extends Component {
         //I use if statement to show the input field and the create house name button
         //if their value is true, and no rooms in this account,
         // it will display input field, the button and the message welcome
+        const { classes } = this.props;
+
         let button;
         let welcome;
         if (this.state.button && this.props.reduxState.rooms.length === 0) {
-            button = <>
-                <input type="text" placeholder="House's name..."
-                    onChange={this.handleHouseNameChangeFor}/>
-                < button onClick={this.handleClick}> Create room list</button >
-            </>
-            welcome = <h1>Welcome {this.props.username}!!!!</h1>
+            button = <div className={classes.alignItemsAndJustifyContent}>
+                <FormControl className={classes.margin}>
+                    <BootstrapInput
+                        id="bootstrap-input"
+                        placeholder="House's name..."
+                        value={this.state.item}
+                        onChange={this.handleHouseNameChangeFor} width="80%"
+                    />
+                </FormControl>
+
+                <ColorButton variant="outlined" color="primary" className={classes.margin}
+                    onClick={this.handleClick}>
+                    Create rooms
+                    </ColorButton>
+            </div>
+            welcome = <div className={classes.alignItemsAndJustifyContent}>
+                <h1>Welcome {this.props.username}!!!!</h1>
+            </div>
         } 
         
         return (
@@ -93,4 +177,6 @@ class CreateRoomList extends Component {
 //set the reduxState inside props and putReduxStateToProps variable inside the conneect
 //so that I can get get data from the reducers
 const putReduxStateToProps = (reduxState) => ({ reduxState });
-export default connect(putReduxStateToProps)(CreateRoomList);
+export default connect(putReduxStateToProps)(withStyles(useStyles)(CreateRoomList));
+
+

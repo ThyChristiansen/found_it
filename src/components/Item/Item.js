@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Item.css'
 
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {
     fade,
     withStyles,
