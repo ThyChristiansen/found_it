@@ -2,11 +2,16 @@
     display: flex;  
     flex-wrap: wrap;
     float: left;
-    width: 80px;
+    width: 85px;
     margin:19px;
+    text-align: center;
 }
 
 .room_name{
-   margin-left: 15px;
+   /* margin-left: 15px; */
    text-align: center;
+}
+
+.room:hover{
+    box-shadow: 1px 5px 5px rgb(177, 175, 175);
 }

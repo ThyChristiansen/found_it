@@ -2,6 +2,58 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Item.css'
 
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import {
+    fade,
+    withStyles,
+} from '@material-ui/core/styles';
+import InputBase from '@material-ui/core/InputBase';
+import FormControl from '@material-ui/core/FormControl';
+
+
+const BootstrapInput = withStyles((theme) => ({
+    input: {
+        borderRadius: 4,
+        position: 'relative',
+        backgroundColor: theme.palette.common.white,
+        border: '1px solid #ced4da',
+        fontSize: 16,
+        width: '260px',
+        padding: '10px 10px',
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        '&:focus': {
+            boxShadow: `${fade('#8f8681', 0.25)} 0 0 0 0.3rem`,
+            borderColor: '#8f8681',
+        },
+    },
+}))(InputBase);
+const useStyles = (theme) => ({
+    root: {
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        paddingLeft: '270px',
+    },
+    margin: {
+        margin: theme.spacing(1),
+    },
+
+});
+
+
+
 class Item extends Component {
 
     //Create a state to storing the item data and itemIsEditable
@@ -51,30 +103,53 @@ class Item extends Component {
             }
         })
     }
+    keyPressed = (event) => {
+        if (event.key === "Enter") {
+            this.saveItem();
+        }
+    }
 
     render() {
+        const { classes } = this.props;
+
         return (
             <div className="item_detail">
                 {/* if itemIsEditable is true, displaying the input field and Save Item button
                 if itemIsEditable is false, displaying item's contend and the Edit Item button as well */}
                 {this.state.itemIsEditable ?
                     <>
-                        <span><input
+                        <span>
+                            {/* <input
                             value={this.state.item}
                             onChange={this.handleChangeFor}
-                            className="input_item"
-                        /></span>
-                        <button onClick={this.saveItem}>Save Item</button>
+                        /> */}
+                            <FormControl className={classes.margin}>
+                                <BootstrapInput
+                                    id="bootstrap-input"
+                                    value={this.state.item}
+                                    onChange={this.handleChangeFor}
+                                    width="80%"
+                                    onKeyPress={this.keyPressed}
+                                />
+                            </FormControl>
+
+                        </span>
                     </>
                     :
                     <>
-                        <span className="input_item">{this.state.item}</span>
-                        <button onClick={this.editItem}>Edit Item</button>
+                        <div className="input_item" onClick={this.editItem}>{this.state.item}</div>
                     </>
                 }
-                <button onClick={this.handleDelete}>Delete</button>
+                {/* <HighlightOffIcon onClick={this.handleDelete} className={classes.root} /> */}
+                <img src="images/cancel.png"
+                    alt="room_icon"
+                    width="20px"
+                    height="20px"
+                    onClick={this.handleDelete}
+                    className='delete_button'
+                ></img>
             </div>
         )
     }
 }
-export default connect()(Item);
+export default connect()(withStyles(useStyles)(Item));

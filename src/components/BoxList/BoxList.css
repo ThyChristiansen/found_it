@@ -1,20 +1,42 @@
+
+.box_list_page{
+    /* text-align: center; */
+
+}
 .box_list_header{
     text-align: center;
+    margin-bottom: 5px;
 }
 
-.add_new_box_btn{
-    float: left;
-    margin:5px;
-    width: 80px;
-    height: 80px;
-    border: 1px solid black;
+.box_list{
+    margin:5px 10px;
+    text-align: center;
 
+
+}
+.box_quantity{
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+.add_new_box_btn{
+    background-color: whitesmoke;
+    float: left;
+    margin:5px 12px;
+    width: 75px;
+    height: 75px;
+    border: 1px solid rgb(102, 101, 101);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.753);
 }
 .box_item{
     display: flex;  
     flex-wrap: wrap;
     float: left;
-    width: 80px;
-    margin:5px;
+    width: 75px;
+    margin-right:13px;   
+    /* display: inline-block; */
+
+
 }
 

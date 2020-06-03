@@ -86,9 +86,14 @@
 [x] Header
 [x] Drop down nav table
 [x] Search bar
-[] House's name
-[] Back to room list button
-[] Room's name in box list
-[] Box quanity
-[] Add new box button
+[x] House's name
+[x] Room's name in box list
+[x] Box quanity
+[x] Add new box button
 [] Detail inside the box
+    [x] Box's name
+    [x] QR code, Download QR code button
+    [x] Add item input , button
+    [x] list item
+    [x] icon for edit and delete
+    [x] styling for unbox and delete

@@ -101,7 +101,7 @@ class BoxList extends Component {
         }
 
         return (
-            <div>
+            <div className="box_list_page">
                 <Header />
                 {/* Display room's name ‰
                 Maping through the roomName array from reducer then return the room's name  */}
@@ -119,11 +119,12 @@ class BoxList extends Component {
                 })}
 
                 {/* Display box quantity in the room */}
-                <p className="box_list_header">Box quantity: {this.props.reduxState.boxes.length}</p>
+                <p className="box_quantity">Box quantity: {this.props.reduxState.boxes.length}</p>
 
                 {addNewBox}
 
                 {/* Mapping through tr boxes array that got from reducer and display boxes */}
+                <div className="box_list">
                 {this.props.reduxState.boxes.map((box) => {
                     return (
                         <div key={box.id} className="box_item">
@@ -134,6 +135,7 @@ class BoxList extends Component {
                         </div>
                     )
                 })}
+                </div>
 
                 {/* <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1> */}
             </div>

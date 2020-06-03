@@ -5,6 +5,77 @@ import Item from '../Item/Item';
 import './BoxDetail.css';
 import Header from '../Nav/Header';
 
+import {
+    fade,
+    withStyles,
+} from '@material-ui/core/styles';
+import InputBase from '@material-ui/core/InputBase';
+import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+
+
+
+
+const BootstrapInput = withStyles((theme) => ({
+    root: {
+        'label + &': {
+            marginTop: theme.spacing(3),
+        },
+    },
+    input: {
+        borderRadius: 4,
+        position: 'relative',
+        backgroundColor: theme.palette.common.white,
+        border: '1px solid #ced4da',
+        fontSize: 16,
+        width: '300px',
+        padding: '10px 12px',
+        marginTop: '30px',
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        '&:focus': {
+            boxShadow: `${fade('#8f8681', 0.25)} 0 0 0 0.3rem`,
+            borderColor: '#8f8681',
+        },
+    },
+}))(InputBase);
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText( '#c62828'),
+        backgroundColor: '#c62828',
+        '&:hover': {
+            backgroundColor:  '#c62828',
+        },
+    },
+}))(Button);
+
+const useStyles = (theme) => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+
+    },
+    margin: {
+        margin: theme.spacing(1),
+    },
+
+});
+
+
+
 
 class BoxDetail extends Component {
 
@@ -12,7 +83,6 @@ class BoxDetail extends Component {
     state = {
         item: ''
     }
-
     componentDidMount() {
         //Get box's data after refresh page by id
         const { dispatch, match } = this.props;
@@ -34,14 +104,12 @@ class BoxDetail extends Component {
         console.log('--------->this is box id:', match.params.id)
         console.log('--------->this is room id:', match.params.roomId)
     }
-
     //handle come back list box page
     backClick = () => {
         const { match } = this.props;
         console.log('back clicked');
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
-
     //handle changing for add new item input field
     handleInputChangeFor = (event) => {
         // console.log('changing', event.target.value)
@@ -58,13 +126,11 @@ class BoxDetail extends Component {
             this.handleClearInput();
         }
     }
-
     handleClearInput = () => {
         this.setState({
             item: '',
         });
     }
-
     //handle add new item button
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
@@ -77,6 +143,12 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
+    }
+    keyPressed = (event) => {
+        if (event.key === "Enter") {
+            this.handleAddNewItem();
+            this.handleClearInput();
+        }
     }
     //Create this function to send the roomId to item component to can delete the item inside the chosen box and room
     sendRoomIdToItem = (roomId) => {
@@ -115,8 +187,11 @@ class BoxDetail extends Component {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <div>                <Header />
+            <div>
+                <Header />
 
                 <div className="box_detail">
 
@@ -180,15 +255,24 @@ class BoxDetail extends Component {
                     })}
 
                     {/* add new item field */}
-                    <p>Add item to your box:</p>
-                    <input
+                    <FormControl className={classes.margin}>
+
+                        <BootstrapInput
+                            placeholder='Add item...'
+                            id="bootstrap-input"
+                            value={this.state.item}
+                            onChange={this.handleInputChangeFor}
+                            width="80%"
+                            onKeyPress={this.keyPressed}
+                        />
+                    </FormControl>
+                    {/* <input
                         type="text"
                         placeholder='Add item...'
                         value={this.state.item}
                         onChange={this.handleInputChangeFor}
                         width="80%"
-                    />
-                    <button onClick={this.handleSubmit}>Add</button>
+                    /> */}
 
                     <div className="list_item" >
                         {/* Mapping through the item array to display list item in DOM */}
@@ -206,8 +290,12 @@ class BoxDetail extends Component {
                         })}
                         {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
                     </div>
-                    <button onClick={this.handleUnBox}>Unbox</button>
-                    <button onClick={this.handleDeleteBox}>Delete</button>
+                   
+
+                    <Button onClick={this.handleUnBox} size="small" variant="contained">Unbox</Button>
+                    <ColorButton onClick={this.handleDeleteBox} size="small" variant="contained" color="primary" className={classes.margin}>
+                        Delete
+                    </ColorButton>
 
                 </div>
             </div>
@@ -215,4 +303,4 @@ class BoxDetail extends Component {
     }
 }
 const putReduxStateToProps = (reduxState) => ({ reduxState });
-export default connect(putReduxStateToProps)(BoxDetail);
+export default connect(putReduxStateToProps)(withStyles(useStyles)(BoxDetail));

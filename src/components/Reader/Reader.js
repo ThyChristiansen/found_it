@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
-
 import QrReader from 'react-qr-reader'
+import Header from '../Nav/Header';
+
  
 class Reader extends Component {
   state = {
@@ -21,13 +21,14 @@ class Reader extends Component {
   render() {
     return (
       <div>
+        <Header />
         <QrReader
           delay={300}
           onError={this.handleError}
           onScan={this.handleScan}
           style={{ width: '100%' }}
         />
-        <a href = {this.state.result} target="_blank">{this.state.result}</a>
+        <a href = {this.state.result} target="_blank" rel="noopener noreferrer">{this.state.result}</a>
 
       </div>
     )

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Room from '../Room/Room';
 import './UserPage.css'
 
-
 class HomePage extends Component {
     componentDidMount() {
         //Send this action to Saga to show the house's name 

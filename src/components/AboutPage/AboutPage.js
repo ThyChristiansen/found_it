@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Nav/Header';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -7,6 +8,7 @@ import React from 'react';
 
 const AboutPage = () => (
   <div>
+    <Header />
     <div>
       <p>
         This about page is for anyone to read!

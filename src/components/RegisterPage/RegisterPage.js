@@ -24,6 +24,14 @@ const useStyles = (theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  width: {
+    width: 230,
+    height: 40,
+
+  },
+  height: {
+    height: 30,
+  }
 
 });
 
@@ -96,7 +104,7 @@ class RegisterPage extends Component {
                 <label htmlFor="username">
                   <div className={classes.margin}>
                     <Grid container spacing={1} alignItems="flex-end">
-                      <Grid item >
+                      <Grid item className={classes.height} >
                         <AccountCircle />
                       </Grid>
                       <Grid item>
@@ -104,6 +112,8 @@ class RegisterPage extends Component {
                           label="Username"
                           value={this.state.username}
                           onChange={this.handleInputChangeFor('username')}
+                          className={classes.width}
+
                         />
                       </Grid>
                     </Grid>
@@ -116,7 +126,7 @@ class RegisterPage extends Component {
                 <label htmlFor="email">
                   <div className={classes.margin}>
                     <Grid container spacing={1} alignItems="flex-end">
-                      <Grid item  >
+                      <Grid item className={classes.height} >
                         <AlternateEmailIcon />
                       </Grid>
                       <Grid item>
@@ -125,25 +135,18 @@ class RegisterPage extends Component {
                           type="text"
                           value={this.state.email}
                           onChange={this.handleInputChangeFor('email')}
+                          className={classes.width}
                         />
                       </Grid>
                     </Grid>
-                    {/* <input
-                      type="text"
-                      name="email"
-                      placeholder="email"
-                      value={this.state.email}
-                      onChange={this.handleInputChangeFor('email')}
-                    /> */}
                   </div>
                 </label>
-
               </div>
               <div>
                 <label htmlFor="password">
                   <div className={classes.margin}>
                     <Grid container spacing={1} alignItems="flex-end">
-                      <Grid item  >
+                      <Grid item className={classes.height} >
                         <LockIcon />
                       </Grid>
                       <Grid item>
@@ -152,16 +155,11 @@ class RegisterPage extends Component {
                           type="password"
                           value={this.state.password}
                           onChange={this.handleInputChangeFor('password')}
+                          className={classes.width}
+
                         />
                       </Grid>
                     </Grid>
-                    {/* <input
-                      type="password"
-                      name="password"
-                      placeholder="password"
-                      value={this.state.password}
-                      onChange={this.handleInputChangeFor('password')}
-                    /> */}
                   </div>
                 </label>
               </div>
