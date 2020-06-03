@@ -151,6 +151,8 @@ class SearchBar extends Component {
                             </Link>
                         </div>
                     )
+                }else{
+                    return "empty"
                 }
             })
         }

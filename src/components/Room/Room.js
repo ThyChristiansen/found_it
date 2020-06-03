@@ -16,6 +16,7 @@ class RoomList extends Component {
                 {/* Set Link for each room icon so that the user can click on the box icon and navigate to the detail inside room */}
                 <Link to={`/boxes/${this.props.roomData.id}`}>
                     <img src="images/room_icon.png"
+                        alt="room_icon"
                         width="100px"
                         height="100px"
                         onClick={this.handleOnClick}

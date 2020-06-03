@@ -22,9 +22,9 @@
   color: rgba(134, 78, 54, 0.664);
 }
 
-.title:active{
-  transition: 0.2s;
-  box-shadow: 0 5px #666;
+.header_title:active{
+  transition: 2s;
+  box-shadow: 0 0 1px 20px rgba(170, 155, 143, 0.246);
   transform: translateY(5px);
 }
 

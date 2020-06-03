@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Room from '../Room/Room';
-
+import './UserPage.css'
 
 class HomePage extends Component {
     componentDidMount() {
@@ -18,7 +18,7 @@ class HomePage extends Component {
         return (
             <div>
                 {/* Mapping through the houseName reducer and display the house's name */}
-                <h1>{this.props.reduxState.houseName.map((event) => event.house_name)}</h1>
+                <h1 className = "house_name">{this.props.reduxState.houseName.map((event) => event.house_name)}</h1>
 
                 {/* Mapping through the rooms reducer and display the list of room name */}
                 {this.props.reduxState.rooms.map((room) => {

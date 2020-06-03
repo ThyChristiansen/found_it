@@ -10,7 +10,6 @@ import LogOut from '../LogOutButton/LogOutButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 //-----------------------Styling----------------------------------
@@ -100,8 +99,8 @@ class Header extends Component {
                         <>
                             {/* Assigning link for header */}
                             <div className="header">
-                                <Link className="title" className="header_title" to="/home">
-                                    <h3>FOUND IT</h3>
+                                <Link  to="/home">
+                                    <h3 className="header_title">FOUND IT</h3>
                                 </Link>
                                 <div className="search_bar"><SearchingBar /></div>
                                 <span onClick={this.handleCloseNav}>
