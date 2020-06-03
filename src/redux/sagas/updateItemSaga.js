@@ -10,14 +10,16 @@ function* updateItem(action) {
     // console.log('---> id for this item:', action.payload.itemId)
         console.log('---> send this item:', action.payload.item)
 
+    let itemId = action.payload.itemId
     let boxId = action.payload.boxId
-    // console.log('---> id for this box:',boxId)
-    yield axios.put(`/api/box/${action.payload.boxId}`,action.payload );
-    console.log('---> send this item to server:', action.payload.item)
+    let item = action.payload.item
+    console.log('---> id for this item:',itemId)
+    yield axios.put(`/api/item/${itemId}`,action.payload );
+    console.log('---> send this item to server:', item)
 
-    // console.log('---> id for this item:', action.payload.itemId)
+    console.log('---> id for this item:', action.payload.itemId)
     yield put({
-      type: 'FETCH_BOX',
+      type: 'FETCH_ITEMS',
       payload: {id : boxId}
     });
   } catch (error) {

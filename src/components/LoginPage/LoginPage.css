@@ -1,13 +1,13 @@
 .login_header_bar{
     background-color:rgba(217, 186, 158, 0.705);
-    height: 150px;
+    height: 200px;
     width: 100%;
     color: rgba(134, 78, 54, 0.664);
     text-align: center;
 }
 
 .login_header{
-    padding-top: 30px;
+    padding-top: 55px;
     padding-bottom: 5px;
     margin: 0 auto;
     font-size: 30px;

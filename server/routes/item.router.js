@@ -51,8 +51,8 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     let itemId = req.params.id;
-    let item = req.body.item
-    console.log('Update request for this id: ',item);
+    let item = req.body.item;
+    console.log('---->Update request for this id: ',item,itemId);
     let sqlText = `UPDATE items SET item = $1 WHERE id = $2`;
     pool.query(sqlText, [item,itemId])
         .then(result => {
