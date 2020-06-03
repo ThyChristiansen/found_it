@@ -11,6 +11,10 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = (theme) => ({
     root: {
         flexGrow: 1,
+        paddingBottom: '7px',
+        paddingRight: '10px',
+
+
     },
     search: {
         position: 'relative',
