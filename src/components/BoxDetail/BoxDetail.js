@@ -58,15 +58,15 @@ const ColorButton = withStyles((theme) => ({
             backgroundColor: '#c62828',
         },
     },
-   
+
 }))(Button);
 
 const ColorButton1 = withStyles((theme) => ({
     root: {
-        color: theme.palette.getContrastText( '#FFB92C'),
+        color: theme.palette.getContrastText('#FFB92C'),
         backgroundColor: '#FFB92C',
         '&:hover': {
-            backgroundColor:  '#FFB92C',
+            backgroundColor: '#FFB92C',
         },
     },
 }))(Button);
@@ -126,20 +126,7 @@ class BoxDetail extends Component {
             item: event.target.value,
         });
     }
-    //handle add item and clear input field after clicked add button
-    handleSubmit = () => {
-        if (this.state.item === '') {
-            alert('Add items to your list before click button')
-        } else {
-            this.handleAddNewItem();
-            this.handleClearInput();
-        }
-    }
-    handleClearInput = () => {
-        this.setState({
-            item: '',
-        });
-    }
+
     //handle add new item button
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
@@ -153,10 +140,25 @@ class BoxDetail extends Component {
             }
         })
     }
-    keyPressed = (event) => {
-        if (event.key === "Enter") {
+    
+    handleClearInput = () => {
+        this.setState({
+            item: '',
+        });
+    }
+    //handle add item and clear input field after clicked add button
+    handleSubmit = () => {
+        if (this.state.item === '') {
+            alert('Add items to your list before click button')
+        } else {
             this.handleAddNewItem();
             this.handleClearInput();
+        }
+    }
+
+    keyPressed = (event) => {
+        if (event.key === "Enter") {
+            this.handleSubmit();
         }
     }
     //Create this function to send the roomId to item component to can delete the item inside the chosen box and room
