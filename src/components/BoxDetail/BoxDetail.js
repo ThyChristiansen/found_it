@@ -235,14 +235,6 @@ class BoxDetail extends Component {
 
     render() {
         const { classes } = this.props;
-        // let unboxBtnVisual;
-        // let boxStatus = this.props.reduxState.detail.map((box) =>(box.status))
-        // if (boxStatus === 'false') {
-        //     unboxBtnVisual = <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
-        // }else{
-        //     unboxBtnVisual = <p>{this.props.reduxState.detail.map((box) =>(box.status))}</p>
-        // }
-
 
         return (
             <div>

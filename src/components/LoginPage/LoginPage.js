@@ -49,7 +49,8 @@ class LoginPage extends Component {
           username: this.state.username,
           password: this.state.password,
         },
-      });
+      });  
+
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -80,12 +81,12 @@ class LoginPage extends Component {
           />
         </div>
             {this.props.errors.loginMessage && (
-              <h4
+              <p
                 className="alert"
                 role="alert"
               >
                 {this.props.errors.loginMessage}
-              </h4>
+              </p>
             )}
             <div className={classes.alignItemsAndJustifyContent}>
             <Box m="auto">

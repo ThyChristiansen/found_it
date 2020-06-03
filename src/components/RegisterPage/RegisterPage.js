@@ -11,7 +11,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import { Box } from '@material-ui/core'
-
+import Swal from 'sweetalert2';
 
 //-----------------------Styling----------------------------------
 
@@ -56,6 +56,22 @@ class RegisterPage extends Component {
           // houseName:this.state.houseName
         },
       });
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'buttom-end',
+        showConfirmButton: false,
+        timer: 8000,
+        // timerProgressBar: true,
+        onOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: "You just succeeded in createing a new account. Now, let's start!!"
+      })   
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
