@@ -16,7 +16,7 @@ class HomePage extends Component {
 git
     render() {
         return (
-            <div>
+            <div className = "room_list">
                 {/* Mapping through the houseName reducer and display the house's name */}
                 <h1 className="house_name">{this.props.reduxState.houseName.map((event) => event.house_name)}</h1>
 

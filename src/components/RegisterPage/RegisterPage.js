@@ -58,7 +58,7 @@ class RegisterPage extends Component {
       });
       const Toast = Swal.mixin({
         toast: true,
-        position: 'buttom-end',
+        position: 'bottom-end',
         showConfirmButton: false,
         timer: 8000,
         // timerProgressBar: true,

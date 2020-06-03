@@ -1,10 +1,15 @@
+.room_list{
+    text-align: center;
+    
+
+}
+
 .room{
-    display: flex;  
-    flex-wrap: wrap;
-    float: left;
+   
     width: 85px;
     margin:19px;
     text-align: center;
+    display: inline-block;
 }
 
 .room_name{
