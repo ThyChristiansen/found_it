@@ -249,7 +249,7 @@ class BoxDetail extends Component {
                 <Header />
 
                 <div className="box_detail">
-                    <h1>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h1>
+                    {/* <h1>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h1> */}
 
 
                     {/* <button onClick={this.backClick}
@@ -324,7 +324,7 @@ class BoxDetail extends Component {
                         />
                     </FormControl>
 
-
+                    {/* List items */}
                     <div className="list_item" >
                         {/* Mapping through the item array to display list item in DOM */}
                         {this.props.reduxState.item.map((item) => {
@@ -342,10 +342,18 @@ class BoxDetail extends Component {
                         {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
                     </div>
 
-                    <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
+                    {/* The condition for unbox button, if the box's status is opening (true), the unbox button is disappear 
+                    if the box's status is close(false), the button is appear*/}
+                    {this.props.reduxState.detail.map((box) => {
+                        let boxStatus;
+                        if (!box.status) {
+                            boxStatus = <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
+                        }
+                        return boxStatus;
+                    })}
 
                     <ColorButton onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin}>
-                            Delete
+                        Delete
                     </ColorButton>
 
                 </div>
