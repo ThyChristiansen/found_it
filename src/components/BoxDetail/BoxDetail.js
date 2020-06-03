@@ -4,11 +4,9 @@ import DownloadQRCode from '../DownloadQRCode/DownloadQRCode';
 import Item from '../Item/Item';
 import './BoxDetail.css';
 import Header from '../Nav/Header';
+import Swal from 'sweetalert2';
 
-import {
-    fade,
-    withStyles,
-} from '@material-ui/core/styles';
+import { fade, withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -90,7 +88,7 @@ class BoxDetail extends Component {
 
     // create state to store the item data
     state = {
-        item: ''
+        item: '',
     }
     componentDidMount() {
         //Get box's data after refresh page by id
@@ -140,7 +138,7 @@ class BoxDetail extends Component {
             }
         })
     }
-    
+
     handleClearInput = () => {
         this.setState({
             item: '',
@@ -181,7 +179,29 @@ class BoxDetail extends Component {
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/boxes/${match.params.roomId}`)
     }
-    //handle delete box
+    //Using sweetAlert to confirm delete box
+    Swal = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your box has been deleted.',
+                    'success'
+                )
+                this.handleDeleteBox();
+            }
+        })
+    }
+
+    //handle unbox
     handleUnBox = () => {
         console.log('unbox clicked');
         const { dispatch, match } = this.props;
@@ -195,16 +215,42 @@ class BoxDetail extends Component {
         console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/boxes/${match.params.roomId}`)
+        //using SweetAlert2 to confirming that the box is unboxed
+        Swal.fire({
+            // title: '',
+            width: 0,
+            padding: '1em',
+            background: 'rgba(216, 191, 216, 0) url()',
+            // position: 'center',
+            showConfirmButton: false,
+            timer: 3000,
+            backdrop: `
+            #6a656154
+             url("/images/unboxing_giphy.gif")
+              center bottom
+              no-repeat
+            `
+        })
     }
 
     render() {
         const { classes } = this.props;
+        // let unboxBtnVisual;
+        // let boxStatus = this.props.reduxState.detail.map((box) =>(box.status))
+        // if (boxStatus === 'false') {
+        //     unboxBtnVisual = <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
+        // }else{
+        //     unboxBtnVisual = <p>{this.props.reduxState.detail.map((box) =>(box.status))}</p>
+        // }
+
 
         return (
             <div>
                 <Header />
 
                 <div className="box_detail">
+                    <h1>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h1>
+
 
                     {/* <button onClick={this.backClick}
                         className="back_btn">Back to box list</button> */}
@@ -265,7 +311,7 @@ class BoxDetail extends Component {
                         )
                     })}
 
-                    {/* add new item field */}
+                    {/* add new item input field */}
                     <FormControl className={classes.margin}>
 
                         <BootstrapInput
@@ -277,13 +323,7 @@ class BoxDetail extends Component {
                             onKeyPress={this.keyPressed}
                         />
                     </FormControl>
-                    {/* <input
-                        type="text"
-                        placeholder='Add item...'
-                        value={this.state.item}
-                        onChange={this.handleInputChangeFor}
-                        width="80%"
-                    /> */}
+
 
                     <div className="list_item" >
                         {/* Mapping through the item array to display list item in DOM */}
@@ -302,10 +342,10 @@ class BoxDetail extends Component {
                         {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
                     </div>
 
-
                     <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
-                    <ColorButton onClick={this.handleDeleteBox} size="small" variant="contained" color="primary" className={classes.margin}>
-                        Delete
+
+                    <ColorButton onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin}>
+                            Delete
                     </ColorButton>
 
                 </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
 import Header from '../Nav/Header';
+import Swal from 'sweetalert2';
 
 
 
@@ -45,8 +46,15 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
-
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added!',
+            showConfirmButton: false,
+            timer: 1000
+          })
     }
+   
     //if that room is have no box, this function will send the ADD_FIRST_BOX to Saga 
     //to start the first box with its name is 1  
     handleOnClickAddFirsBox = () => {
@@ -59,6 +67,13 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added!',
+            showConfirmButton: false,
+            timer: 1000
+          })
 
     }
     handleOnClickAddFirstBoxInRoom = () => {
@@ -70,6 +85,13 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Added!',
+            showConfirmButton: false,
+            timer: 1000
+          })
 
     }
     //handle back to home button
@@ -125,16 +147,16 @@ class BoxList extends Component {
 
                 {/* Mapping through tr boxes array that got from reducer and display boxes */}
                 <div className="box_list">
-                {this.props.reduxState.boxes.map((box) => {
-                    return (
-                        <div key={box.id} className="box_item">
-                            <Box
-                                box={box}
+                    {this.props.reduxState.boxes.map((box) => {
+                        return (
+                            <div key={box.id} className="box_item">
+                                <Box
+                                    box={box}
 
-                            />
-                        </div>
-                    )
-                })}
+                                />
+                            </div>
+                        )
+                    })}
                 </div>
 
                 {/* <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1> */}
