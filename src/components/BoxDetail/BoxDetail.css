@@ -1,6 +1,6 @@
 .box_detail{
     text-align: center;
-    /* margin-bottom: 100px; */
+    /* margin-left: 100px; */
 }
 
 .back_btn{
@@ -11,7 +11,12 @@
 .box_name{
     text-align: center;
     background-color: rgb(209, 212, 208);
-    padding:5px 0;
+    padding:3px 0;
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 30px;
+
+
 }
 
 .list_item{

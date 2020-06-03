@@ -58,13 +58,11 @@ class BoxDetail extends Component {
             this.handleClearInput();
         }
     }
-
     handleClearInput = () => {
         this.setState({
             item: '',
         });
     }
-
     //handle add new item button
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
@@ -116,7 +114,8 @@ class BoxDetail extends Component {
 
     render() {
         return (
-            <div>                <Header />
+            <div>                
+                <Header />
 
                 <div className="box_detail">
 

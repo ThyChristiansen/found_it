@@ -55,9 +55,10 @@ input {
     cursor: pointer;
 }
 
-
-
 footer{
+  margin-top: auto;
   float: right;
   padding-bottom: 20px;
+  /* display: inline-block; */
+
 }

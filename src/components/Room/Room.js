@@ -17,8 +17,8 @@ class RoomList extends Component {
                 <Link to={`/boxes/${this.props.roomData.id}`}>
                     <img src="images/room_icon.png"
                         alt="room_icon"
-                        width="100px"
-                        height="100px"
+                        width="75px"
+                        height="75px"
                         onClick={this.handleOnClick}
                     ></img>
                 </Link>
