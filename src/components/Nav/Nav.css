@@ -1,6 +1,5 @@
 .nav {
   overflow: hidden;
-  /* background-color: antiquewhite; */
   position: fixed;
 
 }
@@ -41,17 +40,11 @@ padding-top: 20px; */
 color: rgb(26, 24, 24);
 text-decoration: none;
 font-size: 15px;
-/* scroll-padding-left: 10px; */
-/* float: left; */
-
 }
 
 .logOut-btn{
   background-color:#efede7;
   font-size: 14px;
-  /* float: left;
-  padding-top: 20px;
-  padding-right: 100px; */
   padding-left: 0px; 
   border:none;
   cursor: pointer;
