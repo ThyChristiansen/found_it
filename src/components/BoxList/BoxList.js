@@ -51,7 +51,6 @@ class BoxList extends Component {
             position: 'bottom-end',
             showConfirmButton: false,
             timer: 2000,
-            timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
               toast.addEventListener('mouseleave', Swal.resumeTimer)
