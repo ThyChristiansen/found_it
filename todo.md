@@ -96,4 +96,4 @@
     [x] Add item input , button
     [x] list item
     [x] icon for edit and delete
-    [] styling for unbox and delete
+    [x] styling for unbox and delete
