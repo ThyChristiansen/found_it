@@ -20,12 +20,14 @@
     margin-bottom: 30px;
 }
 .add_new_box_btn{
+    background-color: whitesmoke;
     float: left;
     margin:5px 12px;
     width: 75px;
     height: 75px;
     border: 1px solid rgb(102, 101, 101);
     border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.753);
 }
 .box_item{
     display: flex;  
