@@ -51,7 +51,7 @@ router.post('/:id', (req, res) => {
     // res.sendStatus(201);
 });
 
- //POST route to add first box
+ //POST route to add first box in genernal
 router.post('/firstbox/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
@@ -81,7 +81,7 @@ router.delete('/:id', (req, res) => {
     // res.sendStatus(200);
 })
 
-//GET first box route
+//GET first box in general route
 router.get('/', (req, res) => {
     let boxId = req.params.id;
     let roomId = req.params.roomId;

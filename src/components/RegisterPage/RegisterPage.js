@@ -98,12 +98,12 @@ class RegisterPage extends Component {
         <div className={classes.alignItemsAndJustifyContent}>
           <Box m="auto">
             {this.props.errors.registrationMessage && (
-              <h2
+              <p
                 className="alert"
                 role="alert"
               >
                 {this.props.errors.registrationMessage}
-              </h2>
+              </p>
             )}
             <form onSubmit={this.registerUser}>
               <p>Create Account</p>
