@@ -12,7 +12,7 @@ const useStyles = (theme) => ({
     root: {
         flexGrow: 1,
         paddingBottom: '7px',
-        paddingRight: '30px',
+        paddingRight: '10px',
 
     },
     search: {
