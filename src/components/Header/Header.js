@@ -17,16 +17,12 @@ import MenuList from '@material-ui/core/MenuList';
 const useStyles = (theme) => ({
     root: {
         paddingLeft: '10px',
-        // paddingBottom: '10px',
-        // display: 'flex',
-        // float : 'left',
+       
     },
     paper: {
         marginRight: theme.spacing(10),
         backgroundColor: "#efede7",
-        float : 'left',
-        // paddingLeft: "20px",
-        // paddingBottom: "30px",
+        float: 'left',       
     },
 });
 
@@ -35,6 +31,36 @@ class Header extends Component {
     state = {
         menu: false,
     }
+    //----------------------Close nav list if click outside------------------------------------------
+    constructor(props) {
+        super(props);
+
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+    
+    //  Close dropdown nav list if clicked on outside of element
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                menu: false
+            })
+        }
+    }
+//----------------------------------------------------------------
+
 
     handleCloseNav = () => {
         console.log('click!')
@@ -94,18 +120,19 @@ class Header extends Component {
 
         return (
             <div >
+                {/* <div ref={this.setWrapperRef}><button>click me</button></div> */}
                 <div>
                     {this.props.user.id && (
                         <>
                             {/* Assigning link for header */}
                             <div className="header">
-                                <Link  to="/home">
+                                <Link to="/home">
                                     <h3 className="header_title">FOUND IT</h3>
                                 </Link>
                                 <div className="search_bar"><SearchingBar /></div>
                                 <span onClick={this.handleCloseNav}>
                                     <MenuIcon className={classes.root} /></span>
-                                {menu}
+                                <div ref={this.setWrapperRef}><button>{menu}</button></div>
                             </div>
                             {/* Table menu drop down */}
 

@@ -108,6 +108,37 @@ class Item extends Component {
         }
     }
 
+        //----------------------Close nav list if click outside------------------------------------------
+        constructor(props) {
+            super(props);
+    
+            this.setWrapperRef = this.setWrapperRef.bind(this);
+            this.handleClickOutside = this.handleClickOutside.bind(this);
+        }
+    
+        componentDidMount() {
+            document.addEventListener('mousedown', this.handleClickOutside);
+        }
+    
+        componentWillUnmount() {
+            document.removeEventListener('mousedown', this.handleClickOutside);
+        }
+    
+        setWrapperRef(node) {
+            this.wrapperRef = node;
+        }
+        
+        //  Close dropdown nav list if clicked on outside of element
+        handleClickOutside(event) {
+            if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+                this.setState({
+                    menu: false
+                })
+            }
+        }
+    //----------------------------------------------------------------
+    
+
     render() {
         const { classes } = this.props;
 

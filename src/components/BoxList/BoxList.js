@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from '../Box/Box';
 import './BoxList.css'
-import Header from '../Nav/Header';
+import Header from '../Header/Header';
 import Swal from 'sweetalert2';
 
 
@@ -75,13 +75,21 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Added!',
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
             showConfirmButton: false,
-            timer: 1000
-        })
+            timer: 2000,
+            onOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Added'
+          })
 
     }
     handleOnClickAddFirstBoxInRoom = () => {
@@ -93,13 +101,21 @@ class BoxList extends Component {
                 roomId: match.params.id
             }
         })
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Added!',
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
             showConfirmButton: false,
-            timer: 1000
-        })
+            timer: 2000,
+            onOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Added'
+          })
 
     }
     //handle back to home button

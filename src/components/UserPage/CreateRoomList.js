@@ -79,7 +79,7 @@ class CreateRoomList extends Component {
     state = {
         button: true, //I want to show it when the user 
         welcome: true,
-        houseName:''
+        houseName: ''
     }
 
     //To always update the room list, I put the action FETCH_ROOM inside componentDidMount
@@ -91,8 +91,8 @@ class CreateRoomList extends Component {
             }
         });
     }
-       //handle change for the house's name input field, this will set the houseName property in
-       // the state above to whatever name that user typed in
+    //handle change for the house's name input field, this will set the houseName property in
+    // the state above to whatever name that user typed in
     handleHouseNameChangeFor = (event) => {
         console.log('changing', event.target.value)
         this.setState({
@@ -103,35 +103,42 @@ class CreateRoomList extends Component {
     // will work like when the user click on, it will create a list of rooms then the input field and the button 
     // will disappear after that
     handleClick = (event) => {
-        this.props.dispatch({
-            type: "CREATE_ROOM_LIST",
-            payload: {
-                userId: this.props.userId
-            }
-        })
-        //set the button, welcome properties in the state above to be false to hide it
-        this.setState({
-            button: false,
-            welcome: false,
 
-        })
-        //Send the action CREATE_HOUSE_NAME with a couple data in payload to Saga to posting
-        // to data base the house's name
-        this.props.dispatch({
-            type: "CREATE_HOUSE_NAME",
-            payload: {
-                houseName: this.state.houseName,
-                userId: this.props.userId
-            }
-        })
-        console.log('---------->send this house name to Saga',this.state.houseName)
-        //After create house's name, I also send the FETCH_HOUSE_NAME to Saga to get house's name right of the bat
-        this.props.dispatch({
-            type: "FETCH_HOUSE_NAME",
-            payload: {
-                userId: this.props.userId
-            }
-        });
+        if (this.state.houseName === '') {
+            alert('Let give your house a name!')
+        } else {
+            this.props.dispatch({
+                type: "CREATE_ROOM_LIST",
+                payload: {
+                    userId: this.props.userId
+                }
+            })
+            //set the button, welcome properties in the state above to be false to hide it
+            this.setState({
+                button: false,
+                welcome: false,
+
+            })
+            //Send the action CREATE_HOUSE_NAME with a couple data in payload to Saga to posting
+            // to data base the house's name
+            this.props.dispatch({
+                type: "CREATE_HOUSE_NAME",
+                payload: {
+                    houseName: this.state.houseName,
+                    userId: this.props.userId
+                }
+            })
+
+            console.log('---------->send this house name to Saga', this.state.houseName)
+            //After create house's name, I also send the FETCH_HOUSE_NAME to Saga to get house's name right of the bat
+            this.props.dispatch({
+                type: "FETCH_HOUSE_NAME",
+                payload: {
+                    userId: this.props.userId
+                }
+            });
+        }
+
     }
 
     render() {
@@ -161,15 +168,15 @@ class CreateRoomList extends Component {
             welcome = <div className={classes.alignItemsAndJustifyContent}>
                 <h1>Welcome {this.props.username}!!!!</h1>
             </div>
-        } 
-        
+        }
+
         return (
             <div>
                 {welcome}
                 {button}
                 {/* <h1>house name: {JSON.stringify(this.props.reduxState.houseName.map((event)=> event.house_name))}</h1>  */}
                 {/* I put Homeage component in here so that the list of room will show up right in the home page */}
-                <HomePage userId = {this.props.userId}/>
+                <HomePage userId={this.props.userId} />
             </div >
         )
     }
