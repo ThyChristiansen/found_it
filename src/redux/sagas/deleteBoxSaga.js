@@ -17,7 +17,6 @@ function* deleteBox(action) {
       type: 'FETCH_BOX',
       payload: {roomId : roomId}
     });
-
   } catch (error) {
     console.log('Error with deletebox:', error);
   }

@@ -107,37 +107,31 @@ class Item extends Component {
             this.saveItem();
         }
     }
-
-        //----------------------Close nav list if click outside------------------------------------------
-        constructor(props) {
-            super(props);
-    
-            this.setWrapperRef = this.setWrapperRef.bind(this);
-            this.handleClickOutside = this.handleClickOutside.bind(this);
+    //----------------------Close nav list if click outside------------------------------------------
+    constructor(props) {
+        super(props);
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+    //  Close dropdown nav list if clicked on outside of element
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                itemIsEditable: false
+            })
         }
-    
-        componentDidMount() {
-            document.addEventListener('mousedown', this.handleClickOutside);
-        }
-    
-        componentWillUnmount() {
-            document.removeEventListener('mousedown', this.handleClickOutside);
-        }
-    
-        setWrapperRef(node) {
-            this.wrapperRef = node;
-        }
-        
-        //  Close dropdown nav list if clicked on outside of element
-        handleClickOutside(event) {
-            if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-                this.setState({
-                    menu: false
-                })
-            }
-        }
+    }
     //----------------------------------------------------------------
-    
+
 
     render() {
         const { classes } = this.props;
@@ -148,18 +142,19 @@ class Item extends Component {
                 if itemIsEditable is false, displaying item's contend and the Edit Item button as well */}
                 {this.state.itemIsEditable ?
                     <>
-                        <span>
-                            <FormControl className={classes.margin}>
-                                <BootstrapInput
-                                    id="bootstrap-input"
-                                    value={this.state.item}
-                                    onChange={this.handleChangeFor}
-                                    width="80%"
-                                    onKeyPress={this.keyPressed}
-                                />
-                            </FormControl>
-
-                        </span>
+                        <div ref={this.setWrapperRef}><button>
+                            <span>
+                                <FormControl className={classes.margin}>
+                                    <BootstrapInput
+                                        id="bootstrap-input"
+                                        value={this.state.item}
+                                        onChange={this.handleChangeFor}
+                                        width="80%"
+                                        onKeyPress={this.keyPressed}
+                                    />
+                                </FormControl>
+                            </span>
+                        </button></div>
                     </>
                     :
                     <>

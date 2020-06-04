@@ -17,15 +17,14 @@ import MenuList from '@material-ui/core/MenuList';
 const useStyles = (theme) => ({
     root: {
         paddingLeft: '10px',
-       
+
     },
     paper: {
         marginRight: theme.spacing(10),
         backgroundColor: "#efede7",
-        float: 'left',       
+        float: 'left',
     },
 });
-
 
 class Header extends Component {
     state = {
@@ -50,7 +49,7 @@ class Header extends Component {
     setWrapperRef(node) {
         this.wrapperRef = node;
     }
-    
+
     //  Close dropdown nav list if clicked on outside of element
     handleClickOutside(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
@@ -59,8 +58,7 @@ class Header extends Component {
             })
         }
     }
-//----------------------------------------------------------------
-
+    //----------------------------------------------------------------
 
     handleCloseNav = () => {
         console.log('click!')
@@ -78,10 +76,8 @@ class Header extends Component {
         }
     }
 
-
     render() {
         const { classes } = this.props;
-
         //Create if statement to hide and show nav table drop down
         let menu;
         if (this.state.menu) {
@@ -91,7 +87,6 @@ class Header extends Component {
                     <MenuList id="menu-list-grow" onKeyDown={this.handleListKeyDown}>
                         <MenuItem onClick={this.handleCloseNav}>
                             <Link className="nav-link" to="/home">
-
                                 {/* Show this link if they are logged in or not,
                                         but call this link 'Home' if they are logged in,
                                         and call this link 'Login / Register' if they are not */}
@@ -117,10 +112,8 @@ class Header extends Component {
                 </Paper>
             </div>
         }
-
         return (
             <div >
-                {/* <div ref={this.setWrapperRef}><button>click me</button></div> */}
                 <div>
                     {this.props.user.id && (
                         <>
@@ -129,13 +122,13 @@ class Header extends Component {
                                 <Link to="/home">
                                     <h3 className="header_title">FOUND IT</h3>
                                 </Link>
-                                <div className="search_bar"><SearchingBar /></div>
-                                <span onClick={this.handleCloseNav}>
-                                    <MenuIcon className={classes.root} /></span>
-                                <div ref={this.setWrapperRef}><button>{menu}</button></div>
+                               
+                                    <div className="search_bar"><SearchingBar /></div>
+                                    <span onClick={this.handleCloseNav}>
+                                        <MenuIcon className={classes.root} /></span>
+                                    {/* Menu drop down */}
+                                    <div ref={this.setWrapperRef}>{menu}</div>
                             </div>
-                            {/* Table menu drop down */}
-
                         </>
                     )}
                 </div>

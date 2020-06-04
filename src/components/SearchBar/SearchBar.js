@@ -14,7 +14,6 @@ const useStyles = (theme) => ({
         paddingBottom: '7px',
         paddingRight: '10px',
 
-
     },
     search: {
         position: 'relative',
@@ -56,7 +55,6 @@ const useStyles = (theme) => ({
             },
         },
     },
-
 });
 
 class SearchBar extends Component {
@@ -76,6 +74,37 @@ class SearchBar extends Component {
             }
         })
     }
+    //----------------------Close nav list if click outside------------------------------------------
+    constructor(props) {
+        super(props);
+
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    //  Close dropdown nav list if clicked on outside of element
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                searchItem: ''
+            })
+        }
+    }
+    //----------------------------------------------------------------
+
+
 
 
     render() {
@@ -151,7 +180,7 @@ class SearchBar extends Component {
                             </Link>
                         </div>
                     )
-                }else{
+                } else {
                     return "empty"
                 }
             })
@@ -159,26 +188,28 @@ class SearchBar extends Component {
         const { classes } = this.props;
         return (
             <div>
-
-                <div className={classes.root}>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
+                {/* Handle on click out side */}
+                <div ref={this.setWrapperRef}>
+                    <div className={classes.root}>
+                        <div className={classes.search}>
+                            <div className={classes.searchIcon}>
+                                <SearchIcon item />
+                            </div>
+                            <InputBase item
+                                placeholder="Search…"
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                inputProps={{ 'aria-label': 'search' }}
+                                onChange={this.handleChangeFor}
+                                value={this.state.searchItem}
+                            />
                         </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                            onChange={this.handleChangeFor}
-                            value={this.state.searchItem}
-                        />
                     </div>
+                    <p className="result_search">{resultSearching}</p>
                 </div>
-                
-                <p className="result_search">{resultSearching}</p>
+               
                 {/* <h1>{JSON.stringify(this.props.reduxState.searchItem.length)}</h1> */}
             </div>
         )

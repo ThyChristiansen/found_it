@@ -11,9 +11,8 @@ function* roomSaga() {
 function* fetchHouseName(action) {
   try {
     //create an variable named userId to assign the data that was sent from client-side to it
-    let userId = action.payload.userId
-    console.log('user id', userId)
-    const response = yield axios.get(`/api/house/${userId}`); //using axios to send the GET request to server-side
+    // console.log('user id', userId)
+    const response = yield axios.get(`/api/house/`); //using axios to send the GET request to server-side
     console.log('----> Send this house name to reducer', response.data)
     yield put({ type: 'SET_HOUSE_NAME', payload: response.data });
   } catch (error) {

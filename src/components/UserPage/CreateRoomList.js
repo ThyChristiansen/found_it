@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import HomePage from '../UserPage/HomePage';
 
 //-----------------------Styling----------------------------------
-
 import { fade, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
@@ -13,11 +12,7 @@ import { Box } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
-
-
 //-----------------------Styling----------------------------------
-
-
 const useStyles = (theme) => ({
     root: {
         '& > *': {
@@ -71,8 +66,6 @@ const ColorButton = withStyles((theme) => ({
     },
 }))(Button);
 
-
-
 class CreateRoomList extends Component {
 
     //Create state to store button, welcome message and houseName that user will type in when they are create the house's name
@@ -117,7 +110,6 @@ class CreateRoomList extends Component {
             this.setState({
                 button: false,
                 welcome: false,
-
             })
             //Send the action CREATE_HOUSE_NAME with a couple data in payload to Saga to posting
             // to data base the house's name
@@ -128,7 +120,6 @@ class CreateRoomList extends Component {
                     userId: this.props.userId
                 }
             })
-
             console.log('---------->send this house name to Saga', this.state.houseName)
             //After create house's name, I also send the FETCH_HOUSE_NAME to Saga to get house's name right of the bat
             this.props.dispatch({
@@ -138,7 +129,6 @@ class CreateRoomList extends Component {
                 }
             });
         }
-
     }
 
     render() {
@@ -169,7 +159,6 @@ class CreateRoomList extends Component {
                 <h1>Welcome {this.props.username}!!!!</h1>
             </div>
         }
-
         return (
             <div>
                 {welcome}

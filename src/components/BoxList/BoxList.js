@@ -62,36 +62,6 @@ class BoxList extends Component {
             title: 'Added'
           })
     }
-
-    //if that room is have no box, this function will send the ADD_FIRST_BOX to Saga 
-    //to start the first box with its name is 1  
-    handleOnClickAddFirsBox = () => {
-        const { dispatch, match } = this.props;
-        console.log('add new item clicked!');
-
-        dispatch({
-            type: 'ADD_FIRST_BOX',
-            payload: {
-                roomId: match.params.id
-            }
-        })
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'bottom-end',
-            showConfirmButton: false,
-            timer: 2000,
-            onOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-          
-          Toast.fire({
-            icon: 'success',
-            title: 'Added'
-          })
-
-    }
     handleOnClickAddFirstBoxInRoom = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
@@ -135,10 +105,7 @@ class BoxList extends Component {
         // if box list had a couple boxes, sending the ADD_BOX action to server to keep on 
         //increment number of id, box's name, qr_code, from the last row
         let addNewBox;
-        if (this.props.reduxState.allBox.length === 0) {
-            addNewBox = <button onClick={this.handleOnClickAddFirsBox}
-                className="add_new_box_btn">Add new box</button>
-        } else if (this.props.reduxState.boxes.length === 0) {
+         if (this.props.reduxState.boxes.length === 0) {
             addNewBox = <button onClick={this.handleOnClickAddFirstBoxInRoom}
                 className="add_new_box_btn">Add new box</button>
         } else {

@@ -6,7 +6,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 //Send the Get request to server to get room's name
-router.get('/:roomId', (req, res) => {
+router.get('/:roomId',rejectUnauthenticated, (req, res) => {
     let roomId = req.params.roomId;
     console.log(' room id:',roomId);
     let queryText = `SELECT room_name FROM rooms 

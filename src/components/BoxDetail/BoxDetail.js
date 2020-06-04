@@ -41,10 +41,6 @@ const BootstrapInput = withStyles((theme) => ({
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
         ].join(','),
-        '&:focus': {
-            boxShadow: `${fade('#2E6604', 0.25)} 0 0 0 0.3rem`,
-            borderColor: '#2E6604',
-        },
     },
 }))(InputBase);
 
@@ -82,10 +78,7 @@ const useStyles = (theme) => ({
 });
 
 
-
-
 class BoxDetail extends Component {
-
     // create state to store the item data
     state = {
         item: '',
@@ -115,7 +108,7 @@ class BoxDetail extends Component {
     backClick = () => {
         const { match } = this.props;
         console.log('back clicked');
-        this.props.history.push(`/boxes/${match.params.roomId}`)
+        this.props.history.push(`/box-list/${match.params.roomId}`)
     }
     //handle changing for add new item input field
     handleInputChangeFor = (event) => {
@@ -177,7 +170,7 @@ class BoxDetail extends Component {
         })
         console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
-        this.props.history.push(`/boxes/${match.params.roomId}`)
+        this.props.history.push(`/box-list/${match.params.roomId}`)
     }
     //Using sweetAlert to confirm delete box
     Swal = () => {
@@ -217,7 +210,7 @@ class BoxDetail extends Component {
         })
         console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
-        this.props.history.push(`/boxes/${match.params.roomId}`)
+        this.props.history.push(`/box-list/${match.params.roomId}`)
         //using SweetAlert2 to confirming that the box is unboxed
         Swal.fire({
             // title: '',

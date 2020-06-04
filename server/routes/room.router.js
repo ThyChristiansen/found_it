@@ -7,7 +7,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 //Send GET request to get room list
 router.get('/:userId', rejectUnauthenticated, (req, res) => {
-    let userId = req.params.userId
+    let userId = req.user.id;
     // console.log('user id', userId)
     queryString = `SELECT * FROM "rooms" WHERE user_id = $1;`;
     pool.query(queryString, [userId])
@@ -22,7 +22,7 @@ router.get('/:userId', rejectUnauthenticated, (req, res) => {
 
 //Send POST request to create room list
 router.post('/', (req, res) => {
-    let userId = req.body.userId
+    let userId = req.user.id;
     // console.log('------>in POST router', userId);
 
     queryString = `INSERT INTO rooms (user_id, room_name) VALUES ($1,'Storage'),

@@ -27,12 +27,10 @@ const useStyles = (theme) => ({
   width: {
     width: 230,
     height: 40,
-
   },
   height: {
     height: 30,
   }
-
 });
 
 class RegisterPage extends Component {
@@ -40,7 +38,6 @@ class RegisterPage extends Component {
     username: '',
     password: '',
     email: '',
-    // houseName:''
   };
 
   registerUser = (event) => {
@@ -53,7 +50,6 @@ class RegisterPage extends Component {
           username: this.state.username,
           password: this.state.password,
           email: this.state.email,
-          // houseName:this.state.houseName
         },
       });
       const Toast = Swal.mixin({
@@ -67,7 +63,6 @@ class RegisterPage extends Component {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-      
       Toast.fire({
         icon: 'success',
         title: "You just succeeded in createing a new account. Now, let's start!!"
@@ -84,9 +79,7 @@ class RegisterPage extends Component {
   }
 
   render() {
-
     const { classes } = this.props;
-
     return (
       <div>
         {/* Header for register page */}
@@ -104,15 +97,13 @@ class RegisterPage extends Component {
 
         <div className={classes.alignItemsAndJustifyContent}>
           <Box m="auto">
-
-
             {this.props.errors.registrationMessage && (
-              <h2
+              <p
                 className="alert"
                 role="alert"
               >
                 {this.props.errors.registrationMessage}
-              </h2>
+              </p>
             )}
             <form onSubmit={this.registerUser}>
               <p>Create Account</p>
@@ -129,13 +120,10 @@ class RegisterPage extends Component {
                           value={this.state.username}
                           onChange={this.handleInputChangeFor('username')}
                           className={classes.width}
-
                         />
                       </Grid>
                     </Grid>
-
                   </div>
-
                 </label>
               </div>
               <div>
@@ -172,7 +160,6 @@ class RegisterPage extends Component {
                           value={this.state.password}
                           onChange={this.handleInputChangeFor('password')}
                           className={classes.width}
-
                         />
                       </Grid>
                     </Grid>
