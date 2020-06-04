@@ -43,7 +43,7 @@ router.get('/:roomId/:id', (req, res) => {
 router.post('/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
-    const queryText =  'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),$1,(SELECT MAX(box_name)+1 FROM boxes WHERE room_id = $1), (SELECT MAX(qr_code)+1 FROM boxes WHERE room_id = $1));'
+    const queryText =  'INSERT INTO "boxes" (room_id,box_name, qr_code) VALUES ($1,(SELECT MAX(box_name)+1 FROM boxes WHERE room_id = $1), (SELECT MAX(qr_code)+1 FROM boxes WHERE room_id = $1));'
     pool.query(queryText,[roomId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
@@ -51,16 +51,16 @@ router.post('/:id', (req, res) => {
     // res.sendStatus(201);
 });
 
- //POST route to add first box in genernal
-router.post('/firstbox/:id', (req, res) => {
-    // let qr_code = req.body.qr_code;
-    let roomId = req.params.id;
-    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES (1,$1,1,1)';
-    pool.query(queryText, [roomId])
-        .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
-        .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
-    // res.sendStatus(201);
-});
+//  //POST route to add first box in genernal
+// router.post('/firstbox/:id', (req, res) => {
+//     // let qr_code = req.body.qr_code;
+//     let roomId = req.params.id;
+//     const queryText = 'INSERT INTO "boxes" (room_id,box_name, qr_code) VALUES ($1,1,1)';
+//     pool.query(queryText, [roomId])
+//         .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
+//         .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
+//     // res.sendStatus(201);
+// });
 
 router.delete('/:id', (req, res) => {
     // let boxId = req.params.boxId;
@@ -68,7 +68,7 @@ router.delete('/:id', (req, res) => {
     // We are using a request parameter (req.params) to identify
     // the specific box. We expect this will be an id from the database.
     // let roomId = req.params.roomId
-    // console.log('Delete request for this id: ', boxId);
+    console.log('Delete request for this id: ', boxId);
     let sqlText = `DELETE FROM boxes WHERE id = $1`;
     pool.query(sqlText, [boxId])
         .then(result => {
@@ -101,7 +101,7 @@ router.get('/', (req, res) => {
  router.post('/firstboxInRoom/:id', (req, res) => {
     // let qr_code = req.body.qr_code;
     let roomId = req.params.id;
-    const queryText = 'INSERT INTO "boxes" (id,room_id,box_name, qr_code) VALUES ((SELECT MAX(id)+1 FROM boxes),$1,1,1) RETURNING id';
+    const queryText = 'INSERT INTO "boxes" (room_id,box_name, qr_code) VALUES ($1,1,1) RETURNING id';
     pool.query(queryText, [roomId])
         .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
         .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
