@@ -127,7 +127,7 @@ class Header extends Component {
                                     <span onClick={this.handleCloseNav}>
                                         <MenuIcon className={classes.root} /></span>
                                     {/* Menu drop down */}
-                                    <button>{menu}</button></div>
+                                    {menu}</div>
                             </div>
                         </>
                     )}
