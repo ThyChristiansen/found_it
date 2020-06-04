@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DownloadQRCode from '../DownloadQRCode/DownloadQRCode';
 import Item from '../Item/Item';
 import './BoxDetail.css';
-import Header from '../Nav/Header';
+import Header from '../Header/Header';
 import Swal from 'sweetalert2';
 
 import { fade, withStyles } from '@material-ui/core/styles';
@@ -42,8 +42,8 @@ const BootstrapInput = withStyles((theme) => ({
             '"Segoe UI Symbol"',
         ].join(','),
         '&:focus': {
-            boxShadow: `${fade('#8f8681', 0.25)} 0 0 0 0.3rem`,
-            borderColor: '#8f8681',
+            boxShadow: `${fade('#2E6604', 0.25)} 0 0 0 0.3rem`,
+            borderColor: '#2E6604',
         },
     },
 }))(InputBase);

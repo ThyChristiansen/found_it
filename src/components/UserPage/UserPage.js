@@ -6,7 +6,7 @@ import CreateRoomList from '../UserPage/CreateRoomList';
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 
-import Header from '../Nav/Header';
+import Header from '../Header/Header';
 
 
 const UserPage = (props) => (

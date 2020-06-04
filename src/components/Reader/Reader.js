@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import QrReader from 'react-qr-reader'
-import Header from '../Nav/Header';
+import Header from '../Header/Header';
 
  
 class Reader extends Component {
