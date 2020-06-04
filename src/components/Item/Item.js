@@ -41,8 +41,6 @@ const BootstrapInput = withStyles((theme) => ({
 }))(InputBase);
 const useStyles = (theme) => ({
     root: {
-        // display: 'flex',
-        // flexWrap: 'wrap',
         paddingLeft: '250px',
     },
     margin: {
