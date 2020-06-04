@@ -188,14 +188,17 @@ class BoxDetail extends Component {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.value) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your box has been deleted.',
-                    'success'
-                )
+                Swal.fire({
+                    text: 'Deleted!',
+                    width: 100,
+                    padding: '1em',
+                    background: '#fff url()',
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
                 this.handleDeleteBox();
             }
         })
