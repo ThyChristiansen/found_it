@@ -15,7 +15,6 @@ const useStyles = (theme) => ({
 });
 
 class DownloadQRCode extends Component {
-
     downloadQR = () => {
         const canvas = document.getElementById(this.props.box.qr_code);
         const pngUrl = canvas
@@ -40,12 +39,9 @@ class DownloadQRCode extends Component {
                     level={"H"}
                     includeMargin={true}
                 /><br />
-                {/* <button onClick={this.downloadQR} className="download_qr_code_btn"> Download QR </button> */}
                 <Button onClick={this.downloadQR} size="small" className="download_qr_code_btn" variant="contained"> Download</Button>
                 {/* <h1>{JSON.stringify(this.props.box.room_id)}</h1> */}
-
             </div>
-
         )
     }
 }

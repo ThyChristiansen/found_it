@@ -30,7 +30,6 @@ const useStyles = (theme) => ({
   height: {
     height: 30,
   }
-
 });
 
 class LoginPage extends Component {
@@ -50,7 +49,6 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });  
-
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -68,10 +66,8 @@ class LoginPage extends Component {
 
     return (
       <div>
-
         <div className="login_header_bar">
           <h5 className="login_header">Found it</h5>
-
           <img
             src="images/app.png"
             alt='scanner_icon'
@@ -81,16 +77,12 @@ class LoginPage extends Component {
           />
         </div>
             {this.props.errors.loginMessage && (
-              <p
-                className="alert"
-                role="alert"
-              >
+              <p className="alert" role="alert">
                 {this.props.errors.loginMessage}
               </p>
             )}
             <div className={classes.alignItemsAndJustifyContent}>
             <Box m="auto">
-
             <form onSubmit={this.login}>
               <div>
                 <label htmlFor="username">

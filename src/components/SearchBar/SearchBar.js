@@ -13,8 +13,6 @@ const useStyles = (theme) => ({
         flexGrow: 1,
         paddingBottom: '7px',
         paddingRight: '10px',
-
-
     },
     search: {
         position: 'relative',
@@ -56,7 +54,6 @@ const useStyles = (theme) => ({
             },
         },
     },
-
 });
 
 class SearchBar extends Component {
@@ -76,8 +73,6 @@ class SearchBar extends Component {
             }
         })
     }
-
-
     render() {
         //If the value inside the search bar is empty, return result of searching will empty.
         //if the result of the searching is not match with any item inside the boxes, return Result searching is empty.
@@ -159,7 +154,6 @@ class SearchBar extends Component {
         const { classes } = this.props;
         return (
             <div>
-
                 <div className={classes.root}>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
