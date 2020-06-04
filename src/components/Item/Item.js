@@ -17,7 +17,7 @@ const BootstrapInput = withStyles((theme) => ({
         backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         fontSize: 16,
-        width: '260px',
+        width: '230px',
         padding: '10px 10px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
         // Use the system font instead of the default Roboto font.
@@ -43,7 +43,7 @@ const useStyles = (theme) => ({
     root: {
         // display: 'flex',
         // flexWrap: 'wrap',
-        paddingLeft: '270px',
+        paddingLeft: '250px',
     },
     margin: {
         margin: theme.spacing(1),

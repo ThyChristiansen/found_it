@@ -1,32 +1,32 @@
 .box_detail{
     text-align: center;
-    /* margin-left: 100px; */
 }
 
-.back_btn{
-    text-align: left;
-
-}
 
 .box_name{
     text-align: center;
     background-color: rgb(209, 212, 208);
-    padding:3px 0;
+    color: black;
+    display: inline-block;
+    padding:3px 15px;
     border-radius: 5px;
-    margin-top: 2px;
-    margin-bottom: 30px;
+    margin-top: -5px;
+    margin-bottom: 0px;
     margin-left: 5px;
     margin-right: 5px;
-
 }
 
+
+
 .list_item{
+    text-align: center;
     background-color: #8f86816b;
     margin: 10px 10px;
     padding: 5px;
     border:1px solid gray;
     border-radius: 5px;
-
+    margin:0 30px;
+    width: 300px;
 }
 
 .item{

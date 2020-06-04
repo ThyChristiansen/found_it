@@ -2,20 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-
-const useStyles = withStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-  }));
 
 class Box extends Component {
 
@@ -50,16 +36,16 @@ class Box extends Component {
                 src="images/box_opening2.png"
                 alt={this.props.box.box_name}
                 className="box_icon"
-                width="60"
-                height="60"
+                width="85"
+                height="85"
             />
         } else {
             boxStatus = <img
                 src="images/box_icon.png"
                 alt={this.props.box.box_name}
                 className="box_icon"
-                width="60"
-                height="60"
+                width="85"
+                height="85"
             />
         }
 
@@ -69,8 +55,9 @@ class Box extends Component {
                 {/* Assigning the link to box icon to navigating user to box's detail page  */}
                 <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
                     {boxStatus}
+                    <p>{boxName}</p>
                 </Link>
-                <p>{boxName}</p>
+               
             </div>
         )
     }

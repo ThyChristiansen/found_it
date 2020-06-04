@@ -5,7 +5,22 @@ import './BoxList.css'
 import Header from '../Header/Header';
 import Swal from 'sweetalert2';
 
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
+const useStyles = (theme) => ({
+    root: {
+        flexGrow: 1,
+        margin: theme.spacing(1),
+
+    },
+    margin: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        padding: theme.spacing(1),
+        textAlign: 'center',
+    },
+});
 
 class BoxList extends Component {
 
@@ -52,15 +67,15 @@ class BoxList extends Component {
             showConfirmButton: false,
             timer: 2000,
             onOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
-          })
-          
-          Toast.fire({
+        })
+
+        Toast.fire({
             icon: 'success',
             title: 'Added'
-          })
+        })
     }
     handleOnClickAddFirstBoxInRoom = () => {
         const { dispatch, match } = this.props;
@@ -77,15 +92,15 @@ class BoxList extends Component {
             showConfirmButton: false,
             timer: 2000,
             onOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
-          })
-          
-          Toast.fire({
+        })
+
+        Toast.fire({
             icon: 'success',
             title: 'Added'
-          })
+        })
 
     }
     //handle back to home button
@@ -105,13 +120,15 @@ class BoxList extends Component {
         // if box list had a couple boxes, sending the ADD_BOX action to server to keep on 
         //increment number of id, box's name, qr_code, from the last row
         let addNewBox;
-         if (this.props.reduxState.boxes.length === 0) {
+        if (this.props.reduxState.boxes.length === 0) {
             addNewBox = <button onClick={this.handleOnClickAddFirstBoxInRoom}
                 className="add_new_box_btn">Add new box</button>
         } else {
             addNewBox = <button onClick={this.handleOnClickAddNewBox}
                 className="add_new_box_btn">Add new box</button>
         }
+
+        const { classes } = this.props;
 
         return (
             <div className="box_list_page">
@@ -127,20 +144,23 @@ class BoxList extends Component {
                 {/* Display box quantity in the room */}
                 <p className="box_quantity">Box quantity: {this.props.reduxState.boxes.length}</p>
 
-                {addNewBox}
 
                 {/* Mapping through tr boxes array that got from reducer and display boxes */}
-                <div className="box_list">
-                    {this.props.reduxState.boxes.map((box) => {
-                        return (
-                            <div key={box.id} className="box_item">
-                                <Box
-                                    box={box}
-
-                                />
-                            </div>
-                        )
-                    })}
+                <div className={classes.root} >
+                    <Grid container spacing={1}  justify="center">
+                        <Grid item >
+                            <Grid className={classes.margin}>{addNewBox}</Grid>
+                        </Grid>
+                        {this.props.reduxState.boxes.map((box) => {
+                            return (
+                                <div key={box.id}>
+                                    <Grid item  >
+                                        <Grid className={classes.margin}> <Box box={box} /></Grid>
+                                    </Grid>
+                                </div>
+                            )
+                        })}
+                    </Grid>
                 </div>
 
                 {/* <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1> */}
@@ -149,4 +169,4 @@ class BoxList extends Component {
     }
 }
 const putReduxStateToProps = (reduxState) => ({ reduxState });
-export default connect(putReduxStateToProps)(BoxList);
+export default connect(putReduxStateToProps)(withStyles(useStyles)(BoxList));
