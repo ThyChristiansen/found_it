@@ -6,11 +6,10 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 router.get('/:id',rejectUnauthenticated, (req, res) => {
     let boxId = req.params.id
-    // let roomId = req.params.roomId;
-
+    let userId = req.user.id;
     console.log('-------------->from get item, boxId:',boxId);
-    let queryText = `SELECT * FROM items WHERE box_id = $1 ORDER BY id DESC`;
-    pool.query(queryText, [boxId])
+    let queryText = `SELECT * FROM items  WHERE box_id = $1 AND user_id = $2 ORDER BY id DESC`;
+    pool.query(queryText, [boxId,userId])
         .then((result) => {
             // console.log('get this row from table items:',result.rows )
             res.send(result.rows)
@@ -23,10 +22,11 @@ router.post('/:roomId/:id', (req, res) => {
     let item = req.body.item;
     let boxId = req.params.id;
     let roomId = req.params.roomId;
+    let userId = req.user.id;
 
     console.log('send this item to database',item, boxId);
-    const queryText = 'INSERT INTO "items" (item,box_id,room_id) VALUES ($1,$2,$3) RETURNING id';
-    pool.query(queryText,[item,boxId,roomId])
+    const queryText = 'INSERT INTO "items" (item,box_id,room_id, user_id) VALUES ($1,$2,$3,$4) RETURNING id';
+    pool.query(queryText,[item,boxId,roomId,userId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
     // res.sendStatus(201);

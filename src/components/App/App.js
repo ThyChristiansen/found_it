@@ -24,11 +24,9 @@ import {
 
 class App extends Component {
 
-
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' })
   }
-
 
   render() {
  
@@ -61,7 +59,7 @@ class App extends Component {
               component={Reader}
             />
             <ProtectedRoute
-              path="/boxes/:id"
+              path="/box-list/:id"
               component={BoxList}
             />
              <ProtectedRoute

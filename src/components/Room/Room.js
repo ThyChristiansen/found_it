@@ -14,7 +14,7 @@ class RoomList extends Component {
             <div>
                 {/* <h1>{JSON.stringify(this.props.reduxState.rooms)}</h1> */}
                 {/* Set Link for each room icon so that the user can click on the box icon and navigate to the detail inside room */}
-                <Link to={`/boxes/${this.props.roomData.id}`}>
+                <Link to={`/box-list/${this.props.roomData.id}`}>
                     <img src="images/room_icon.png"
                         alt="room_icon"
                         width="75px"

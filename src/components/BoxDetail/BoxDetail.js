@@ -108,7 +108,7 @@ class BoxDetail extends Component {
     backClick = () => {
         const { match } = this.props;
         console.log('back clicked');
-        this.props.history.push(`/boxes/${match.params.roomId}`)
+        this.props.history.push(`/box-list/${match.params.roomId}`)
     }
     //handle changing for add new item input field
     handleInputChangeFor = (event) => {
@@ -170,7 +170,7 @@ class BoxDetail extends Component {
         })
         console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
-        this.props.history.push(`/boxes/${match.params.roomId}`)
+        this.props.history.push(`/box-list/${match.params.roomId}`)
     }
     //Using sweetAlert to confirm delete box
     Swal = () => {
@@ -207,7 +207,7 @@ class BoxDetail extends Component {
         })
         console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
-        this.props.history.push(`/boxes/${match.params.roomId}`)
+        this.props.history.push(`/box-list/${match.params.roomId}`)
         //using SweetAlert2 to confirming that the box is unboxed
         Swal.fire({
             // title: '',

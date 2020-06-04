@@ -8,10 +8,11 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //Send GET request to server-side to get box list
 router.get('/:roomId', rejectUnauthenticated, (req, res) => {
     let roomId = req.params.roomId
+    let userId = req.user.id;
     // console.log('----------> use this room id to get data:',roomId)
     queryString = `SELECT boxes.id, room_name,room_id, box_name, qr_code,status FROM boxes 
-    JOIN rooms ON rooms.id = boxes.room_id WHERE room_id = $1;`;
-    pool.query(queryString, [roomId])
+    JOIN rooms ON rooms.id = boxes.room_id WHERE room_id = $1 AND user_id = $2 ;`;
+    pool.query(queryString, [roomId, userId])
         .then(result => {
             // console.log('Get this info from database', result.rows);
             res.send(result.rows);
@@ -25,11 +26,12 @@ router.get('/:roomId', rejectUnauthenticated, (req, res) => {
 router.get('/:roomId/:id',rejectUnauthenticated, (req, res) => {
     let boxId = req.params.id;
     let roomId = req.params.roomId;
-    // console.log(' room id:',roomId);
+    let userId = req.user.id;
+    console.log(' user id:',userId);
 
     let queryText = `SELECT boxes.id, room_name,room_id, box_name, qr_code, status FROM boxes 
-    JOIN rooms ON rooms.id = boxes.room_id WHERE boxes.id = $1 AND room_id= $2`;
-    pool.query(queryText, [boxId, roomId])
+    JOIN rooms ON rooms.id = boxes.room_id WHERE boxes.id = $1 AND room_id= $2 AND rooms.user_id = $3`;
+    pool.query(queryText, [boxId, roomId, userId])
         .then((result) => {
             // console.log('get this row from database:',result.rows )
             res.send(result.rows)
@@ -69,22 +71,6 @@ router.delete('/:id', (req, res) => {
         })
     // res.sendStatus(200);
 })
-
-// //GET first box in general route
-// router.get('/',rejectUnauthenticated, (req, res) => {
-//     let boxId = req.params.id;
-//     let roomId = req.params.roomId;
-//     // console.log(' room id:',roomId);
-
-//     let queryText = 'SELECT * FROM boxes';
-//     pool.query(queryText)
-//         .then((result) => {
-//             console.log('get this row from database:',result.rows )
-//             res.send(result.rows)
-//         }).catch((error) => {
-//             console.log('ERROR in get detail:',error);
-//         })
-// })
 
  //POST route to add first box in the room
  router.post('/firstboxInRoom/:id', (req, res) => {
