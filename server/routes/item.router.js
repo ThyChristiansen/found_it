@@ -1,10 +1,10 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-// const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-router.get('/:id', (req, res) => {
+router.get('/:id',rejectUnauthenticated, (req, res) => {
     let boxId = req.params.id
     // let roomId = req.params.roomId;
 
