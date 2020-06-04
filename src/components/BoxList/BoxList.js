@@ -68,7 +68,6 @@ class BoxList extends Component {
     handleOnClickAddFirsBox = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
-
         dispatch({
             type: 'ADD_FIRST_BOX',
             payload: {
@@ -85,12 +84,10 @@ class BoxList extends Component {
               toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
           })
-          
           Toast.fire({
             icon: 'success',
             title: 'Added'
           })
-
     }
     handleOnClickAddFirstBoxInRoom = () => {
         const { dispatch, match } = this.props;

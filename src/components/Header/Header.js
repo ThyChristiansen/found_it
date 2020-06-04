@@ -122,12 +122,12 @@ class Header extends Component {
                                 <Link to="/home">
                                     <h3 className="header_title">FOUND IT</h3>
                                 </Link>
-                                <div ref={this.setWrapperRef}>
+                               
                                     <div className="search_bar"><SearchingBar /></div>
                                     <span onClick={this.handleCloseNav}>
                                         <MenuIcon className={classes.root} /></span>
                                     {/* Menu drop down */}
-                                    {menu}</div>
+                                    <div ref={this.setWrapperRef}>{menu}</div>
                             </div>
                         </>
                     )}
