@@ -26,7 +26,6 @@ const useStyles = (theme) => ({
     },
 });
 
-
 class Header extends Component {
     state = {
         menu: false,
@@ -61,7 +60,6 @@ class Header extends Component {
     }
     //----------------------------------------------------------------
 
-
     handleCloseNav = () => {
         console.log('click!')
         this.setState({
@@ -78,10 +76,8 @@ class Header extends Component {
         }
     }
 
-
     render() {
         const { classes } = this.props;
-
         //Create if statement to hide and show nav table drop down
         let menu;
         if (this.state.menu) {
@@ -91,7 +87,6 @@ class Header extends Component {
                     <MenuList id="menu-list-grow" onKeyDown={this.handleListKeyDown}>
                         <MenuItem onClick={this.handleCloseNav}>
                             <Link className="nav-link" to="/home">
-
                                 {/* Show this link if they are logged in or not,
                                         but call this link 'Home' if they are logged in,
                                         and call this link 'Login / Register' if they are not */}
@@ -117,10 +112,8 @@ class Header extends Component {
                 </Paper>
             </div>
         }
-
         return (
             <div >
-                {/* <div ref={this.setWrapperRef}><button>click me</button></div> */}
                 <div>
                     {this.props.user.id && (
                         <>
@@ -133,10 +126,9 @@ class Header extends Component {
                                     <div className="search_bar"><SearchingBar /></div>
                                     <span onClick={this.handleCloseNav}>
                                         <MenuIcon className={classes.root} /></span>
+                                    {/* Menu drop down */}
                                     <button>{menu}</button></div>
                             </div>
-                            {/* Table menu drop down */}
-
                         </>
                     )}
                 </div>
