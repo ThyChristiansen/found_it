@@ -41,10 +41,6 @@ const BootstrapInput = withStyles((theme) => ({
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
         ].join(','),
-        // '&:focus': {
-        //     boxShadow: `${fade('#2E6604', 0.25)} 0 0 0 0.3rem`,
-        //     borderColor: '#2E6604',
-        // },
     },
 }))(InputBase);
 
@@ -82,10 +78,7 @@ const useStyles = (theme) => ({
 });
 
 
-
-
 class BoxDetail extends Component {
-
     // create state to store the item data
     state = {
         item: '',

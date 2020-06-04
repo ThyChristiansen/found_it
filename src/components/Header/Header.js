@@ -17,12 +17,12 @@ import MenuList from '@material-ui/core/MenuList';
 const useStyles = (theme) => ({
     root: {
         paddingLeft: '10px',
-       
+
     },
     paper: {
         marginRight: theme.spacing(10),
         backgroundColor: "#efede7",
-        float: 'left',       
+        float: 'left',
     },
 });
 
@@ -50,7 +50,7 @@ class Header extends Component {
     setWrapperRef(node) {
         this.wrapperRef = node;
     }
-    
+
     //  Close dropdown nav list if clicked on outside of element
     handleClickOutside(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
@@ -59,7 +59,7 @@ class Header extends Component {
             })
         }
     }
-//----------------------------------------------------------------
+    //----------------------------------------------------------------
 
 
     handleCloseNav = () => {
@@ -129,10 +129,11 @@ class Header extends Component {
                                 <Link to="/home">
                                     <h3 className="header_title">FOUND IT</h3>
                                 </Link>
-                                <div className="search_bar"><SearchingBar /></div>
-                                <span onClick={this.handleCloseNav}>
-                                    <MenuIcon className={classes.root} /></span>
-                                <div ref={this.setWrapperRef}><button>{menu}</button></div>
+                                <div ref={this.setWrapperRef}>
+                                    <div className="search_bar"><SearchingBar /></div>
+                                    <span onClick={this.handleCloseNav}>
+                                        <MenuIcon className={classes.root} /></span>
+                                    <button>{menu}</button></div>
                             </div>
                             {/* Table menu drop down */}
 
