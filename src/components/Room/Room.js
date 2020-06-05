@@ -23,7 +23,7 @@ class RoomList extends Component {
                     ></img>
                 </Link>
                 {/* Room's mame */}
-                <p className="room_name">{this.props.roomData.room_name}</p>
+                <p className="room_name_in_list_room">{this.props.roomData.room_name}</p>
             </div >
         )
     }
