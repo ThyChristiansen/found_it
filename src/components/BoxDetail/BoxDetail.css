@@ -1,3 +1,12 @@
+.room_name{
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 3px 5px 7px rgb(179, 179, 179);
+}
+.room_name:active{
+    padding:2px;
+}
+
 .box_detail{
     text-align: center;
 }
@@ -11,7 +20,7 @@
     padding:3px 15px;
     border-radius: 5px;
     margin-top: -5px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     margin-left: 5px;
     margin-right: 5px;
 }

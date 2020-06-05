@@ -252,16 +252,14 @@ class BoxDetail extends Component {
                 <Header />
 
                 <div className="box_detail">
-                    {/* <h1>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h1> */}
-                    {/* <button onClick={this.backClick}
-                        className="back_btn">Back to box list</button> */}
+                    {/* <h2>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h2> */}
                     {/* mapping through the box list array to get room_id from database to display in DOM */}
                     {/* box's name condition for each room */}
                     {this.props.reduxState.detail.map((box) => {
                         let boxName;
                         if (box.room_name === 'Storage') {
                             boxName = <div key={box.id}>
-                                <h1 onClick={this.backClick}>Storage</h1>
+                                <h2 onClick={this.backClick} className ="room_name">Storage</h2>
                                 <p className="box_name">A{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -269,7 +267,7 @@ class BoxDetail extends Component {
 
                         } else if (box.room_name === 'Basement') {
                             boxName = <div key={box.id}>
-                                <h1 onClick={this.backClick}>Basement</h1>
+                                <h2 onClick={this.backClick} className ="room_name">Basement</h2>
                                 <p className="box_name">B{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -277,7 +275,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Garage') {
                             boxName = <div key={box.id}>
-                                <h1 onClick={this.backClick}>Garage</h1>
+                                <h2 onClick={this.backClick} className ="room_name">Garage</h2>
                                 <p className="box_name">C{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -285,7 +283,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Livingroom') {
                             boxName = <div key={box.id}>
-                                <h1 onClick={this.backClick}>Livingroom</h1>
+                                <h2 onClick={this.backClick} className ="room_name">Livingroom</h2>
                                 <p className="box_name">D{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -293,7 +291,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Bedroom') {
                             boxName = <div key={box.id}>
-                                <h1 onClick={this.backClick}>Bedroom</h1>
+                                <h2 onClick={this.backClick}>Bedroom</h2>
                                 <p className="box_name">E{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -301,7 +299,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Kitchen') {
                             boxName = <div key={box.id}>
-                                <h1 onClick={this.backClick}>Kitchen</h1>
+                                <h2 onClick={this.backClick} className ="room_name">Kitchen</h2>
                                 <p className="box_name">F{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -345,7 +343,7 @@ class BoxDetail extends Component {
                                 )
                             })}
                         </div>
-                        {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
+                        {/* <h2>{JSON.stringify(this.props.reduxState.detail)}</h2> */}
                     </Grid >
 
                     {/* The condition for unbox button, if the box's status is opening (true), the unbox button is disappear 

@@ -120,7 +120,7 @@ class Header extends Component {
                             {/* Assigning link for header */}
                             <div className="header">
                                 <Link to="/home">
-                                    <h3 className="header_title">FOUND IT</h3>
+                                    <h1 className="header_title">FOUND IT</h1>
                                 </Link>
                                
                                     <div className="search_bar"><SearchingBar /></div>
