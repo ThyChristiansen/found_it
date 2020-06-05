@@ -9,12 +9,31 @@ import Header from '../Header/Header';
 const AboutPage = () => (
   <div>
     <Header />
-    <div>
-      <p>
-        This about page is for anyone to read!
+
+    <div className='techs'>
+      <h2>Technologies</h2>
+      <p>HTML |
+      CSS |
+      Node |
+      Express |
+      React |
+      React-Redux |
+      Redux-Sagas |
+      PostgresSQL |
+      Passport |
+      Heroku |
+      Material-UI |
+      SweetAlert2
       </p>
-    </div>
+    </div><br />
+    <div className="attribution">
+      <h2>Attribution</h2>
+
+      Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+      <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      <div>Icons made by <a href="https://www.flaticon.com/free-icon/box_685387" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></div>
   </div>
+
 );
 
 export default AboutPage;

@@ -61,10 +61,21 @@ input {
     cursor: pointer;
 }
 
+.techs{
+  text-align: center;
+}
+
+.attribution{
+  text-align: center;
+
+}
+
 footer{
   margin-top: auto;
   float: right;
   padding-bottom: 20px;
+  margin-right: 10px;
   /* display: inline-block; */
 
 }
+
