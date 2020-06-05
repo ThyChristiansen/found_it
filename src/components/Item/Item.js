@@ -17,7 +17,7 @@ const BootstrapInput = withStyles((theme) => ({
         backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         fontSize: 16,
-        width: '230px',
+        width: '200px',
         padding: '10px 10px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
         // Use the system font instead of the default Roboto font.
@@ -140,26 +140,26 @@ class Item extends Component {
                 if itemIsEditable is false, displaying item's contend and the Edit Item button as well */}
                 {this.state.itemIsEditable ?
                     <>
-                        <div ref={this.setWrapperRef}><button>
+                        <div ref={this.setWrapperRef} className = "input_item">
                             <span>
                                 <FormControl className={classes.margin}>
                                     <BootstrapInput
                                         id="bootstrap-input"
                                         value={this.state.item}
                                         onChange={this.handleChangeFor}
-                                        width="80%"
                                         onKeyPress={this.keyPressed}
                                     />
                                 </FormControl>
                               
                             </span>
-                        </button></div>
+                        </div>
                     </>
                     :
                     <>
                         <div className="input_item" onClick={this.editItem}>{this.state.item}</div>
                     </>
                 }
+
                 <img src="images/cancel.png"
                     alt="room_icon"
                     width="30px"

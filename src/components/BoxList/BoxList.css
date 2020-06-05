@@ -25,7 +25,7 @@
     margin: 1px;
 }
 
-.box_name:hover{
+.box_name_in_box_list:hover{
     box-shadow: 7px 7px 7px gray;
     margin: 1px;
 }

@@ -55,8 +55,9 @@ class Box extends Component {
                 {/* Assigning the link to box icon to navigating user to box's detail page  */}
                 <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
                     {boxStatus}
-                    <p>{boxName}</p>
                 </Link>
+                <p className = "box_name_in_box_list">{boxName}</p>
+
                
             </div>
         )

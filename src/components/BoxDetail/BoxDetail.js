@@ -322,7 +322,7 @@ class BoxDetail extends Component {
                             onChange={this.handleInputChangeFor}
                             onKeyPress={this.keyPressed}
                         />
-                        <ColorButton2 onKeyPress={this.keyPressed}
+                        <ColorButton2 onClick={this.handleSubmit}
                             className={classes.width}
                         >Add</ColorButton2>
                     </FormControl>
