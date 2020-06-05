@@ -20,10 +20,15 @@
   /* overflow: hidden; */
   color: rgba(134, 78, 54, 0.664);
 }
+.header_title:hover{
+  transition: 1s;
+  /* box-shadow: 1px 1px 1px 10px rgba(255, 255, 255, 0.105); */
+  transform: translateY(5px);
+}
 
 .header_title:active{
   transition: 2s;
-  box-shadow: 0 0 1px 20px rgba(170, 155, 143, 0.246);
+  /* box-shadow: 0 0 1px 20px rgba(170, 155, 143, 0.246); */
   transform: translateY(5px);
 }
 
