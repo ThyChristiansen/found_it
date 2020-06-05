@@ -207,7 +207,7 @@ class SearchBar extends Component {
                             />
                         </div>
                     </div>
-                    <p className="result_search">{resultSearching}</p>
+                    <div className="result_search">{resultSearching}</div>
                 </div>
                
                 {/* <h1>{JSON.stringify(this.props.reduxState.searchItem.length)}</h1> */}

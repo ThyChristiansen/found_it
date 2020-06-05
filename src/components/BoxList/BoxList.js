@@ -46,12 +46,6 @@ class BoxList extends Component {
                 roomId: match.params.id,
             }
         })
-        dispatch({
-            type: 'FETCH_ALL_BOX',
-            payload: {
-                roomId: match.params.id,
-            }
-        })
     }
     //handle click for add new box button. 
     //When the user click on this button, this handle function will send the ADD_BOX action

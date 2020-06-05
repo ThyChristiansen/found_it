@@ -56,7 +56,7 @@ class Box extends Component {
                 <Link to={`/box-detail/${this.props.box.room_id}/${this.props.box.id}`}>
                     {boxStatus}
                 </Link>
-                <p className = "box_name_in_box_list">{boxName}</p>
+                <div className = "box_name_in_box_list">{boxName}</div>
 
                
             </div>
