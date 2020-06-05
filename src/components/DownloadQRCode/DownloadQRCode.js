@@ -22,7 +22,7 @@ class DownloadQRCode extends Component {
             .replace("image/png", "image/octet-stream");
         let downloadLink = document.createElement("a");
         downloadLink.href = pngUrl;
-        downloadLink.download = `QR_code_roomId${this.props.box.room_id}_boxId${this.props.box.qr_code}.png`;
+        downloadLink.download = `QR_code_roomId${this.props.box.room_id}_boxId${this.props.box.id}.png`;
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
@@ -34,7 +34,7 @@ class DownloadQRCode extends Component {
             <div>
                 <QRCode
                     id={this.props.box.qr_code}
-                    value={`https://f0undit.herokuapp.com/#/box-detail/${this.props.box.room_id}/${this.props.box.qr_code}`}
+                    value={`https://f0undit.herokuapp.com/#/box-detail/${this.props.box.room_id}/${this.props.box.id}`}
                     size={150}
                     level={"H"}
                     includeMargin={true}
