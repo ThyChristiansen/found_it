@@ -29,30 +29,39 @@ router.post('/register', (req, res, next) => {
   // console.log('---->add this username and password to database',username,password)
   nodemailer.createTestAccount((err, account) => {
     const htmlEmail = `
-    <h3>Hello ${req.body.username}!</h3>
-    <p>You just successfully create an account in Found It</p>
-    <p>Hope this app will be helpful for you</p>
-    <p>Enjoy it</p>
-    `
+<h3>Hello ${req.body.username}!</h3>
+<p>You just successfully create an account in Found It</p>
+<p>Hope this app will be helpful for you</p>
+<p>Enjoy it!</p>
+`
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: 'foundit010@gmail.com', // generated ethereal user
+        pass: process.env.PASSWORD, // generated ethereal password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    })
     let mailOption = {
-      from: 'Found It<thyvu0411@gmail.com>', // sender address
+      from: `"FoundIt App"<foundit010@gmail.com>`, // sender address
       to: `${email}`, // list of receivers
       subject: "FoundIt confirmation", // Subject line
       // text: "Confirm that you want to create an account ?", // plain text body
       html: htmlEmail, // html body
     };
- 
-
-    sgMail
-      .send(mailOption)
-      .then(() => { }, error => {
-        console.error(error);
-
-        if (error.response) {
-          console.error(error.response.body)
-        }
-      });
+    transporter.sendMail(mailOption, (err, info) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("Message sent: : Email has been sent");
+    })
   })
+
+
   //Go to database, add to username and password columns what user type in input (req.body)
   const queryText = 'INSERT INTO "user" (username,email,password) VALUES ($1, $2, $3) RETURNING id';
   pool.query(queryText, [username, email, password])
