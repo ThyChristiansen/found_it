@@ -21,8 +21,12 @@
     border-radius: 10px;
     margin: 20px;
     box-shadow: 3px 3px 7px rgb(171, 170, 170);
+    background-color: rgb(247, 247, 247);
 
+}
 
+.box_detail:hover{
+    background-color:white;
 }
 
 
