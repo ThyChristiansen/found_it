@@ -10,6 +10,7 @@ import { fade, withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
 
 
 const BootstrapInput = withStyles((theme) => ({
@@ -24,7 +25,7 @@ const BootstrapInput = withStyles((theme) => ({
         backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         fontSize: 16,
-        width: '300px',
+        width: '230px',
         padding: '10px 12px',
         marginTop: '30px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
@@ -64,15 +65,29 @@ const ColorButton1 = withStyles((theme) => ({
         },
     },
 }))(Button);
+const ColorButton2 = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText('#558B2F'),
+        backgroundColor: '#558B2F',
+        '&:hover': {
+            backgroundColor: '#558B2F',
+        },
+    },
+}))(Button);
 
 const useStyles = (theme) => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-
     },
     margin: {
         margin: theme.spacing(1),
+    },
+    width: {
+        marginLeft: '80px',
+        marginRight: '80px',
+        margin: theme.spacing(1),
+        align: 'center',
     },
 
 });
@@ -305,28 +320,33 @@ class BoxDetail extends Component {
                             id="bootstrap-input"
                             value={this.state.item}
                             onChange={this.handleInputChangeFor}
-                            width="80%"
                             onKeyPress={this.keyPressed}
                         />
+                        <ColorButton2 onKeyPress={this.keyPressed}
+                            className={classes.width}
+                        >Add</ColorButton2>
                     </FormControl>
 
+
                     {/* List items */}
-                    <div className="list_item" >
-                        {/* Mapping through the item array to display list item in DOM */}
-                        {this.props.reduxState.item.map((item) => {
-                            return (
-                                <div key={item.id}
-                                    className="item"
-                                >
-                                    <Item item={item}
-                                        boxId={item.box_id}
-                                        roomId={this.sendRoomIdToItem}
-                                    />
-                                </div>
-                            )
-                        })}
+                    <Grid container justify="center" >
+                        <div className="list_item">
+                            {/* Mapping through the item array to display list item in DOM */}
+                            {this.props.reduxState.item.map((item) => {
+                                return (
+                                    <div key={item.id}
+                                        className="item"
+                                    >
+                                        <Item item={item}
+                                            boxId={item.box_id}
+                                            roomId={this.sendRoomIdToItem}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </div>
                         {/* <h1>{JSON.stringify(this.props.reduxState.detail)}</h1> */}
-                    </div>
+                    </Grid >
 
                     {/* The condition for unbox button, if the box's status is opening (true), the unbox button is disappear 
                     if the box's status is close(false), the button is appear*/}

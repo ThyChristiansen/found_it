@@ -22,11 +22,9 @@
 .list_item{
     text-align: center;
     background-color: #8f86816b;
-    margin: 10px 10px;
     padding: 5px;
     border:1px solid gray;
     border-radius: 5px;
-    margin:0 32px;
     width: 300px;
 }
 

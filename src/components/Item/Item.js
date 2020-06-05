@@ -151,6 +151,7 @@ class Item extends Component {
                                         onKeyPress={this.keyPressed}
                                     />
                                 </FormControl>
+                              
                             </span>
                         </button></div>
                     </>
@@ -161,8 +162,8 @@ class Item extends Component {
                 }
                 <img src="images/cancel.png"
                     alt="room_icon"
-                    width="20px"
-                    height="20px"
+                    width="30px"
+                    height="30px"
                     onClick={this.handleDelete}
                     className='delete_button'
                 ></img>
