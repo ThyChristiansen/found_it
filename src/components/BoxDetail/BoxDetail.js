@@ -201,7 +201,7 @@ class BoxDetail extends Component {
             if (result.value) {
                 Swal.fire({
                     text: 'Deleted!',
-                    width: 100,
+                    width: 150,
                     padding: '1em',
                     background: '#fff url()',
                     showConfirmButton: false,
