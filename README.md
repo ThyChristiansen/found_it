@@ -6,7 +6,7 @@ _Duration: 2 Week Sprint_
 
  **Found it** is an app that will help the user find things that they may not otherwise find in storage or when moving. With a simple interface, the user can easily add items physically and virtually on personalized named boxes when they are packing and placing that box in their specific location. The user just has to print out a unique **QR code** which I gave to each box in the app and stick it onto the box. The user can look through the boxes virtually and search for an item to know what box it is inside after it has been taped. While normally using human eyes to look inside, using this app you can type in the items of what is in each box to reference later. Users can quickly scan the QR code right on the box, and it will guide to the link of that box on their virtual web storage space. Not stopping there, the user can edit things that they have been added and removed from the box. When the user makes progress and finishes unpacking a specific box, they can delete that box easily just with a click. 
 
- To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.f0undit.herokuapp.com)
+ To see the fully functional site, please visit: [Found it](www.f0undit.herokuapp.com)
 
  ## Screen Shot
 ![mockup one](screen_shot/1.png)

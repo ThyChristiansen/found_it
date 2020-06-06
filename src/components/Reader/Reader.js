@@ -22,7 +22,6 @@ class Reader extends Component {
     return (
       <div>
         <Header />
-        <h2>Scanner</h2>
         <QrReader
           delay={300}
           onError={this.handleError}
