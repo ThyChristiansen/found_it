@@ -66,7 +66,7 @@ class RegisterPage extends Component {
       Toast.fire({
         icon: 'success',
         title: "You just succeeded in createing a new account. Now, let's start!!"
-      })   
+      })
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
@@ -95,16 +95,13 @@ class RegisterPage extends Component {
           />
         </div>
 
+        {this.props.errors.registrationMessage && (
+          <p className="alert" role="alert" >
+            {this.props.errors.registrationMessage}
+          </p>
+        )}
         <div className={classes.alignItemsAndJustifyContent}>
           <Box m="auto">
-            {this.props.errors.registrationMessage && (
-              <p
-                className="alert"
-                role="alert"
-              >
-                {this.props.errors.registrationMessage}
-              </p>
-            )}
             <form onSubmit={this.registerUser}>
               <p>Create Account</p>
               <div>
