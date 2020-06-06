@@ -47,7 +47,7 @@ Link to software that is required to install the app (e.g. node).
 
 
 ## Built With
-HTML | CSS | Node | Express | React | React-Redux | Redux-Sagas | Postical PostgreSQL | Passport | Heroku PostgresSQL | Nodemailer | Material-UI | SweetAlert2
+HTML | CSS | Node | Express | React | React-Redux | Redux-Sagas | Postico PostgreSQL | Passport | Heroku PostgreSQL | Nodemailer | Material-UI | SweetAlert2
 
 
 ## Acknowledgement
