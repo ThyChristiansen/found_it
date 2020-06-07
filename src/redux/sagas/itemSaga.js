@@ -4,14 +4,11 @@ import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 function* itemSaga() {
   yield takeEvery('FETCH_ITEMS', fetchItems);
   yield takeLatest('ADD_ITEM', addItem);
-
-
 }
 
 // worker Saga: will be fired on "FETCH_ITEMS" actions
 function* fetchItems(action) {
     let id = action.payload.id
-    let roomId = action.payload.roomId
     // console.log('----> boxs id:',id)
     // console.log('----> get this item from server id:', id)
     try {

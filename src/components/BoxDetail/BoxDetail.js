@@ -6,7 +6,7 @@ import './BoxDetail.css';
 import Header from '../Header/Header';
 import Swal from 'sweetalert2';
 
-import { fade, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';

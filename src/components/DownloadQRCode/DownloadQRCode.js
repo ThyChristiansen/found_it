@@ -28,7 +28,6 @@ class DownloadQRCode extends Component {
         document.body.removeChild(downloadLink);
     };
     render() {
-        const { classes } = this.props;
 
         return (
             <div>

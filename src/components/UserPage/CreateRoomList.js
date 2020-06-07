@@ -7,11 +7,7 @@ import { fade, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
 import FormControl from '@material-ui/core/FormControl';
-import { Grid } from '@material-ui/core';
-import { Box } from '@material-ui/core'
-import TextField from '@material-ui/core/TextField';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import LockIcon from '@material-ui/icons/Lock';
+
 //-----------------------Styling----------------------------------
 const useStyles = (theme) => ({
     root: {
