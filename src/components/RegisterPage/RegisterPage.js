@@ -51,7 +51,7 @@ class RegisterPage extends Component {
           password: this.state.password,
           email: this.state.email,
         },
-      });
+      });  
       const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-end',
@@ -67,6 +67,7 @@ class RegisterPage extends Component {
         icon: 'success',
         title: "You just succeeded in createing a new account. Now, let's start!!"
       })
+     
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
