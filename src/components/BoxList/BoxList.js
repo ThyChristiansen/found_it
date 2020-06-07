@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = (theme) => ({
     root: {
-        flexGrow: 1,
+        // flexGrow: 1,
         margin: theme.spacing(1),
 
     },
@@ -125,43 +125,41 @@ class BoxList extends Component {
         const { classes } = this.props;
 
         return (
-            <div className="box_list_page">
+            <div>
 
                 <Header />
-                {/* Display room's name ‰
+                <div className="box_list_page">
+
+                    {/* Display room's name ‰
                 Maping through the roomName array from reducer then return the room's name  */}
-                {/* <Grid container spacing={1} justify="center">
-                    <Button color="primary"> */}
-                        {this.props.reduxState.roomName.map((room, index) => {
-                            return (<h1 className="room_name_in_box_list">{room.room_name} </h1>)
-                        })}
-                    {/* </Button>
-                </Grid> */}
+
+                    {this.props.reduxState.roomName.map((room, index) => {
+                        return (<h1 className="room_name_in_box_list">{room.room_name} </h1>)
+                    })}
+
+                    {/* Display box quantity in the room */}
+                    <p className="box_quantity">Box quantity: {this.props.reduxState.boxes.length}</p>
 
 
-                {/* Display box quantity in the room */}
-                <p className="box_quantity">Box quantity: {this.props.reduxState.boxes.length}</p>
-
-
-                {/* Mapping through tr boxes array that got from reducer and display boxes */}
-                <div className={classes.root} >
-                    <Grid container spacing={1} justify="center">
-                        <Grid item >
-                            <Grid className={classes.margin}>{addNewBox}</Grid>
+                    {/* Mapping through tr boxes array that got from reducer and display boxes */}
+                    <div className={classes.root} >
+                        <Grid container spacing={1} justify="center">
+                            <Grid item >
+                                <Grid className={classes.margin}>{addNewBox}</Grid>
+                            </Grid>
+                            {this.props.reduxState.boxes.map((box) => {
+                                return (
+                                    <div key={box.id}>
+                                        <Grid item  >
+                                            <Grid className={classes.margin}> <Box box={box} /></Grid>
+                                        </Grid>
+                                    </div>
+                                )
+                            })}
                         </Grid>
-                        {this.props.reduxState.boxes.map((box) => {
-                            return (
-                                <div key={box.id}>
-                                    <Grid item  >
-                                        <Grid className={classes.margin}> <Box box={box} /></Grid>
-                                    </Grid>
-                                </div>
-                            )
-                        })}
-                    </Grid>
 
+                    </div>
                 </div>
-
                 {/* <h1>{JSON.stringify(this.props.reduxState.allBox)}</h1> */}
             </div>
         )

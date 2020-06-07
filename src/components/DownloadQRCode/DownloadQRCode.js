@@ -5,12 +5,22 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText('#cecece'),
+        backgroundColor: '#cecece',
+        '&:hover': {
+            backgroundColor: '#cecece',
+        },
+        boxShadow: '9px 9px 16px #0000004c, -9px -9px 16px rgb(250, 250, 250)'
+    },
+}))(Button);
 
 const useStyles = (theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
+    margin: {
+        margin: theme.spacing(1),
+        marginTop: '10px',
+
     },
 });
 
@@ -28,6 +38,7 @@ class DownloadQRCode extends Component {
         document.body.removeChild(downloadLink);
     };
     render() {
+        const { classes } = this.props;
 
         return (
             <div>
@@ -38,7 +49,7 @@ class DownloadQRCode extends Component {
                     level={"H"}
                     includeMargin={true}
                 /><br />
-                <Button onClick={this.downloadQR} size="small" className="download_qr_code_btn" variant="contained"> Download</Button>
+                <ColorButton onClick={this.downloadQR} size="small" className={classes.margin} variant="contained"> Download</ColorButton>
                 {/* <h1>{JSON.stringify(this.props.box.room_id)}</h1> */}
             </div>
         )

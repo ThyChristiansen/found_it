@@ -11,7 +11,7 @@ const AboutPage = () => (
     <Header />
 
     <div className='techs'>
-      <h2>Technologies</h2>
+      <h2 className='title'>Technologies</h2>
       <p>HTML |
       CSS |
       Node |
@@ -20,6 +20,7 @@ const AboutPage = () => (
       React-Redux |
       Redux-Sagas |
       PostgresSQL |
+      Nodemailer |
       Passport |
       Heroku |
       Material-UI |
@@ -27,7 +28,7 @@ const AboutPage = () => (
       </p>
     </div><br />
     <div className="attribution">
-      <h2>Attribution</h2>
+      <h2 className='title'>Attribution</h2>
 
       Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
       <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

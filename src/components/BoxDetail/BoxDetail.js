@@ -52,6 +52,8 @@ const ColorButton = withStyles((theme) => ({
         '&:hover': {
             backgroundColor: '#c62828',
         },
+        boxShadow: '9px 9px 16px #0000004c, -9px -9px 16px rgb(250, 250, 250)'
+
     },
 
 }))(Button);
@@ -63,6 +65,7 @@ const ColorButton1 = withStyles((theme) => ({
         '&:hover': {
             backgroundColor: '#FFB92C',
         },
+        boxShadow: '9px 9px 16px #0000004c, -9px -9px 16px rgb(250, 250, 250)'
     },
 }))(Button);
 const ColorButton2 = withStyles((theme) => ({
@@ -72,6 +75,8 @@ const ColorButton2 = withStyles((theme) => ({
         '&:hover': {
             backgroundColor: '#558B2F',
         },
+        boxShadow: '9px 9px 16px #0000004c, -9px -9px 16px rgb(250, 250, 250)'
+
     },
 }))(Button);
 
@@ -82,10 +87,14 @@ const useStyles = (theme) => ({
     },
     margin: {
         margin: theme.spacing(1),
+        marginTop: '20px',
+
     },
     width: {
+        marginTop: '15px',
         marginLeft: '80px',
         marginRight: '80px',
+        marginBottom: '15px',
         margin: theme.spacing(1),
         align: 'center',
     },
@@ -259,7 +268,7 @@ class BoxDetail extends Component {
                         let boxName;
                         if (box.room_name === 'Storage') {
                             boxName = <div key={box.id}>
-                                <h2 onClick={this.backClick} className ="room_name">Storage</h2>
+                                <h2 onClick={this.backClick} className="room_name">Storage</h2>
                                 <p className="box_name">A{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -267,7 +276,7 @@ class BoxDetail extends Component {
 
                         } else if (box.room_name === 'Basement') {
                             boxName = <div key={box.id}>
-                                <h2 onClick={this.backClick} className ="room_name">Basement</h2>
+                                <h2 onClick={this.backClick} className="room_name">Basement</h2>
                                 <p className="box_name">B{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -275,7 +284,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Garage') {
                             boxName = <div key={box.id}>
-                                <h2 onClick={this.backClick} className ="room_name">Garage</h2>
+                                <h2 onClick={this.backClick} className="room_name">Garage</h2>
                                 <p className="box_name">C{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -283,7 +292,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Livingroom') {
                             boxName = <div key={box.id}>
-                                <h2 onClick={this.backClick} className ="room_name">Livingroom</h2>
+                                <h2 onClick={this.backClick} className="room_name">Livingroom</h2>
                                 <p className="box_name">D{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -299,7 +308,7 @@ class BoxDetail extends Component {
                         }
                         else if (box.room_name === 'Kitchen') {
                             boxName = <div key={box.id}>
-                                <h2 onClick={this.backClick} className ="room_name">Kitchen</h2>
+                                <h2 onClick={this.backClick} className="room_name">Kitchen</h2>
                                 <p className="box_name">F{box.box_name}</p>
                                 <DownloadQRCode
                                     box={box} />
@@ -320,11 +329,13 @@ class BoxDetail extends Component {
                             onChange={this.handleInputChangeFor}
                             onKeyPress={this.keyPressed}
                         />
-                        <ColorButton2 onClick={this.handleSubmit}
-                            className={classes.width}
-                        >Add</ColorButton2>
-                    </FormControl>
 
+                            <ColorButton2 onClick={this.handleSubmit}
+                                className={classes.width}
+                                size="small" variant="contained"
+                            >Add</ColorButton2>
+
+                    </FormControl>
 
                     {/* List items */}
                     <Grid container justify="center" >
@@ -355,10 +366,11 @@ class BoxDetail extends Component {
                         }
                         return boxStatus;
                     })}
-
-                    <ColorButton onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin}>
+                    {/* <button className="buttons"> */}
+                    <ColorButton onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin} >
                         Delete
                     </ColorButton>
+                    {/* </button> */}
                 </div>
             </div>
         )
