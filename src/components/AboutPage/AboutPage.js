@@ -12,7 +12,7 @@ const AboutPage = () => (
 
     <div className='techs'>
       <h2 className='title'>Technologies</h2>
-      <p> HTML | CSS | Node | Express | React | React-Redux | Redux-Sagas | Postico PostgreSQL | Passport | Heroku PostgreSQL | Nodemailer | Material-UI | SweetAlert2</p>
+      <p> HTML | CSS  | Express | Node | React | Redux | Sagas | Postico PostgreSQL | Passport | Heroku PostgreSQL | Nodemailer | Material-UI | SweetAlert2</p>
     </div><br />
     <div className="attribution">
       <h2 className='title'>Attribution</h2>
