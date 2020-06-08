@@ -130,7 +130,7 @@ class LoginPage extends Component {
                       className="log-in"
                       type="submit"
                       name="submit"
-                      value="Sign In"
+                      value="Log In"
                     />
                   </Grid>
                 </div>
