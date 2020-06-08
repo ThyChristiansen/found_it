@@ -19,8 +19,8 @@ class RoomList extends Component {
                 {/* <Link to={`/box-list/${this.props.roomData.id}`}> */}
                 <img src="images/room_icon.png"
                     alt="room_icon"
-                    width="75px"
-                    height="75px"
+                    width="100px"
+                    height="100px"
                 ></img>
                 {/* Room's mame */}
                 <p className="room_name_in_list_room">{this.props.roomData.room_name}</p>

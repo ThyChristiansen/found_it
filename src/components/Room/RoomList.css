@@ -8,7 +8,7 @@
 }
 
 .room{
-    width: 85px;
+    width: 110px;
     margin:20px 20px 40px 20px;
     padding-top: 10px;
     text-align: center;
@@ -20,6 +20,7 @@
 
 .room_name_in_list_room{
    text-align: center;
+   /* margin: 10px 20px; */
 }
 
 .room:hover{
