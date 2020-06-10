@@ -34,7 +34,7 @@ function* createHouseName(action) {
     });
 
   } catch (error) {
-    console.log('Error with add new item:', error);
+    console.log('Error with add house name:', error);
   }
 }
 

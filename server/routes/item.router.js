@@ -1,32 +1,35 @@
 const express = require('express');
 const pool = require('../modules/pool');
+const FormData = require('form-data');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-router.get('/:id',rejectUnauthenticated, (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     let boxId = req.params.id
     let userId = req.user.id;
-    console.log('-------------->from get item, boxId:',boxId);
+    console.log('-------------->from get item, boxId:', boxId);
     let queryText = `SELECT * FROM items  WHERE box_id = $1 AND user_id = $2 ORDER BY id DESC`;
-    pool.query(queryText, [boxId,userId])
+    pool.query(queryText, [boxId, userId])
         .then((result) => {
             // console.log('get this row from table items:',result.rows )
             res.send(result.rows)
         }).catch((error) => {
-            console.log('Error in GET items:',error);
+            console.log('Error in GET items:', error);
         })
 })
 
 router.post('/:roomId/:id', (req, res) => {
     let item = req.body.item;
+    let picture = req.body.picture
     let boxId = req.params.id;
     let roomId = req.params.roomId;
     let userId = req.user.id;
 
-    console.log('send this item to database',item, boxId);
-    const queryText = 'INSERT INTO "items" (item,box_id,room_id, user_id) VALUES ($1,$2,$3,$4) RETURNING id';
-    pool.query(queryText,[item,boxId,roomId,userId])
+
+    console.log('send this item to database',item,picture, boxId);
+    const queryText = 'INSERT INTO "items" (item, picture,box_id,room_id, user_id) VALUES ($1, $2,$3,$4,$5) RETURNING id';
+    pool.query(queryText,[item,picture,boxId,roomId,userId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
     // res.sendStatus(201);
@@ -51,9 +54,9 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     let itemId = req.params.id;
     let item = req.body.item;
-    console.log('---->Update request for this id: ',item,itemId);
+    console.log('---->Update request for this id: ', item, itemId);
     let sqlText = `UPDATE items SET item = $1 WHERE id = $2`;
-    pool.query(sqlText, [item,itemId])
+    pool.query(sqlText, [item, itemId])
         .then(result => {
             console.log('UPDATE this item by id:', itemId)
             res.sendStatus(200);

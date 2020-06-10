@@ -56,7 +56,12 @@ class Item extends Component {
     //Create a state to storing the item data and itemIsEditable
     state = {
         item: this.props.item.item,
+        picture: this.props.item.picture,
         itemIsEditable: false
+    }
+
+    componentWillMount(){
+        console.log('in item:',this.state.picture)
     }
     //handle delete button
     //when the user click on delete button, this function will send the DELETE_ITEM action to Saga
@@ -136,11 +141,18 @@ class Item extends Component {
 
         return (
             <div className="item_detail">
+                 <img
+                    src={this.props.item.picture}
+                    alt='picture_item'
+                    width="100"
+                    height="100"
+                />
+                <p>{this.state.picture}</p>
                 {/* if itemIsEditable is true, displaying the input field and Save Item button
                 if itemIsEditable is false, displaying item's contend and the Edit Item button as well */}
                 {this.state.itemIsEditable ?
                     <>
-                        <div ref={this.setWrapperRef} className = "input_item">
+                        <div ref={this.setWrapperRef} className="input_item">
                             <span>
                                 <FormControl className={classes.margin}>
                                     <BootstrapInput
@@ -150,7 +162,7 @@ class Item extends Component {
                                         onKeyPress={this.keyPressed}
                                     />
                                 </FormControl>
-                              
+
                             </span>
                         </div>
                     </>
@@ -167,6 +179,8 @@ class Item extends Component {
                     onClick={this.handleDelete}
                     className='delete_button'
                 ></img>
+               
+
             </div>
         )
     }
