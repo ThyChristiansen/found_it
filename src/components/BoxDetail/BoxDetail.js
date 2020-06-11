@@ -5,6 +5,7 @@ import Item from '../Item/Item';
 import './BoxDetail.css';
 import Header from '../Header/Header';
 import Swal from 'sweetalert2';
+import UppyComp from '../UppyComp/UppyComp';
 
 import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
@@ -128,7 +129,7 @@ class BoxDetail extends Component {
         });
         console.log('--------->this is box id:', match.params.id)
         console.log('--------->this is room id:', match.params.roomId)
-        console.log('--------->picture:',this.state.picture)
+        console.log('--------->picture:', this.state.picture)
 
     }
     //handle come back list box page
@@ -147,7 +148,7 @@ class BoxDetail extends Component {
 
     // handlePictureChangeFor = (event) => {
     //     console.log('changing', event.target.files[0].name)
-       
+
     //     this.setState({
     //         picture: event.target.files[0]
     //     });
@@ -157,7 +158,7 @@ class BoxDetail extends Component {
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
         console.log('add new item clicked!');
-       
+
         dispatch({
             type: 'ADD_ITEM',
             payload: {
@@ -343,11 +344,11 @@ class BoxDetail extends Component {
                             onKeyPress={this.keyPressed}
                         />
                         {/* <input type= "file" onChange={this.handlePictureChangeFor}/> */}
-
-                            <ColorButton2 onClick={this.handleSubmit}
-                                className={classes.width}
-                                size="small" variant="contained"
-                            >Add</ColorButton2>
+                        <UppyComp />
+                        <ColorButton2 onClick={this.handleSubmit}
+                            className={classes.width}
+                            size="small" variant="contained"
+                        >Add</ColorButton2>
 
                     </FormControl>
 

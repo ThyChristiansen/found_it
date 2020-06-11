@@ -1,8 +1,9 @@
 
 const express = require('express');
 require('dotenv').config();
-var path = require('path');
+let path = require('path');
 const uppy = require('uppy-server');
+
 
 
 const app = express();
@@ -25,6 +26,7 @@ const houseRouter = require('./routes/house.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // Passport Session Configuration //
 app.use(sessionMiddleware);

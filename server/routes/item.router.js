@@ -1,6 +1,6 @@
 const express = require('express');
 const pool = require('../modules/pool');
-const FormData = require('form-data');
+// const FormData = require('form-data');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
@@ -96,6 +96,8 @@ function initUppy() {
     app.use(uppy.app(uppyOptions));//instantiate uppy server.
     uppy.socket(app.listen(PORT), uppyOptions);//move your app.listen here.
 }
+// initUppy();//run uppy instantiation function
+
 
 
 module.exports = router;
