@@ -106,7 +106,7 @@ class BoxDetail extends Component {
     // create state to store the item data
     state = {
         item: '',
-        picture:null
+        // picture:null
     }
     componentDidMount() {
         //Get box's data after refresh page by id
@@ -145,13 +145,13 @@ class BoxDetail extends Component {
         });
     }
 
-    handlePictureChangeFor = (event) => {
-        console.log('changing', event.target.files[0].name)
+    // handlePictureChangeFor = (event) => {
+    //     console.log('changing', event.target.files[0].name)
        
-        this.setState({
-            picture: event.target.files[0]
-        });
-    }
+    //     this.setState({
+    //         picture: event.target.files[0]
+    //     });
+    // }
 
     //handle add new item button
     handleAddNewItem = () => {
@@ -162,7 +162,7 @@ class BoxDetail extends Component {
             type: 'ADD_ITEM',
             payload: {
                 item: this.state.item,
-                picture: this.state.picture,
+                // picture: this.state.picture,
                 id: match.params.id,
                 roomId: match.params.roomId,
             }
@@ -342,7 +342,7 @@ class BoxDetail extends Component {
                             onChange={this.handleInputChangeFor}
                             onKeyPress={this.keyPressed}
                         />
-                        <input type= "file" onChange={this.handlePictureChangeFor}/>
+                        {/* <input type= "file" onChange={this.handlePictureChangeFor}/> */}
 
                             <ColorButton2 onClick={this.handleSubmit}
                                 className={classes.width}

@@ -34,23 +34,23 @@ function* addItem(action) {
     let boxId = action.payload.id
     let roomId = action.payload.roomId
 
-    let formData = new FormData();
-    formData.append(
-      'picture',
-      action.payload.picture,
-      action.payload.picture.name
-    )
-    let itemToSend = {
-      item: action.payload.item,
-      picture: formData
-    }
+    // let formData = new FormData();
+    // formData.append(
+    //   'picture',
+    //   action.payload.picture,
+    //   action.payload.picture.name
+    // )
+    // let itemToSend = {
+    //   item: action.payload.item,
+    //   picture: formData
+    // }
 
-    console.log('----------->formdata', itemToSend);
+    // console.log('----------->formdata', itemToSend);
 
     console.log('----------->from addItem get this room id', roomId);
     console.log('add this item', action.payload);
-    yield axios.post(`/api/item/${roomId}/${boxId}`, itemToSend);
-    console.log('send this item to server', formData);
+    yield axios.post(`/api/item/${roomId}/${boxId}`,  action.payload);
+    // console.log('send this item to server', formData);
     yield put({
       type: 'FETCH_ITEMS',
       payload: {
