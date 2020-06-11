@@ -21,15 +21,15 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 router.post('/:roomId/:id', (req, res) => {
     let item = req.body.item;
-    let picture = req.body.picture
+    // let picture = req.body.picture
     let boxId = req.params.id;
     let roomId = req.params.roomId;
     let userId = req.user.id;
 
 
-    console.log('send this item to database',item,picture, boxId);
-    const queryText = 'INSERT INTO "items" (item, picture,box_id,room_id, user_id) VALUES ($1, $2,$3,$4,$5) RETURNING id';
-    pool.query(queryText,[item,picture,boxId,roomId,userId])
+    console.log('send this item to database',item, boxId);
+    const queryText = 'INSERT INTO "items" (item,box_id,room_id, user_id) VALUES ($1,$2,$3,$4) RETURNING id';
+    pool.query(queryText,[item,boxId,roomId,userId])
       .then(() => res.sendStatus(201)) // send status Created if send the POST request successfully
       .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
     // res.sendStatus(201);
