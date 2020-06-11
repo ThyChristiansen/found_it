@@ -344,7 +344,7 @@ class BoxDetail extends Component {
                             onKeyPress={this.keyPressed}
                         />
                         {/* <input type= "file" onChange={this.handlePictureChangeFor}/> */}
-                        <UppyComp />
+                        {/* <UppyComp /> */}
                         <ColorButton2 onClick={this.handleSubmit}
                             className={classes.width}
                             size="small" variant="contained"
