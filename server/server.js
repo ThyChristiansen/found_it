@@ -1,13 +1,15 @@
 
 const express = require('express');
 require('dotenv').config();
+var path = require('path');
+const uppy = require('uppy-server');
+
 
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
 
 const passport = require('./strategies/user.strategy');
-
 
 // Route includes
 const userRouter = require('./routes/user.router');

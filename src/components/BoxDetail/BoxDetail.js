@@ -342,7 +342,7 @@ class BoxDetail extends Component {
                             onChange={this.handleInputChangeFor}
                             onKeyPress={this.keyPressed}
                         />
-                        <input type= "file" onChange={this.handlePictureChangeFor}/>
+                        {/* <input type= "file" onChange={this.handlePictureChangeFor}/> */}
 
                             <ColorButton2 onClick={this.handleSubmit}
                                 className={classes.width}
