@@ -107,7 +107,7 @@ class BoxDetail extends Component {
     // create state to store the item data
     state = {
         item: '',
-        file:null
+        file: null
     }
     componentDidMount() {
         //Get box's data after refresh page by id
@@ -162,10 +162,12 @@ class BoxDetail extends Component {
         dispatch({
             type: 'ADD_ITEM',
             payload: {
-                item: this.state.item,
                 file: this.state.file,
-                id: match.params.id,
-                roomId: match.params.roomId,
+                itemData: {
+                    item: this.state.item,
+                    id: match.params.id,
+                    roomId: match.params.roomId,
+                }
             }
         })
     }
@@ -345,7 +347,7 @@ class BoxDetail extends Component {
                             onKeyPress={this.keyPressed}
                         />
 
-                        <input type= "file" onChange={this.handlePictureChangeFor}/>
+                        <input type="file" onChange={this.handlePictureChangeFor} />
 
                         {/* <UppyComp /> */}
                         <ColorButton2 onClick={this.handleSubmit}
@@ -359,12 +361,13 @@ class BoxDetail extends Component {
                     <Grid container justify="center" >
                         <div className="list_item">
                             {/* Mapping through the item array to display list item in DOM */}
-                            {this.props.reduxState.item.map((item) => {
+                            {this.props.reduxState.item.map((item, index) => {
                                 return (
-                                    <div key={item.id}
+                                    <div key={index}
                                         className="item"
                                     >
-                                        <Item item={item}
+                                        <Item
+                                            item={item}
                                             boxId={item.box_id}
                                             roomId={this.sendRoomIdToItem}
                                         />
@@ -372,7 +375,7 @@ class BoxDetail extends Component {
                                 )
                             })}
                         </div>
-                        {/* <h2>{JSON.stringify(this.props.reduxState.detail)}</h2> */}
+                        <h2>{JSON.stringify(this.props.reduxState.item)}</h2>
                     </Grid >
 
                     {/* The condition for unbox button, if the box's status is opening (true), the unbox button is disappear 

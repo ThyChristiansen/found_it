@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 import { put, takeEvery, takeLatest } from 'redux-saga/effects';
-// const fs    = require('fs-extra');
-// const AWS   = require('aws-sdk');
+
 
 
 function* itemSaga() {
@@ -34,29 +33,31 @@ function* fetchItems(action) {
 
 function* addItem(action) {
   try {
-    let boxId = action.payload.id
-    let roomId = action.payload.roomId
-    let item = action.payload.item
+    let boxId = action.payload.itemData.id
+    let roomId = action.payload.itemData.roomId
+    let item = action.payload.itemData.item
 
     const data = new FormData();
-    data.append('file',action.payload.file)
-    // let itemToSend = {
-    //   item: action.payload.item,
-    //   picture: formData
-    // }
+    data.append('file', action.payload.file)
+
+    for (const [key, value] of Object.entries(action.payload.itemData)) {
+      data.append(key, value);
+    }
 
     console.log('----------->formdata', action.payload.file.type);
-    console.log('----------->item data', action.payload.item);
+    console.log('----------->item data', action.payload.itemData.item);
 
 
     console.log('----------->from addItem get this room id', roomId);
     console.log('add this item', action.payload);
-    yield axios.post(`/api/item/${roomId}/${boxId}`,data, action.payload, { headers: {
-      'accept': 'application/json',
-      'Accept-Language': 'en-US,en;q=0.8',
-      'Content-Type': action.payload.file.type,
-  }});
-    console.log('send this item to server', action.payload.item);
+    yield axios.post(`/api/item/${roomId}/${boxId}`, data, action.payload, {
+      headers: {
+        'accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'Content-Type': action.payload.file.type,
+      }
+    });
+    console.log('send this item to server', action.payload.itemData.item);
     yield put({
       type: 'FETCH_ITEMS',
       payload: {
@@ -64,7 +65,7 @@ function* addItem(action) {
         roomId: roomId
       }
     });
-   
+
 
   } catch (error) {
     console.log('Error with add new item:', error);

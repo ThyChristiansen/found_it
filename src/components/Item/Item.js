@@ -56,13 +56,9 @@ class Item extends Component {
     //Create a state to storing the item data and itemIsEditable
     state = {
         item: this.props.item.item,
-        // picture: this.props.item.picture,
         itemIsEditable: false
     }
 
-    // componentWillMount(){
-    //     console.log('in item:',this.state.picture)
-    // }
     //handle delete button
     //when the user click on delete button, this function will send the DELETE_ITEM action to Saga
     handleDelete = () => {
@@ -141,7 +137,9 @@ class Item extends Component {
 
         return (
             <div className="item_detail">
-                 <img
+                <h2>{JSON.stringify(this.props.item.picture)}</h2>
+
+                <img
                     src={this.props.item.picture}
                     alt='picture_item'
                     width="100"
@@ -179,7 +177,7 @@ class Item extends Component {
                     onClick={this.handleDelete}
                     className='delete_button'
                 ></img>
-               
+
 
             </div>
         )

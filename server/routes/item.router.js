@@ -29,24 +29,22 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 router.post('/:roomId/:id', upload.single('file'),(req, res) => {
 
-    let item = req.body;
-    let file = req.body.file;
-    let boxId = req.params.id;
-    let roomId = req.params.roomId;
-    let userId = req.user.id;
-    uploadPost(req, res);
+    // let item = req.body.item;
+    // let file = req.body.file;
+    // let boxId = req.params.id;
+    // let roomId = req.params.roomId;
+    // let userId = req.user.id;
+    uploadPost(req,res);
 
-
-    console.log('send this item to database', req.body.item);
-    const queryText = 'INSERT INTO "items" (item,box_id,room_id,user_id) VALUES ($1,$2,$3,$4) RETURNING id';
-    pool.query(queryText, [item, boxId, roomId, userId])
-        .then(() => {
-        console.log("item from server",req.body.item)
-        res.sendStatus(201)
-        }) // send status Created if send the POST request successfully
-
-        .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
-    // res.sendStatus(201);
+    // console.log('send this item to database', req.body.item);
+    // const queryText = 'INSERT INTO "items" (item,picture,box_id,room_id,user_id) VALUES ($1,$2,$3,$4,$5) RETURNING id';
+    // pool.query(queryText, [item,media_key, boxId, roomId, userId])
+    //     .then(() => {
+    //     console.log("item from server",req.body.item)
+    //     res.sendStatus(201)
+    //     }) // send status Created if send the POST request successfully
+    //     .catch(() => res.sendStatus(500)); // / send status Error if do not send the POST request successfully
+    // // res.sendStatus(201);
 });
 
 
