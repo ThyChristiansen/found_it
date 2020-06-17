@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+// const fs    = require('fs-extra');
+// const AWS   = require('aws-sdk');
+
 
 function* itemSaga() {
   yield takeEvery('FETCH_ITEMS', fetchItems);
@@ -33,24 +36,27 @@ function* addItem(action) {
   try {
     let boxId = action.payload.id
     let roomId = action.payload.roomId
+    let item = action.payload.item
 
-    // let formData = new FormData();
-    // formData.append(
-    //   'picture',
-    //   action.payload.picture,
-    //   action.payload.picture.name
-    // )
+    const data = new FormData();
+    data.append('file',action.payload.file)
     // let itemToSend = {
     //   item: action.payload.item,
     //   picture: formData
     // }
 
-    // console.log('----------->formdata', itemToSend);
+    console.log('----------->formdata', action.payload.file.type);
+    console.log('----------->item data', action.payload.item);
+
 
     console.log('----------->from addItem get this room id', roomId);
     console.log('add this item', action.payload);
-    yield axios.post(`/api/item/${roomId}/${boxId}`,  action.payload);
-    // console.log('send this item to server', formData);
+    yield axios.post(`/api/item/${roomId}/${boxId}`,data, action.payload, { headers: {
+      'accept': 'application/json',
+      'Accept-Language': 'en-US,en;q=0.8',
+      'Content-Type': action.payload.file.type,
+  }});
+    console.log('send this item to server', action.payload.item);
     yield put({
       type: 'FETCH_ITEMS',
       payload: {
@@ -58,6 +64,7 @@ function* addItem(action) {
         roomId: roomId
       }
     });
+   
 
   } catch (error) {
     console.log('Error with add new item:', error);
