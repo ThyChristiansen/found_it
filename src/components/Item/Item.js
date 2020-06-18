@@ -140,12 +140,12 @@ class Item extends Component {
             <div className="item_detail">
                 {/* <h2>{JSON.stringify(picture)}</h2> */}
 
-                <img
+                {/* <img
                     src={this.props.item.picture}
                     alt='picture_item'
                     width="100"
                     height="100"
-                />
+                /> */}
                 <p>{this.state.picture}</p>
                 {/* if itemIsEditable is true, displaying the input field and Save Item button
                 if itemIsEditable is false, displaying item's contend and the Edit Item button as well */}
