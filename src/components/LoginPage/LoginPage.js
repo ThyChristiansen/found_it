@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './LoginPage.css';
+import GoogleLogin from 'react-google-login'
 
 
 //-----------------------Styling----------------------------------
@@ -58,6 +59,12 @@ class LoginPage extends Component {
     this.setState({
       [propertyName]: event.target.value,
     });
+  }
+  
+  responseGoogle=(response)=>{
+    console.log(response);
+    console.log(response.profileObj);
+
   }
 
   render() {
@@ -145,6 +152,14 @@ class LoginPage extends Component {
                 Sign Up
           </button>
             </center>
+            <GoogleLogin 
+            clientId= {process.env.CLIENT_ID}
+            buttonText="Login"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            cookiePolicy={'single_host_origin'}
+
+            />
           </Box >
         </div>
       </div>
