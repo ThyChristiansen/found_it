@@ -137,10 +137,10 @@ class Item extends Component {
 
         return (
             <div className="item_detail">
-                <h2>{JSON.stringify(this.props.item.picture)}</h2>
+                <h2>{JSON.stringify(this.props.item.media_url)}</h2>
 
                 <img
-                    src={this.props.item.picture}
+                    src={this.props.item.media_url}
                     alt='picture_item'
                     width="100"
                     height="100"

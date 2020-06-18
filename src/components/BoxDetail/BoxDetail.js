@@ -361,9 +361,9 @@ class BoxDetail extends Component {
                     <Grid container justify="center" >
                         <div className="list_item">
                             {/* Mapping through the item array to display list item in DOM */}
-                            {this.props.reduxState.item.map((item, index) => {
+                            {/* {this.props.reduxState.item.map((item) => {
                                 return (
-                                    <div key={index}
+                                    <div key={item.id}
                                         className="item"
                                     >
                                         <Item
@@ -373,7 +373,7 @@ class BoxDetail extends Component {
                                         />
                                     </div>
                                 )
-                            })}
+                            })} */}
                         </div>
                         <h2>{JSON.stringify(this.props.reduxState.item)}</h2>
                     </Grid >
