@@ -134,17 +134,18 @@ class Item extends Component {
 
     render() {
         const { classes } = this.props;
+        // let picture = this.props.item.picture+".jpg"
 
         return (
             <div className="item_detail">
-                <h2>{JSON.stringify(this.props.item.media_url)}</h2>
+                {/* <h2>{JSON.stringify(picture)}</h2> */}
 
-                {/* <img
-                    src={this.props.item.media_url}
+                <img
+                    src={this.props.item.picture}
                     alt='picture_item'
                     width="100"
                     height="100"
-                /> */}
+                />
                 <p>{this.state.picture}</p>
                 {/* if itemIsEditable is true, displaying the input field and Save Item button
                 if itemIsEditable is false, displaying item's contend and the Edit Item button as well */}

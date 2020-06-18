@@ -18,9 +18,10 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('-------------->from get item, boxId:', boxId);
     let queryText = `SELECT * FROM items WHERE box_id = $1 AND user_id = $2 ORDER BY id DESC`;
     pool.query(queryText, [boxId, userId])
-    .then((result) => {
-        console.log('get this row from database:',generateSignedUrls(result.rows))
-        res.send(result.rows)})
+        .then((result) => {
+            console.log('get this row from database:', generateSignedUrls(res, result.rows))
+            res.send(result.rows)
+        })
         .catch((error) => {
             console.log('Error in GET items:', error);
         })
