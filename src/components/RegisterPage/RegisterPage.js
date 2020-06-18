@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../LoginPage/LoginPage.css';
 
+import GoogleLogin from 'react-google-login'
+
 //-----------------------Styling----------------------------------
 
 import { withStyles } from '@material-ui/core/styles';
@@ -43,11 +45,11 @@ class RegisterPage extends Component {
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.givenName && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
-          username: this.state.username,
+          username: this.state.givenName,
           password: this.state.password,
           email: this.state.email,
         },
@@ -77,6 +79,12 @@ class RegisterPage extends Component {
     this.setState({
       [propertyName]: event.target.value,
     });
+  }
+
+  responseGoogle=(response)=>{
+    console.log(response);
+    console.log(response.profileObj);
+
   }
 
   render() {
@@ -186,6 +194,14 @@ class RegisterPage extends Component {
                 Log In
           </button>
             </center>
+            <GoogleLogin 
+            clientId= "657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            cookiePolicy={'single_host_origin'}
+            onClick = {this.registerUser}
+            />
           </Box>
 
         </div>

@@ -361,7 +361,7 @@ class BoxDetail extends Component {
                     <Grid container justify="center" >
                         <div className="list_item">
                             {/* Mapping through the item array to display list item in DOM */}
-                            {/* {this.props.reduxState.item.map((item) => {
+                            {this.props.reduxState.item.map((item) => {
                                 return (
                                     <div key={item.id}
                                         className="item"
@@ -373,9 +373,9 @@ class BoxDetail extends Component {
                                         />
                                     </div>
                                 )
-                            })} */}
+                            })}
                         </div>
-                        <h2>{JSON.stringify(this.props.reduxState.item)}</h2>
+                        {/* <h2>{JSON.stringify(this.props.reduxState.item)}</h2> */}
                     </Grid >
 
                     {/* The condition for unbox button, if the box's status is opening (true), the unbox button is disappear 

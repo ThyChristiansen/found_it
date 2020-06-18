@@ -153,7 +153,7 @@ class LoginPage extends Component {
           </button>
             </center>
             <GoogleLogin 
-            clientId= {process.env.CLIENT_ID}
+            clientId=  "657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
