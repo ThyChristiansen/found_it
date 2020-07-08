@@ -137,8 +137,6 @@ class Header extends Component {
     }
 }
 
-
-
 const mapStateToProps = state => ({
     user: state.user,
 });

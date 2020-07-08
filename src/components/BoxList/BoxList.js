@@ -140,7 +140,6 @@ class BoxList extends Component {
                     {/* Display box quantity in the room */}
                     <p className="box_quantity">Box quantity: {this.props.reduxState.boxes.length}</p>
 
-
                     {/* Mapping through tr boxes array that got from reducer and display boxes */}
                     <div className={classes.root} >
                         <Grid container spacing={1} justify="center">

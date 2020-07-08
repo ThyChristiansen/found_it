@@ -50,7 +50,6 @@ class DownloadQRCode extends Component {
                     includeMargin={true}
                 /><br />
                 <ColorButton onClick={this.downloadQR} size="small" className={classes.margin} variant="contained"> Download</ColorButton>
-                {/* <h1>{JSON.stringify(this.props.box.room_id)}</h1> */}
             </div>
         )
     }

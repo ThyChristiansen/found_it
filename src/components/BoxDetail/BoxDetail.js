@@ -375,7 +375,6 @@ class BoxDetail extends Component {
                                 )
                             })}
                         </div>
-                        {/* <h2>{JSON.stringify(this.props.reduxState.item)}</h2> */}
                     </Grid >
 
                     {/* The condition for unbox button, if the box's status is opening (true), the unbox button is disappear 

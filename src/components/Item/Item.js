@@ -9,7 +9,6 @@ import {
 import InputBase from '@material-ui/core/InputBase';
 import FormControl from '@material-ui/core/FormControl';
 
-
 const BootstrapInput = withStyles((theme) => ({
     input: {
         borderRadius: 4,
@@ -48,8 +47,6 @@ const useStyles = (theme) => ({
     },
 
 });
-
-
 
 class Item extends Component {
 
@@ -131,7 +128,6 @@ class Item extends Component {
     }
     //----------------------------------------------------------------
 
-
     render() {
         const { classes } = this.props;
         let picture = this.props.item.picture
@@ -170,7 +166,6 @@ class Item extends Component {
                         <div className="input_item" onClick={this.editItem}>{this.state.item}</div>
                     </>
                 }
-
                 <img src="images/cancel.png"
                     alt="room_icon"
                     width="30px"
@@ -178,8 +173,6 @@ class Item extends Component {
                     onClick={this.handleDelete}
                     className='delete_button'
                 ></img>
-
-
             </div>
         )
     }
