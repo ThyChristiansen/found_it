@@ -49,7 +49,7 @@ class RegisterPage extends Component {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
-          username: this.state.givenName,
+          username: this.state.username,
           password: this.state.password,
           email: this.state.email,
         },
