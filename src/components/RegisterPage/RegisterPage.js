@@ -45,7 +45,7 @@ class RegisterPage extends Component {
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.givenName && this.state.password) {
+    if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
