@@ -194,14 +194,14 @@ class RegisterPage extends Component {
                 Log In
           </button>
             </center>
-            <GoogleLogin 
+            {/* <GoogleLogin 
             clientId= "657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
             onClick = {this.registerUser}
-            />
+            /> */}
           </Box>
 
         </div>
