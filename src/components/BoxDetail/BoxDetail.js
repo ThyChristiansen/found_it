@@ -107,7 +107,7 @@ class BoxDetail extends Component {
     // create state to store the item data
     state = {
         item: '',
-        file: null
+        file: '',
     }
     componentDidMount() {
         //Get box's data after refresh page by id
@@ -148,7 +148,6 @@ class BoxDetail extends Component {
 
     handlePictureChangeFor = (event) => {
         console.log('changing', event.target.files[0])
-
         this.setState({
             file: event.target.files[0]
         });
@@ -347,7 +346,7 @@ class BoxDetail extends Component {
                             onKeyPress={this.keyPressed}
                         />
 
-                        {/* <input type="file" onChange={this.handlePictureChangeFor} /> */}
+                        <input type="file" onChange={this.handlePictureChangeFor} accept="image/*"/>
 
                         {/* <UppyComp /> */}
                         <ColorButton2 onClick={this.handleSubmit}

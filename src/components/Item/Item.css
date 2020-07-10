@@ -11,16 +11,9 @@
 }
 
 
-/* .item_button{
-    padding-bottom: 0px;
-    padding-top: 0px;
-    position: relative;
-    float: right;
-    margin: 1px 1px; 
-    display: flex; 
-    font-size: 90%;
-    text-align: center;
-} */
+.item_detail{
+    margin: 5px;
+}
 
 .delete_button{
     margin-right:5px ;
