@@ -174,6 +174,7 @@ class BoxDetail extends Component {
     handleClearInput = () => {
         this.setState({
             item: '',
+            file:''
         });
     }
     //handle add item and clear input field after clicked add button
