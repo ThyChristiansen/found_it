@@ -13,11 +13,6 @@ const uploadPost = async (req, res) => {
   uploadToSQL(req, picture, res);
 }
 
-// const uploadPostWithText = async (req, res) => {
-//   let media_key = await uploadToS3(req.file, res);
-//   uploadToSQLWithText(req, media_key, res);
-// }
-
 const generateSignedUrls = async (res, rows) => {
     const newRows = await addSignedUrls(rows);
     verbose && console.log({newRows});
@@ -50,7 +45,7 @@ function generateSignedUrl(key) {
     s3bucket.getSignedUrl('getObject', urlParams, function(error, url) {
       if(error){
         verbose && console.log(error);
-        // resolve('');
+        resolve('');
       } else {
         verbose && console.log('url in getsigned response: ', url);
         revolve(url);
