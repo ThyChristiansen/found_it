@@ -9,7 +9,7 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "email" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (80) NOT NULL,
-    "given_name" VARCHAR (20) NOT NULL
+    "given_name" VARCHAR (20)
     );
 
 CREATE TABLE house (
