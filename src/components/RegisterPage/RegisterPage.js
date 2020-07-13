@@ -53,7 +53,7 @@ class RegisterPage extends Component {
           password: this.state.password,
           email: this.state.email,
         },
-      });  
+      });
       const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-end',
@@ -69,7 +69,7 @@ class RegisterPage extends Component {
         icon: 'success',
         title: "You just succeeded in createing a new account. Now, let's start!!"
       })
-     
+
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
@@ -81,10 +81,17 @@ class RegisterPage extends Component {
     });
   }
 
-  responseGoogle=(response)=>{
+  responseGoogle = (response) => {
     console.log(response);
     console.log(response.profileObj);
-
+    this.props.dispatch({
+      type: 'REGISTER',
+      payload: {
+        username: response.profileObj.givenName,
+        email: response.profileObj.email,
+        password: response.profileObj.googleId,
+      },
+    });
   }
 
   render() {
@@ -173,6 +180,7 @@ class RegisterPage extends Component {
                 </label>
               </div>
               <div>
+
                 <div className={classes.alignItemsAndJustifyContent}>
                   <Grid item>
                     <input
@@ -183,25 +191,29 @@ class RegisterPage extends Component {
                     />
                   </Grid>
                 </div>
+                <p>________________or________________</p>
+                <GoogleLogin
+                  clientId="657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
+                  buttonText="Sign up with Google"
+                  onSuccess={this.responseGoogle}
+                  onFailure={this.responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                  onClick={this.registerUser}
+                />
               </div>
             </form>
             <center>
+              <br />
+              <br />
               <button
                 type="button"
                 className="link-button"
                 onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
               >
-                Log In
+                Already have an account?
           </button>
             </center>
-            {/* <GoogleLogin 
-            clientId= "657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={this.responseGoogle}
-            onFailure={this.responseGoogle}
-            cookiePolicy={'single_host_origin'}
-            onClick = {this.registerUser}
-            /> */}
+
           </Box>
 
         </div>

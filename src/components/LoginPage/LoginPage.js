@@ -49,7 +49,7 @@ class LoginPage extends Component {
           username: this.state.username,
           password: this.state.password,
         },
-      });  
+      });
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -60,11 +60,17 @@ class LoginPage extends Component {
       [propertyName]: event.target.value,
     });
   }
-  
-  responseGoogle=(response)=>{
+
+  responseGoogle = (response) => {
     console.log(response);
     console.log(response.profileObj);
-
+    this.props.dispatch({
+      type: 'LOGIN',
+      payload: {
+        username: response.profileObj.givenName,
+        password: response.profileObj.googleId,
+      },
+    });
   }
 
   render() {
@@ -83,13 +89,13 @@ class LoginPage extends Component {
             height="50"
           />
         </div>
-            {this.props.errors.loginMessage && (
-              <p className="alert" role="alert">
-                {this.props.errors.loginMessage}
-              </p>
-            )}
-            <div className={classes.alignItemsAndJustifyContent}>
-            <Box m="auto">
+        {this.props.errors.loginMessage && (
+          <p className="alert" role="alert">
+            {this.props.errors.loginMessage}
+          </p>
+        )}
+        <div className={classes.alignItemsAndJustifyContent}>
+          <Box m="auto">
             <form onSubmit={this.login}>
               <div>
                 <label htmlFor="username">
@@ -141,9 +147,21 @@ class LoginPage extends Component {
                     />
                   </Grid>
                 </div>
+                <p>________________or________________</p>
+                <GoogleLogin
+                  clientId="657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
+                  buttonText="Login with Google"
+                  onSuccess={this.responseGoogle}
+                  onFailure={this.responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                  onClick={this.registerUser}
+                />
+
               </div>
             </form>
             <center>
+              <br />
+              <br />
               <button
                 type="button"
                 className="link-button"
@@ -152,13 +170,6 @@ class LoginPage extends Component {
                 Sign Up
           </button>
             </center>
-            {/* <GoogleLogin 
-            clientId=  "657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={this.responseGoogle}
-            onFailure={this.responseGoogle}
-            cookiePolicy={'single_host_origin'}
-            /> */}
           </Box >
         </div>
       </div>
