@@ -16,7 +16,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
   res.send(req.user);
-  // console.log('----->from user.router send this to client', req.user)
 });
 
 // Send POST request to database to user add new account if the user registering successful
@@ -25,9 +24,6 @@ router.post('/register', (req, res, next) => {
   const email = req.body.email;
   const givenName = req.body.givenName;
   const password = encryptLib.encryptPassword(req.body.password);// using encrypt to save user's password
-  // const houseName = req.body.houseName;
-
-  // console.log('---->add this username and password to database',username,password)
   nodemailer.createTestAccount((err, account) => {
     const htmlEmail = `
 <h3>Hello ${req.body.username}!</h3>
@@ -73,7 +69,6 @@ router.post('/register', (req, res, next) => {
 // Handles POST request to add register new account
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   console.log('------>in POST router')
-  // console.log({msg:'Email has been sent'})
   res.sendStatus(200);
 });
 

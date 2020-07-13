@@ -18,7 +18,6 @@ CREATE TABLE house (
 	user_id  INT NOT NULL
         REFERENCES "user" (id)
         ON DELETE CASCADE
-
 	);
 
 CREATE TABLE rooms (
@@ -28,9 +27,6 @@ CREATE TABLE rooms (
         REFERENCES "user" (id)
         ON DELETE CASCADE
 	);
-
-
-
 CREATE TABLE boxes (
     id SERIAL PRIMARY KEY,
     room_id INT NOT NULL
@@ -40,8 +36,6 @@ CREATE TABLE boxes (
 	qr_code int DEFAULT 1,
 	status BOOLEAN DEFAULT FALSE
 );
-
-
 CREATE TABLE items (
 	id SERIAL PRIMARY KEY,
 	item VARCHAR (100),

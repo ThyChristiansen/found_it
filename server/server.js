@@ -1,9 +1,6 @@
 
 const express = require('express');
 require('dotenv').config();
-let path = require('path');
-const uppy = require('uppy-server');
-
 
 
 const app = express();
