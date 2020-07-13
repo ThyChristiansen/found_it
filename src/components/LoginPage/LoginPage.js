@@ -67,7 +67,7 @@ class LoginPage extends Component {
     this.props.dispatch({
       type: 'LOGIN',
       payload: {
-        username: response.profileObj.givenName,
+        username: response.profileObj.email,
         password: response.profileObj.googleId,
       },
     });

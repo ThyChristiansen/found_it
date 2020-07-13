@@ -16,6 +16,7 @@ const UserPage = (props) => (
     <CreateRoomList
     username =  {props.user.username}
     userId={props.user.id}
+    givenName = {props.user.given_name}
      />
   </div>
 );

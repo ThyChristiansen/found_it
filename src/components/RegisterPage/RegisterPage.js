@@ -87,9 +87,10 @@ class RegisterPage extends Component {
     this.props.dispatch({
       type: 'REGISTER',
       payload: {
-        username: response.profileObj.givenName,
+        username: response.profileObj.email,
         email: response.profileObj.email,
         password: response.profileObj.googleId,
+        givenName:response.profileObj.givenName,
       },
     });
   }

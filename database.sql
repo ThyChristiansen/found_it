@@ -8,7 +8,8 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "email" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (80) NOT NULL
+    "password" VARCHAR (80) NOT NULL,
+    "given_name" VARCHAR (20) NOT NULL
     );
 
 CREATE TABLE house (

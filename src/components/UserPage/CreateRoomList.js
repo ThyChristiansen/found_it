@@ -152,7 +152,7 @@ class CreateRoomList extends Component {
                     </ColorButton>
             </div>
             welcome = <div className={classes.alignItemsAndJustifyContent}>
-                <h1>Welcome {this.props.username}!!!!</h1>
+                <h1>Welcome {this.props.givenName}!!!!</h1>
             </div>
         }
         return (
@@ -160,7 +160,7 @@ class CreateRoomList extends Component {
                 {welcome}
                 {button}
                 {/* <h1>house name: {JSON.stringify(this.props.reduxState.houseName.map((event)=> event.house_name))}</h1>  */}
-                {/* I put Homeage component in here so that the list of room will show up right in the home page */}
+                {/* I put Homepage component in here so that the list of room will show up right in the home page */}
                 <HomePage userId={this.props.userId} />
             </div >
         )
