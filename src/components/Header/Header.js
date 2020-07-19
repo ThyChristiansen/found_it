@@ -61,7 +61,7 @@ class Header extends Component {
     //----------------------------------------------------------------
 
     handleCloseNav = () => {
-        console.log('click!')
+        // console.log('click!')
         this.setState({
             menu: !this.state.menu
         })

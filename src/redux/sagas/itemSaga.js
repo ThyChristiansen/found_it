@@ -60,7 +60,7 @@ function* addItem(action) {
 
     if (action.payload.file === "") {
       yield axios.post(`/api/item/withoutImg/${roomId}/${boxId}`, action.payload.itemData);
-      console.log('------> item', action.payload.itemData)
+      // console.log('------> item', action.payload.itemData)
     } else {
       const data = new FormData();
       data.append('file', action.payload.file)
@@ -69,10 +69,10 @@ function* addItem(action) {
         data.append(key, value);
       }
 
-      console.log('----------->formdata', action.payload.file.type);
-      console.log('----------->item data', action.payload.itemData.item);
-      console.log('----------->from addItem get this room id', roomId);
-      console.log('add this item', action.payload);
+      // console.log('----------->formdata', action.payload.file.type);
+      // console.log('----------->item data', action.payload.itemData.item);
+      // console.log('----------->from addItem get this room id', roomId);
+      // console.log('add this item', action.payload);
 
       yield axios.post(`/api/item/${roomId}/${boxId}`, data, {
         headers: {
@@ -82,7 +82,7 @@ function* addItem(action) {
         }
       });
     }
-    console.log('send this item to server', action.payload.itemData.item);
+    // console.log('send this item to server', action.payload.itemData.item);
     yield put({
       type: 'FETCH_ITEMS',
       payload: {

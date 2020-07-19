@@ -32,9 +32,9 @@ function* fetchBox(action) {
 function* addBox(action) {
   try {
     let roomId = action.payload.roomId
-    console.log('--------> in add box', roomId)
+    // console.log('--------> in add box', roomId)
     yield axios.post(`/api/box/${roomId}`);
-    console.log('---> send room id of this box to server:', roomId)
+    // console.log('---> send room id of this box to server:', roomId)
     // automatically log a user in after registration
     yield put({
       type: 'FETCH_BOX',
@@ -48,9 +48,9 @@ function* addBox(action) {
 function* addFirstBoxInRoom(action) {
   try {
     let roomId = action.payload.roomId
-    console.log('--------> in add first box', roomId)
+    // console.log('--------> in add first box', roomId)
     yield axios.post(`/api/box/firstboxInRoom/${roomId}`);
-    console.log('---> send room id of this box to server:', roomId)
+    // console.log('---> send room id of this box to server:', roomId)
     yield put({
       type: 'FETCH_BOX',
       payload: { roomId: roomId }
@@ -66,9 +66,9 @@ function* updateBoxStatus(action) {
     let boxId = action.payload.boxId
     let roomId = action.payload.roomId
 
-    console.log('---> from update box status,send this box id:', boxId)
+    // console.log('---> from update box status,send this box id:', boxId)
     yield axios.put(`/api/box/${boxId}`);
-    console.log('---> send this item to server:', boxId)
+    // console.log('---> send this item to server:', boxId)
     yield put({
       type: 'FETCH_BOX',
       payload: { roomId: roomId }

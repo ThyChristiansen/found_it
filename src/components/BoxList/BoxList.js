@@ -48,7 +48,7 @@ class BoxList extends Component {
     //I also send the roomId in payload so that the user can add boxes to different room.
     handleOnClickAddNewBox = () => {
         const { dispatch, match } = this.props;
-        console.log('add new item clicked!');
+        // console.log('add new item clicked!');
         dispatch({
             type: 'ADD_BOX',
             payload: {
@@ -73,7 +73,7 @@ class BoxList extends Component {
     }
     handleOnClickAddFirstBoxInRoom = () => {
         const { dispatch, match } = this.props;
-        console.log('add new item clicked!');
+        // console.log('add new item clicked!');
         dispatch({
             type: 'ADD_FIRST_BOX_IN_ROOM',
             payload: {
@@ -99,7 +99,7 @@ class BoxList extends Component {
     }
     //handle back to home button
     handleBackToRoomList = () => {
-        console.log('BacktoRoomList clicked');
+        // console.log('BacktoRoomList clicked');
         this.props.history.push('/home');
     }
 

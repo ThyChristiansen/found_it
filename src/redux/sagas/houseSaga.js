@@ -13,7 +13,7 @@ function* fetchHouseName(action) {
     //create an variable named userId to assign the data that was sent from client-side to it
     // console.log('user id', userId)
     const response = yield axios.get(`/api/house/`); //using axios to send the GET request to server-side
-    console.log('----> Send this house name to reducer', response.data)
+    // console.log('----> Send this house name to reducer', response.data)
     yield put({ type: 'SET_HOUSE_NAME', payload: response.data });
   } catch (error) {
     console.log('House name get request failed', error);
@@ -24,9 +24,9 @@ function* fetchHouseName(action) {
 function* createHouseName(action) {
   try {
     let userId = action.payload.userId
-    console.log('----------->from createHouseName', userId);
+    // console.log('----------->from createHouseName', userId);
     yield axios.post('/api/house', action.payload); //using axios to send the POST request to server-side
-    console.log('send this id of user and room name to server', action.payload);
+    // console.log('send this id of user and room name to server', action.payload);
    //Refesh the DOM right after created house's name
     yield put({ 
       type: 'FETCH_ROOM',

@@ -83,7 +83,7 @@ class CreateRoomList extends Component {
     //handle change for the house's name input field, this will set the houseName property in
     // the state above to whatever name that user typed in
     handleHouseNameChangeFor = (event) => {
-        console.log('changing', event.target.value)
+        // console.log('changing', event.target.value)
         this.setState({
             houseName: event.target.value
         })

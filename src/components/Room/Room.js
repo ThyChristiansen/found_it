@@ -6,7 +6,7 @@ import './RoomList.css'
 
 class RoomList extends Component {
     handleOnClick = () => {
-        console.log('room clicked!')
+        // console.log('room clicked!')
         this.props.history.push(`/box-list/${this.props.roomData.id}`)
 
     }

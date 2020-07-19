@@ -10,7 +10,7 @@ function* deleteBox(action) {
     let boxId = action.payload.boxId
     let roomId = action.payload.roomId
     yield axios.delete(`/api/box/${boxId}`);
-    console.log('--->qr_code for this box:', action.payload.boxId)
+    // console.log('--->qr_code for this box:', action.payload.boxId)
     yield put({
       type: 'FETCH_BOX',
       payload: {roomId : roomId}

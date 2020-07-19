@@ -11,7 +11,7 @@ function* deleteItem(action) {
     let boxId = action.payload.boxId
     let roomId = action.payload.roomId
 
-    console.log('-----------> id for this room:',roomId)
+    // console.log('-----------> id for this room:',roomId)
     yield axios.delete(`/api/item/${action.payload.itemId}`);
     // console.log('---> id for this item:', action.payload.itemId)
     yield put({

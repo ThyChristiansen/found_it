@@ -10,10 +10,10 @@ function* searchSaga() {
 
 function* searchItem(action) {
     let searchValue = action.payload.searchItem;
-    console.log('------->in searchItem:', searchValue);
+    // console.log('------->in searchItem:', searchValue);
     try {
         const response = yield axios.get(`/api/search/${searchValue}`);
-        console.log('------->in searchItem:', searchValue);
+        // console.log('------->in searchItem:', searchValue);
         yield put({
             type: 'SET_ITEM_SORT', // set action type = SET_ITEM_SORT
             payload: response.data
@@ -25,7 +25,7 @@ function* searchItem(action) {
 
 function* searchEmptyItem(action) {
     let searchValue = action.payload.searchItem;
-    console.log('------->in searchItem:', searchValue);
+    // console.log('------->in searchItem:', searchValue);
     try {
         yield put({
             type: 'SET_ITEM_EMPTY',

@@ -16,7 +16,7 @@ function* getRoomName(action) {
       withCredentials: true,
     };
     const response = yield axios.get(`/api/roomName/${room_id}`, config);
-    console.log('----> from get room name send this name to reducer', response.data)
+    // console.log('----> from get room name send this name to reducer', response.data)
 
     yield put({
       type: 'SET_ROOM_NAME',

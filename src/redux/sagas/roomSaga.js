@@ -10,7 +10,7 @@ function* roomSaga() {
 function* fetchRoom(action) {
   try {
     let userId = action.payload.userId
-    console.log('user id', userId)
+    // console.log('user id', userId)
     const response = yield axios.get(`/api/room/${userId}`);
     // console.log('----> Send this rooms to reducer', response.data)
 

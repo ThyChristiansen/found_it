@@ -59,8 +59,8 @@ class Item extends Component {
     //handle delete button
     //when the user click on delete button, this function will send the DELETE_ITEM action to Saga
     handleDelete = () => {
-        console.log('delete clicked');
-        console.log('delelete this item by this id:', this.props.item.id)
+        // console.log('delete clicked');
+        // console.log('delelete this item by this id:', this.props.item.id)
         this.props.dispatch({
             type: 'DELETE_ITEM',
             payload: {

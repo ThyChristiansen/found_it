@@ -6,7 +6,7 @@ import { withRouter } from "react-router";
 class Box extends Component {
 
     handleClick = () => {
-        console.log('clicked');
+        // console.log('clicked');
         this.props.history.push(`/box-detail/${this.props.box.room_id}/${this.props.box.id}`)
     }
 

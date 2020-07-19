@@ -127,15 +127,15 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         });
-        console.log('--------->this is box id:', match.params.id)
-        console.log('--------->this is room id:', match.params.roomId)
-        console.log('--------->picture:', this.state.picture)
+        // console.log('--------->this is box id:', match.params.id)
+        // console.log('--------->this is room id:', match.params.roomId)
+        // console.log('--------->picture:', this.state.picture)
 
     }
     //handle come back list box page
     backClick = () => {
         const { match } = this.props;
-        console.log('back clicked');
+        // console.log('back clicked');
         this.props.history.push(`/box-list/${match.params.roomId}`)
     }
     //handle changing for add new item input field
@@ -147,7 +147,7 @@ class BoxDetail extends Component {
     }
 
     handlePictureChangeFor = (event) => {
-        console.log('changing', event.target.files[0])
+        // console.log('changing', event.target.files[0])
         this.setState({
             file: event.target.files[0]
         });
@@ -156,7 +156,7 @@ class BoxDetail extends Component {
     //handle add new item button
     handleAddNewItem = () => {
         const { dispatch, match } = this.props;
-        console.log('add new item clicked!');
+        // console.log('add new item clicked!');
 
         dispatch({
             type: 'ADD_ITEM',
@@ -200,7 +200,7 @@ class BoxDetail extends Component {
     }
     //handle delete box
     handleDeleteBox = () => {
-        console.log('delete clicked');
+        // console.log('delete clicked');
         const { dispatch, match } = this.props;
         dispatch({
             type: 'DELETE_BOX',
@@ -209,7 +209,7 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
-        console.log('------->box id', match.params.id);
+        // console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/box-list/${match.params.roomId}`)
     }
@@ -240,7 +240,7 @@ class BoxDetail extends Component {
 
     //handle unbox
     handleUnBox = () => {
-        console.log('unbox clicked');
+        // console.log('unbox clicked');
         const { dispatch, match } = this.props;
         dispatch({
             type: 'UNBOX',
@@ -249,7 +249,7 @@ class BoxDetail extends Component {
                 roomId: match.params.roomId,
             }
         })
-        console.log('------->box id', match.params.id);
+        // console.log('------->box id', match.params.id);
         //Bringing the user back to the box list after click on delete button
         this.props.history.push(`/box-list/${match.params.roomId}`)
         //using SweetAlert2 to confirming that the box is unboxed
