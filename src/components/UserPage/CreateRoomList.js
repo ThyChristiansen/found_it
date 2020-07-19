@@ -116,7 +116,7 @@ class CreateRoomList extends Component {
                     userId: this.props.userId
                 }
             })
-            console.log('---------->send this house name to Saga', this.state.houseName)
+            // console.log('---------->send this house name to Saga', this.state.houseName)
             //After create house's name, I also send the FETCH_HOUSE_NAME to Saga to get house's name right of the bat
             this.props.dispatch({
                 type: "FETCH_HOUSE_NAME",
@@ -159,7 +159,6 @@ class CreateRoomList extends Component {
             <div>
                 {welcome}
                 {button}
-                {/* <h1>house name: {JSON.stringify(this.props.reduxState.houseName.map((event)=> event.house_name))}</h1>  */}
                 {/* I put Homepage component in here so that the list of room will show up right in the home page */}
                 <HomePage userId={this.props.userId} />
             </div >

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import LogOutButton from '../LogOutButton/LogOutButton';
 import CreateRoomList from '../UserPage/CreateRoomList';
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
