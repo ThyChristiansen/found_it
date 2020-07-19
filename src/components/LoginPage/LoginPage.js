@@ -62,8 +62,8 @@ class LoginPage extends Component {
   }
 
   responseGoogle = (response) => {
-    console.log(response);
-    console.log(response.profileObj);
+    // console.log(response);
+    // console.log(response.profileObj);
     this.props.dispatch({
       type: 'LOGIN',
       payload: {
@@ -74,9 +74,7 @@ class LoginPage extends Component {
   }
 
   render() {
-
     const { classes } = this.props;
-
     return (
       <div>
         <div className="login_header_bar">

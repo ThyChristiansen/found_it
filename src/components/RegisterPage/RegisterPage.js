@@ -82,8 +82,8 @@ class RegisterPage extends Component {
   }
 
   responseGoogle = (response) => {
-    console.log(response);
-    console.log(response.profileObj);
+    // console.log(response);
+    // console.log(response.profileObj);
     this.props.dispatch({
       type: 'REGISTER',
       payload: {
@@ -102,7 +102,6 @@ class RegisterPage extends Component {
         {/* Header for register page */}
         <div className="login_header_bar">
           <h5 className="login_header">Welcome to Found it</h5>
-
           <img
             src="images/app.png"
             alt='scanner_icon'
