@@ -147,12 +147,11 @@ class LoginPage extends Component {
                 </div>
                 <p>________________or________________</p>
                 <GoogleLogin
-                  clientId="657071721957-uur1g143dko5qi1v2p33v9r1cfs4dhus.apps.googleusercontent.com"
+                  clientId={process.env.REACT_APP_CLIENT_ID}
                   buttonText="Login with Google"
                   onSuccess={this.responseGoogle}
                   onFailure={this.responseGoogle}
                   cookiePolicy={'single_host_origin'}
-                  onClick={this.registerUser}
                 />
 
               </div>

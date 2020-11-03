@@ -67,7 +67,7 @@ class RegisterPage extends Component {
       })
       Toast.fire({
         icon: 'success',
-        title: "You just succeeded in createing a new account. Now, let's start!!"
+        title: "You just succeeded in creating a new account. Now, let's start!!"
       })
 
     } else {
