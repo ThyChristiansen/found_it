@@ -44,7 +44,7 @@ router.post('/register', (req, res, next) => {
       }
     })
     let mailOption = {
-      from: `"FoundIt App"<foundit010@gmail.com>`, // sender address
+      from: '"FoundIt App"<foundit010@gmail.com>', // sender address
       to: `${email}`, // list of receivers
       subject: "FoundIt confirmation", // Subject line
       // text: "Confirm that you want to create an account ?", // plain text body

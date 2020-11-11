@@ -6,7 +6,7 @@ require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
-
+const compression = require('compression')
 const passport = require('./strategies/user.strategy');
 
 // Route includes
@@ -31,6 +31,7 @@ app.use(sessionMiddleware);
 // start up passport sessions
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(compression())
 
 /* Routes */
 app.use('/api/user', userRouter);
