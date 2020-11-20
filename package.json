@@ -25,7 +25,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.4",
     "form-data": "^3.0.0",
-    "gh-pages": "^3.1.0",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "nodemailer": "^6.4.6",
