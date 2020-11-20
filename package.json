@@ -1,6 +1,5 @@
 {
   "name": "prime-solo-project",
-  "homepage": "https://ThyChristiansen.github.io/found-it",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
