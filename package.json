@@ -2,6 +2,7 @@
   "name": "prime-solo-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ThyChristiansen.github.io/found-it",
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.10.1",
@@ -51,6 +52,8 @@
     "url": "^0.11.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "node server/server.js",
     "client": "react-scripts start",
     "server": "nodemon --watch server server/server.js",
