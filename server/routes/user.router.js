@@ -20,6 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 // Send POST request to database to user add new account if the user registering successful
 router.post('/register', (req, res, next) => {
+console.log("---->",req.body);
   const username = req.body.username;
   const email = req.body.email;
   const givenName = req.body.givenName;
