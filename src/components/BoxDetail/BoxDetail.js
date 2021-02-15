@@ -5,7 +5,7 @@ import Item from '../Item/Item';
 import './BoxDetail.css';
 import Header from '../Header/Header';
 import Swal from 'sweetalert2';
-import UppyComp from '../UppyComp/UppyComp';
+// import UppyComp from '../UppyComp/UppyComp';
 
 import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';

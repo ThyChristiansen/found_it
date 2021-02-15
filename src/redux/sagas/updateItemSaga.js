@@ -12,7 +12,7 @@ function* updateItem(action) {
 
     let itemId = action.payload.itemId
     let boxId = action.payload.boxId
-    let item = action.payload.item
+    // let item = action.payload.item
     // console.log('---> id for this item:',itemId)
     yield axios.put(`/api/item/${itemId}`,action.payload );
     // console.log('---> send this item to server:', item)

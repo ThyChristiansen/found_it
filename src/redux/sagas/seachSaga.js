@@ -24,7 +24,7 @@ function* searchItem(action) {
 }
 
 function* searchEmptyItem(action) {
-    let searchValue = action.payload.searchItem;
+    // let searchValue = action.payload.searchItem;
     // console.log('------->in searchItem:', searchValue);
     try {
         yield put({

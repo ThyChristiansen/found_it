@@ -56,7 +56,7 @@ function* addItem(action) {
   try {
     let boxId = action.payload.itemData.id
     let roomId = action.payload.itemData.roomId
-    let item = action.payload.itemData.item
+    // let item = action.payload.itemData.item
 
     if (action.payload.file === "") {
       yield axios.post(`/api/item/withoutImg/${roomId}/${boxId}`, action.payload.itemData);

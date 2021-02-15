@@ -35,18 +35,18 @@ const useStyles = (theme) => ({
 
 class LoginPage extends Component {
   state = {
-    username: '',
+    email: '',
     password: '',
   };
 
   login = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.email && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
         payload: {
-          username: this.state.username,
+          username: this.state.email,
           password: this.state.password,
         },
       });
@@ -69,6 +69,7 @@ class LoginPage extends Component {
       payload: {
         username: response.profileObj.email,
         password: response.profileObj.googleId,
+        
       },
     });
   }
@@ -104,9 +105,9 @@ class LoginPage extends Component {
                       </Grid>
                       <Grid item>
                         <TextField id="input-with-icon-grid"
-                          label="Username"
-                          value={this.state.username}
-                          onChange={this.handleInputChangeFor('username')}
+                          label="email"
+                          value={this.state.email}
+                          onChange={this.handleInputChangeFor('email')}
                           className={classes.width}
                         />
                       </Grid>
