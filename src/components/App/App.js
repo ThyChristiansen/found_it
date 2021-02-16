@@ -21,18 +21,13 @@ import {
 } from 'react-router-dom';
 
 
-
 class App extends Component {
-
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' })
   }
-
   render() {
- 
     return (
       <HashRouter>
-
         <div>
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

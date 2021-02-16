@@ -46,7 +46,7 @@ const BootstrapInput = withStyles((theme) => ({
     },
 }))(InputBase);
 
-const ColorButton = withStyles((theme) => ({
+const ColorButtonDelete = withStyles((theme) => ({
     root: {
         color: theme.palette.getContrastText('#c62828'),
         backgroundColor: '#c62828',
@@ -59,7 +59,7 @@ const ColorButton = withStyles((theme) => ({
 
 }))(Button);
 
-const ColorButton1 = withStyles((theme) => ({
+const ColorButtonUnbox = withStyles((theme) => ({
     root: {
         color: theme.palette.getContrastText('#FFB92C'),
         backgroundColor: '#FFB92C',
@@ -69,7 +69,8 @@ const ColorButton1 = withStyles((theme) => ({
         boxShadow: '9px 9px 16px #0000004c, -9px -9px 16px rgb(250, 250, 250)'
     },
 }))(Button);
-const ColorButton2 = withStyles((theme) => ({
+
+const ColorButtonAdd = withStyles((theme) => ({
     root: {
         color: theme.palette.getContrastText('#558B2F'),
         backgroundColor: '#558B2F',
@@ -83,13 +84,12 @@ const ColorButton2 = withStyles((theme) => ({
 
 const useStyles = (theme) => ({
     root: {
-        display: 'flex',
-        flexWrap: 'wrap',
+        // display: 'flex',
+        // flexWrap: 'wrap',
     },
     margin: {
         margin: theme.spacing(1),
         marginTop: '20px',
-
     },
     width: {
         marginTop: '15px',
@@ -99,7 +99,6 @@ const useStyles = (theme) => ({
         margin: theme.spacing(1),
         align: 'center',
     },
-
 });
 
 
@@ -130,7 +129,6 @@ class BoxDetail extends Component {
         // console.log('--------->this is box id:', match.params.id)
         // console.log('--------->this is room id:', match.params.roomId)
         // console.log('--------->picture:', this.state.picture)
-
     }
     //handle come back list box page
     backClick = () => {
@@ -155,9 +153,9 @@ class BoxDetail extends Component {
 
     //handle add new item button
     handleAddNewItem = () => {
+        
         const { dispatch, match } = this.props;
         // console.log('add new item clicked!');
-
         dispatch({
             type: 'ADD_ITEM',
             payload: {
@@ -177,6 +175,7 @@ class BoxDetail extends Component {
             file:''
         });
     }
+
     //handle add item and clear input field after clicked add button
     handleSubmit = () => {
         if (this.state.item === '') {
@@ -184,17 +183,16 @@ class BoxDetail extends Component {
         } else {
             this.handleAddNewItem();
             this.handleClearInput();
-
         }
     }
 
-    keyPressed = (event) => {
-        if (event.key === "Enter") {
-            this.handleSubmit();
-        }
-    }
+    // keyPressed = (event) => {
+    //     if (event.key === "Enter") {
+    //         this.handleSubmit();
+    //     }
+    // }
     //Create this function to send the roomId to item component to can delete the item inside the chosen box and room
-    sendRoomIdToItem = (roomId) => {
+    sendRoomIdToItem = () => {
         const { match } = this.props;
         return match.params.roomId
     }
@@ -237,7 +235,6 @@ class BoxDetail extends Component {
             }
         })
     }
-
     //handle unbox
     handleUnBox = () => {
         // console.log('unbox clicked');
@@ -276,7 +273,6 @@ class BoxDetail extends Component {
         return (
             <div>
                 <Header />
-
                 <div className="box_detail">
                     {/* <h2>{JSON.stringify(this.props.reduxState.detail.map((box) => (box.status)))}</h2> */}
                     {/* mapping through the box list array to get room_id from database to display in DOM */}
@@ -350,10 +346,10 @@ class BoxDetail extends Component {
                         <input type="file" onChange={this.handlePictureChangeFor} accept="image/*"/>
 
                         {/* <UppyComp /> */}
-                        <ColorButton2 onClick={this.handleSubmit}
+                        <ColorButtonAdd onClick={this.handleSubmit}
                             className={classes.width}
                             size="small" variant="contained"
-                        >Add</ColorButton2>
+                        >Add</ColorButtonAdd>
 
                     </FormControl>
 
@@ -382,14 +378,14 @@ class BoxDetail extends Component {
                     {this.props.reduxState.detail.map((box) => {
                         let boxStatus;
                         if (!box.status) {
-                            boxStatus = <ColorButton1 onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButton1>
+                            boxStatus = <ColorButtonUnbox onClick={this.handleUnBox} size="small" variant="contained" className={classes.margin}>Unbox</ColorButtonUnbox>
                         }
                         return boxStatus;
                     })}
                     {/* <button className="buttons"> */}
-                    <ColorButton onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin} >
+                    <ColorButtonDelete onClick={this.Swal} size="small" variant="contained" color="primary" className={classes.margin} >
                         Delete
-                    </ColorButton>
+                    </ColorButtonDelete>
                     {/* </button> */}
                 </div>
             </div>

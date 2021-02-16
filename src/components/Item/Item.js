@@ -134,7 +134,7 @@ class Item extends Component {
 
         return (
             <div>
-                {this.props.item.picture === "empty_img" ?
+                {this.props.item.picture === "empty" ?
                     ""
                     :
                     <img
