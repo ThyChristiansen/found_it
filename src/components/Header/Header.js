@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './Nav.css';
 import SearchingBar from '../SearchBar/SearchBar';
 import LogOut from '../LogOutButton/LogOutButton';
+import SwipableNav from '../Nav/Nav'
 
 //-----------------------Styling----------------------------------
 import MenuIcon from '@material-ui/icons/Menu';
@@ -104,9 +105,7 @@ class Header extends Component {
                         </MenuItem>
                         <MenuItem onClick={this.handleCloseNav}>
                             {/* Always show this link since the about page is not protected */}
-                            {this.props.user.id && (
-                                <><LogOut className="logOut-btn" /></>
-                            )}
+                            {this.props.user.id && (<LogOut className="logOut-btn" />)}
                         </MenuItem>
                     </MenuList>
                 </Paper>
@@ -124,8 +123,11 @@ class Header extends Component {
                                 </Link>
                                
                                     <div className="search_bar"><SearchingBar /></div>
-                                    <span onClick={this.handleCloseNav}>
-                                        <MenuIcon className={classes.root} /></span>
+                                    {/* <span onClick={this.handleCloseNav}>
+                                        <MenuIcon className={classes.root} />
+                                        </span> */}
+                                        <SwipableNav />
+
                                     {/* Menu drop down */}
                                     <div ref={this.setWrapperRef}>{menu}</div>
                             </div>
